@@ -4,14 +4,16 @@
 #include <vector>
 using namespace std;
 
-class terrain
+class Terrain
 {
-private : 
-    bool* TabCaseOccupe; //tableau de booléens
-
-public :
-    
-}
+public : 
+    bool* tabCasesOccupees; //tableau de booléens
+    int tailleX;
+    int tailleY;
+    Terrain();
+    Terrain(int tailleX, int tailleY);
+    ~Terrain();
+};
 
 
 
