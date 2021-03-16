@@ -1,8 +1,15 @@
-#ifndef _Terrain
-#define _Terrain 
+/**
+@brief Module gérant le terrain de jeu et la trace
 
-#include <vector>
-using namespace std;
+Le module Terrain permet de gérer un tableau de booléens et ainsi la trace des serpents.
+
+@file Terrain.h
+@author : Aymeric Leto, Benoît Briguet, Nathan Puricelli
+@date : Mars 2021
+*/
+#ifndef TERRAIN_H
+#define TERRAIN_H
+
 
 class Terrain
 {

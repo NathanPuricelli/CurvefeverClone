@@ -2,7 +2,7 @@
 @brief Implémentation de la classe serpent
 
 
-@file Terrain.cpp
+@file Serpent.cpp
 @author : Aymeric Leto, Benoît Brihuet, Nathan Puricelli
 @date : Mars 2021
 */

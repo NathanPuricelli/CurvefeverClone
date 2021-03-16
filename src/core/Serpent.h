@@ -1,12 +1,10 @@
-#ifndef _SERPENT
-#define _SERPENT
+#ifndef SERPENT_H
+#define SERPENT_H
 
 #include <iostream>
+#include "Couleur.h"
 
-struct Couleur
-{
-    unsigned char r, g, b;
-};
+using namespace std;
 
 class Serpent
 {
@@ -21,15 +19,12 @@ public :
     Serpent();
     Serpent(int x, int y); // voir pour couleur, direction.
     ~Serpent(); // destructeur
-    Couleur getCouleur();
     int getTeteX()const ;
     int getTeteY()const ;
     unsigned int getDirection()const ;
     void setDirection();
     void setTeteX();
     void setTeteY();
-    void setCouleur(unsigned char r, unsigned char g, unsigned char b);
-
     bool VerifColision(const terrain &T) const;
 
 };
