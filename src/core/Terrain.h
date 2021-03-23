@@ -42,9 +42,18 @@ public :
     @brief Destructeur de la classe : déallocation de la mémoire du tableau de et mise à jour des champs tailleX et tailleY à 0.
     */
     ~Terrain();
+    
+    /**
+    @brief Accesseur : récupère la hauteur du terrain.
+    */
+    unsigned int getTailleX()const ;
+    
+    /**
+    @brief Accesseur : récupère la largeur du terrain
+    */
+    unsigned int getTailleY()const ;
+    
 };
-
-
 
 
 

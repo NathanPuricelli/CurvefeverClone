@@ -3,7 +3,7 @@
 
 
 @file Terrain.cpp
-@author : Aymeric Leto, Benoît Brihuet, Nathan Puricelli
+@author : Aymeric Leto, Benoît Briguet, Nathan Puricelli
 @date : Mars 2021
 */
 

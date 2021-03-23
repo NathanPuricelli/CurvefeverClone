@@ -3,7 +3,7 @@
 
 
 @file Terrain.cpp
-@author : Aymeric Leto, Benoît Brihuet, Nathan Puricelli
+@author : Aymeric Leto, Benoît Briguet, Nathan Puricelli
 @date : Mars 2021
 */
 
@@ -39,4 +39,14 @@ Terrain::~Terrain()
     }
     tailleX = 0;
     tailleY = 0;
+}
+
+unsigned int Terrain::getTailleX()const
+{
+    return tailleX;
+}
+
+unsigned int Terrain::getTailleY()const
+{
+    return tailleY;
 }

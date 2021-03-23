@@ -3,7 +3,7 @@
 
 
 @file Couleur.cpp
-@author : Aymeric Leto, Benoît Brihuet, Nathan Puricelli
+@author : Aymeric Leto, Benoît Briguet, Nathan Puricelli
 @date : Mars 2021
 */
 
@@ -33,12 +33,7 @@ Couleur::Couleur(unsigned int nr, unsigned int ng, unsigned int nb)
 
 Couleur::~Couleur(){};
 
-unsigned int Couleur::getCouleur() const
-{
-    return
-}
-
-void Couleur::setRouge(unsigned char nr)
+void Couleur::setCouleur(unsigned int nr, unsigned int ng, unsigned int nb)
 {
     assert(nr>=0 && nr<=255);
     assert(ng>=0 && ng<=255);

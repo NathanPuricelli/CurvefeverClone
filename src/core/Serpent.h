@@ -1,31 +1,127 @@
+/**
+@brief Module gérant les serpents.
+
+Le module Serpent permet de gérer un serpent et ses informations.
+
+@file Serpent.h
+@author : Aymeric Leto, Benoît Briguet, Nathan Puricelli
+@date : Mars 2021
+*/
 #ifndef SERPENT_H
 #define SERPENT_H
 
 #include <iostream>
 #include "Couleur.h"
+#include "Terrain.h"
 
 using namespace std;
 
 class Serpent
 {
 private :
-    int TeteX, TeteY;
+    /**
+    @brief Terrain de jeu où se situe le serpent.
+    */
+    Terrain t;
+    
+    /**
+    @brief La position de la tête du serpent, TeteX dans la hauteur et TeteY dans la largeur du terrain de jeu.
+    */
+    unsigned int TeteX, TeteY;
+    
+    /**
+    @brief Booléens pour la direction du serpent (à droite ou à gauche).
+    */
     bool droite, gauche;
-    int score;
-    unsigned int direction; 
+    
+    /**
+    @brief Booléens pour indiquer si le serpent est toujours en vie.
+    */
+    bool vivant;
+    
+    /**
+    @brief Le score du joueur du serpent.
+    */
+    unsigned int score;
+    
+    /**
+    @brief La direction du serpent.
+    */
+    unsigned int direction;
+    
+    /**
+    @brief La couleur du serpent.
+    */
     Couleur couleur;
 
-public : 
-    Serpent();
-    Serpent(int x, int y); // voir pour couleur, direction.
+public :
+    /**
+    @brief Constructeur par défaut de la classe: initialise le serpent.
+    */
+    Serpent(); // pas hyper utile je pense
+    
+    /**
+    @brief Constructeur de la classe: initialise le serpent à la position donnée par (x,y) dans un terrain de 50 par 50, avec une couleur aléatoire.
+    @warning x, y doivent être compris dans l'aire du terrain de jeu.
+    @param[in] x Coordonnée de la tête dans la hauteur du terrain.
+    @param[in] y Coordonnée de la tête dans la largeur du terrain.
+    */
+    Serpent(unsigned int x, unsigned int y); // voir pour couleur, direction.
+    
+    /**
+    @brief Destructeur de la classe:
+    */
     ~Serpent(); // destructeur
-    int getTeteX()const ;
-    int getTeteY()const ;
+    
+    /**
+    @brief Accesseur : récupère la valeur de la coordonnée TeteX (dans la hauteur) de la tête du serpent.
+    */
+    unsigned int getTeteX()const ;
+    
+    /**
+    @brief Accesseur : récupère la valeur de la coordonnée TeteY (dans la largeur) de la tête du serpent.
+    */
+    unsigned int getTeteY()const ;
+    
+    /**
+    @brief Accesseur : récupère le booléen indiquant si le serpent est encore vivant.
+    */
+    bool getVivant()const ;
+    
+    /**
+    @brief Accesseur : récupère le score du joueur du serpent.
+    */
+    unsigned int getScore()const ;
+    
+    /**
+    @brief Accesseur :
+    */
     unsigned int getDirection()const ;
+    
+    /**
+    @brief Mutateur :
+    */
     void setDirection();
-    void setTeteX();
-    void setTeteY();
-    bool VerifColision(const terrain &T) const;
+    
+    /**
+    @brief Mutateur: change la valeur de la coordonnée TeteX de la tête du serpent.
+    @warning x doit appartenir à l'aire du terrain de jeu.
+    @param[in] x Position de la tête dans la hauteur.
+    */
+    void setTeteX(unsigned int x);
+    
+    /**
+    @brief Mutateur: change la valeur de la coordonnée TeteY de la tête du serpent.
+    @warning y doit appartenir à l'aire du terrain de jeu.
+    @param[in] y Position de la tête dans la largeur.
+    */
+    void setTeteY(unsigned int y);
+    
+    /**
+    @brief Vérifie si un serpent est rentré en collision avec une trace ou avec un mur.
+    @param[in] T Terrain de jeu.
+    */
+    bool VerifColision(const Terrain &T) const;
 
 };
 

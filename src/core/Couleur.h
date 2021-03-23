@@ -7,13 +7,13 @@ Le module Couleur permet de gérer les couleurs des serpents et de leur trace.
 @author : Aymeric Leto, Benoît Briguet, Nathan Puricelli
 @date : Mars 2021
 */
-#ifndef COULEUR_h
-#define COULEUR_h
+#ifndef COULEUR_H
+#define COULEUR_H
 
 
 class Couleur
 {
-public :
+private :
     /**
     @brief Quantité de rouge dans la couleur.
     */
@@ -29,7 +29,7 @@ public :
     */
     unsigned int b;
     
-private :
+public :
     /**
     @brief Constructeur par défaut de la classe : initialise le couleur en noir.
     */
@@ -52,7 +52,7 @@ private :
     /**
     @brief Accesseur : récupère la couleur.
     */
-    Couleur getCouleur() const;
+    //Couleur getCouleur() const;
     
     /**
     @brief Mutateur : modifie la couleur.
