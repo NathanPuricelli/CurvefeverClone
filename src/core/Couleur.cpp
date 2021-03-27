@@ -21,7 +21,7 @@ Couleur::Couleur()
     b = 0;
 }
 
-Couleur::Couleur(unsigned int nr, unsigned int ng, unsigned int nb)
+Couleur::Couleur(unsigned char nr, unsigned char ng, unsigned char nb)
 {
     assert(nr>=0 && nr<=255);
     assert(ng>=0 && ng<=255);
@@ -33,7 +33,7 @@ Couleur::Couleur(unsigned int nr, unsigned int ng, unsigned int nb)
 
 Couleur::~Couleur(){};
 
-void Couleur::setCouleur(unsigned int nr, unsigned int ng, unsigned int nb)
+void Couleur::setCouleur(unsigned char nr, unsigned char ng, unsigned char nb)
 {
     assert(nr>=0 && nr<=255);
     assert(ng>=0 && ng<=255);

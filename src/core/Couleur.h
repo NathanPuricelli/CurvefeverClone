@@ -15,19 +15,19 @@ class Couleur
 {
 private :
     /**
-    @brief Quantité de rouge dans la couleur.
+    @brief Quantité de rouge dans la couleur entre 0 et 255.
     */
-    unsigned int r;
+    unsigned char r;
     
     /**
-    @brief Quantité de vert dans la couleur.
+    @brief Quantité de vert dans la couleur entre 0 et 255.
     */
-    unsigned int g;
+    unsigned char g;
     
     /**
-    @brief Quantité de bleu dans la couleur.
+    @brief Quantité de bleu dans la couleur entre 0 et 255.
     */
-    unsigned int b;
+    unsigned char b;
     
 public :
     /**
@@ -42,7 +42,7 @@ public :
     @param[in] ng Valeur de la composante verte de la couleur
     @param[in] nb Valeur de la composante bleue de la couleur
     */
-    Couleur(unsigned int nr, unsigned int ng, unsigned int nb);
+    Couleur(unsigned char nr, unsigned char ng, unsigned char nb);
     
     /**
     @brief Destructeur de la classe.
@@ -61,7 +61,7 @@ public :
     @param[in] ng Valeur de la composante verte de la couleur
     @param[in] nb Valeur de la composante bleue de la couleur
     */
-    void setCouleur(unsigned int nr, unsigned int ng, unsigned int nb);
+    void setCouleur(unsigned char nr, unsigned char ng, unsigned char nb);
 
 };
 
