@@ -20,11 +20,6 @@ class Serpent
 {
 private :
     /**
-    @brief Terrain de jeu où se situe le serpent.
-    */
-    Terrain t;
-    
-    /**
     @brief La position de la tête du serpent, TeteX dans la hauteur et TeteY dans la largeur du terrain de jeu.
     */
     unsigned int TeteX, TeteY;
@@ -87,6 +82,16 @@ public :
     @brief Accesseur : récupère le booléen indiquant si le serpent est encore vivant.
     */
     bool getVivant()const ;
+
+    /**
+    @brief Accesseur : récupère le booléen indiquant si le serpent tourne à gauche.
+    */
+    bool getGauche()const ;
+
+    /**
+    @brief Accesseur : récupère le booléen indiquant si le serpent tourne à droite.
+    */
+    bool getDroite()const ;
     
     /**
     @brief Accesseur : récupère le score du joueur du serpent.
@@ -94,15 +99,20 @@ public :
     unsigned int getScore()const ;
     
     /**
-    @brief Accesseur :
+    @brief Accesseur : récupère la direction du serpent
     */
     unsigned int getDirection()const ;
+
+    /**
+    @brief Accesseur : récupère la couleur du serpent
+    */
+    Couleur getCouleur()const ;
     
     /**
-    @brief Mutateur :
+    @brief Mutateur : change la direction du serpent
     */
-    void setDirection();
-    
+    void setDirection(unsigned int dir);
+
     /**
     @brief Mutateur: change la valeur de la coordonnée TeteX de la tête du serpent.
     @warning x doit appartenir à l'aire du terrain de jeu.
@@ -118,10 +128,16 @@ public :
     void setTeteY(unsigned int y);
     
     /**
+    @brief Fait avancer le serpent et choisi la nouvelle position de la tete en fonction de la direction
+    @warning Fonctions trigonométriques complexes pour des mouvements précis, à refaire avec SDL
+    */
+    void avancer(Terrain &t);
+    
+    /**
     @brief Vérifie si un serpent est rentré en collision avec une trace ou avec un mur.
     @param[in] T Terrain de jeu.
     */
-    bool VerifColision(const Terrain &T) const;
+    bool VerifColision(const Terrain &t) const;
 
 };
 
