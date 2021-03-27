@@ -33,9 +33,9 @@ Terrain::Terrain(unsigned int tX, unsigned int tY)
     assert(tY>=0);
     tailleX = tX;
     tailleY = tY;
-    for (int i = 0; i< TAILLETERRAIN; i++)
+    for (int i = 0; i< tX; i++)
     {
-        for (int j = 0; j<TAILLETERRAIN; j++)
+        for (int j = 0; j<tY; j++)
         {
             tabCasesOccupees[i][j] = false;
         }

@@ -15,8 +15,14 @@ private :
     @brief Second serpent de la partie (celui du joueur 2).
     */
     Serpent s2;
+
     
 public :
+    /**
+    @brief Terrain de jeu de la partie.
+    */
+    Terrain t;
+    
     /**
     @brief Constructeur de la classe, lance une partie avec 2 serpents et 1 terrain de jeu.
     */
@@ -33,9 +39,24 @@ public :
     ~Jeu();
 
     /**
-    @brief Terrain de jeu de la partie.
+    @brief Accesseur : Récupère l'adresse du premier serpent.
     */
-    Terrain t;
+    Serpent& getS1()
+
+    /**
+    @brief Accesseur : Récupère l'adresse du deuxième serpent.
+    */
+    Serpent& getS2()
+
+    /**
+    @brief Accesseur : Récupère l'adresse du premier serpent en const.
+    */
+    const Serpent& getConstS1() const;
+
+    /**
+    @brief Accesseur : Récupère l'adresse du premier serpent en const.
+    */
+    const Serpent& getConstS2() const;
 
     /**
     @brief Actions qui se déroulent à chaque boucle

@@ -14,23 +14,47 @@
 #include <string>
 using namespace std;
 
-Jeu::Jeu() {
-
-}
+Jeu::Jeu() {}
 
 Jeu::Jeu(unsigned int tailleX, unsigned int tailleY) {
     t = Terrain(tailleX, tailleY);
+    s1 = Serpent(10,10);
+    s2 = Serpent(t.getTailleX() - 10, t.getTailleY() -10);
+    s1.setDirection(0);
+    s2.setDirection(180);
 }
 
-Jeu::~Jeu() {
-    
-}
+Jeu::~Jeu() {}
+
+Serpent& Jeu::getS1() {return s1;}
+
+Serpent& Jeu::getS2() {return s2;}
+
+const Serpent& Jeu::getConstS1() const {return s1;}
+
+const Serpent& Jeu::getConstS2() const {return s2;}
+
 
 void Jeu::actionsAutomatiques() {
-
+    s1.avancer(t);
+    s2.avancer(t);
 }
 
 void Jeu::actionClavier(const char touche) {
-    //Premiers essais avec q & d, k & m (A)
-
+    //Serpent 1 utilise q et d
+    //Serpent 2 utilise k et m
+    switch (touche)
+    {
+    case 'q':
+        s1.setDirection((s1.getDirection() + 270 ) % 360);
+        break;
+    case 'd':
+        s1.setDirection((s1.getDirection() + 90 ) % 360);
+        break;
+    case 'k':
+        s2.setDirection((s2.getDirection() + 270 ) % 360);
+        break;
+    case 'm':
+        s2.setDirection((s2.getDirection() + 90 ) % 360);    
+    }
 }
