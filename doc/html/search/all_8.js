@@ -1,13 +1,14 @@
 var searchData=
 [
-  ['t_32',['t',['../classJeu.html#a906acfd427c1a7493ed56ee385c4c96d',1,'Jeu']]],
-  ['termclear_33',['termClear',['../winTxt_8cpp.html#abfddca010a6ceb2c5292c98247a434ce',1,'termClear():&#160;winTxt.cpp'],['../winTxt_8h.html#abfddca010a6ceb2c5292c98247a434ce',1,'termClear():&#160;winTxt.cpp']]],
-  ['terminit_34',['termInit',['../winTxt_8cpp.html#a67191e6d920e10b82b0868cb240228ae',1,'winTxt.cpp']]],
-  ['termmove_35',['termMove',['../winTxt_8cpp.html#a0038303af38e1a50f24e3d4e33a4635b',1,'winTxt.cpp']]],
-  ['terrain_36',['Terrain',['../classTerrain.html',1,'Terrain'],['../classTerrain.html#a7160a06ab07a86ed97d23374405e8ef6',1,'Terrain::Terrain()'],['../classTerrain.html#a5374291f671da441aa29616acd4edb09',1,'Terrain::Terrain(unsigned int tX, unsigned int tY)']]],
-  ['terrain_2ecpp_37',['Terrain.cpp',['../Terrain_8cpp.html',1,'']]],
-  ['terrain_2eh_38',['Terrain.h',['../Terrain_8h.html',1,'']]],
-  ['txtboucle_39',['txtBoucle',['../txtJeu_8h.html#a17ca735d86b65726b32814e5d80ee335',1,'txtJeu.h']]],
-  ['txtjeu_2ecpp_40',['txtJeu.cpp',['../txtJeu_8cpp.html',1,'']]],
-  ['txtjeu_2eh_41',['txtJeu.h',['../txtJeu_8h.html',1,'']]]
+  ['sdljeu_2ecpp_33',['sdlJeu.cpp',['../sdlJeu_8cpp.html',1,'']]],
+  ['sdljeu_2eh_34',['sdlJeu.h',['../sdlJeu_8h.html',1,'']]],
+  ['serpent_35',['Serpent',['../classSerpent.html',1,'Serpent'],['../classSerpent.html#a01c99f2226938edaa0d9ba5a21e3f1b5',1,'Serpent::Serpent()'],['../classSerpent.html#a941b9b7957b47b5a06dd9a48e60f79a1',1,'Serpent::Serpent(unsigned int x, unsigned int y)']]],
+  ['serpent_2ecpp_36',['Serpent.cpp',['../Serpent_8cpp.html',1,'']]],
+  ['serpent_2eh_37',['Serpent.h',['../Serpent_8h.html',1,'']]],
+  ['setcouleur_38',['setCouleur',['../classCouleur.html#a87123965f94b916579e387a4dbddcc31',1,'Couleur']]],
+  ['setdirection_39',['setDirection',['../classSerpent.html#af9604774f4f601eb3889fe677d9c8116',1,'Serpent']]],
+  ['settaillex_40',['setTailleX',['../classTerrain.html#a8f25b6fc19e856c8543b44983e538ed0',1,'Terrain']]],
+  ['settailley_41',['setTailleY',['../classTerrain.html#aebd853ed18efc6e814d133c366a891d9',1,'Terrain']]],
+  ['settetex_42',['setTeteX',['../classSerpent.html#aa408472a5187d2feb8c591e0bc008ba0',1,'Serpent']]],
+  ['settetey_43',['setTeteY',['../classSerpent.html#acfa5a135127ca29c61d0af64329a0879',1,'Serpent']]]
 ];
