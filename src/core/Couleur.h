@@ -50,9 +50,19 @@ public :
     ~Couleur();
 
     /**
-    @brief Accesseur : récupère la couleur.
+    @brief Accesseur : récupère la composante rouge de la couleur.
     */
-    //Couleur getCouleur() const;
+    unsigned char getRouge() const;
+
+    /**
+    @brief Accesseur : récupère la composante verte de la couleur.
+    */
+    unsigned char getVert() const;
+
+    /**
+    @brief Accesseur : récupère la composante bleue de la couleur.
+    */
+    unsigned char getBleu() const;
     
     /**
     @brief Mutateur : modifie la couleur.
