@@ -8,8 +8,8 @@ OBJS_TXT = $(SRCS_TXT:%.cpp=$(OBJ_DIR)/%.o)
 SRCS_SDL = $(CORE) $(SDL)
 OBJS_SDL = $(SRCS_SDL:%.cpp=$(OBJ_DIR)/%.o)
 
-FINAL_TARGET_TXT = test_txt
-FINAL_TARGET_SDL = quarto_sdl
+FINAL_TARGET_TXT = curvefever_txt
+FINAL_TARGET_SDL = curvefever_sdl
 
 OBJS = $(patsubst %.cpp,$(OBJ_DIR)/%.o,$(CORE) $(TXT) $(SDL))
 DEPENDANCES = $(patsubst %.cpp,$(DEP_DIR)/%.d,$(CORE) $(TXT) $(SDL))
