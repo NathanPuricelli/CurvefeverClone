@@ -1,6 +1,6 @@
-CORE = core/Jeu.cpp core/Pion.cpp
-TXT = txt/TXT_IHM.cpp txt/main_txt.cpp
-SDL = sdl2/SDL2_IHM.cpp sdl2/main_sdl.cpp
+CORE = core/Couleur.cpp core/Serpent.cpp core/Terrain.cpp core/Jeu.cpp
+TXT = txt/winTxt.cpp txt/txtJeu.cpp txt/mainTXT.cpp
+SDL = sdl2/sdlJeu.cpp sdl2/mainSDL.cpp
 
 SRCS_TXT = $(CORE) $(TXT)
 OBJS_TXT = $(SRCS_TXT:%.cpp=$(OBJ_DIR)/%.o)
@@ -65,6 +65,12 @@ $(BIN_DIR)/$(FINAL_TARGET_SDL): $(OBJS_SDL)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(CC) $(CPPFLAGS) -c $(INCLUDE_DIR) $< -o $@ $(DEPFLAGS)
+
+documentation:
+	doxygen $(DOC_DIR)/curvefever.doxy
+
+archive :
+	tar -cvz --exclude='.git' -f ./../curvefever.tgz ./../curvefever
 
 clean:
 ifeq ($(OS),Windows_NT)
