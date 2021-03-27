@@ -16,15 +16,17 @@
 #include <time.h>
 using namespace std;
 
+Serpent::Serpent() {
+
+}
 
 Serpent::Serpent(unsigned int x,unsigned int y)
-{
+{   
     srand((unsigned int)time(0));
-    //unsigned int r =
-    
-    t = Terrain(50, 50);
-    assert(x>=0 && x<=t.getTailleX());
-    assert(y>=0 && y<=t.getTailleY());
+
+    //assert(x>=0 && x<=t.getTailleX());
+    //assert(y>=0 && y<=t.getTailleY());
+
     TeteX = x;
     TeteY = y;
     //t[y*(t.getTailleX())+x]=!&t[y*(t.getTailleX())+x];
@@ -35,7 +37,7 @@ Serpent::Serpent(unsigned int x,unsigned int y)
     vivant = true;
     score = 0;
     
-    //direction = ;
+    direction = rand()%360;
     
     couleur = Couleur(rand()%255 +0, rand()%255 +0, rand()%255 +0);
 }
@@ -43,13 +45,7 @@ Serpent::Serpent(unsigned int x,unsigned int y)
 
 Serpent::~Serpent()
 {
-    if (t != NULL) //Je me suis mélangé pour le terrain du serpent, j'ai du confondre avec un pointeur.. Bref c'est faux
-    {
-        delete[] t; // ici aussi
-        t = NULL;   // ici aussi du coup
-    }
-    TeteX = NULL;
-    TeteY = NULL;
+    //Pas sur que tout ça soit nécessaire (A)
     droite = false;
     gauche = false;
     vivant = true;
@@ -96,6 +92,9 @@ void Serpent::setTeteY(unsigned int y)
 
 // J'ai pas compris a quoi correspond la direction..
 
+// C'est une valeur entre 0 et 360 (360 c'est à voir) qui determine l'orientation de la tete du serpent
+// Dans la version texte ce sera surement 0, 90, 180, 270 seulement
+// C'est la direction dans laquelle avancer quand une seconde passe et que le joueur ne tourne pas
 
 bool Serpent::VerifColision(const Terrain &T) const
 {

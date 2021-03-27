@@ -14,3 +14,23 @@
 #include <string>
 using namespace std;
 
+Jeu::Jeu() {
+
+}
+
+Jeu::Jeu(unsigned int tailleX, unsigned int tailleY) {
+    t = Terrain(tailleX, tailleY);
+}
+
+Jeu::~Jeu() {
+    
+}
+
+void Jeu::actionsAutomatiques() {
+
+}
+
+void Jeu::actionClavier(const char touche) {
+    //Premiers essais avec q & d, k & m (A)
+
+}

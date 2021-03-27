@@ -16,21 +16,36 @@ private :
     */
     Serpent s2;
     
-    /**
-    @brief Terrain de jeu de la partie.
-    */
-    Terrain t;
-    
 public :
     /**
     @brief Constructeur de la classe, lance une partie avec 2 serpents et 1 terrain de jeu.
     */
     Jeu();
+
+    /**
+    @brief Constructeur de la classe, lance une partie avec 2 serpents et 1 terrain de jeu.
+    */
+    Jeu(unsigned int tailleX, unsigned int tailleY);
     
     /**
     @brief Destructeur de la classe.
     */
     ~Jeu();
+
+    /**
+    @brief Terrain de jeu de la partie.
+    */
+    Terrain t;
+
+    /**
+    @brief Actions qui se déroulent à chaque boucle
+    */
+    void actionsAutomatiques();
+
+    /**
+    @brief Réactions du jeu au touches pressées
+    */
+    void actionClavier(const char touche);
 };
 
 #endif
