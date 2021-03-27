@@ -1,0 +1,91 @@
+\hypertarget{classTerrain}{}\doxysection{Terrain Class Reference}
+\label{classTerrain}\index{Terrain@{Terrain}}
+
+
+{\ttfamily \#include $<$Terrain.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTerrain_a7160a06ab07a86ed97d23374405e8ef6}{Terrain}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur par défaut du terrain. Initialise tailleX et tailleY à 0. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTerrain_a5374291f671da441aa29616acd4edb09}{Terrain}} (unsigned int tX, unsigned int tY)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe \+: initialise tailleX et tailleY (après vérification) puis alloue le tableau de booléen dans le tas. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTerrain_a2f7f0a2aee54886324ccf48a6f321de0}{$\sim$\+Terrain}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe \+: déallocation de la mémoire du tableau de et mise à jour des champs tailleX et tailleY à 0. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classTerrain_af6f76f6c2e1ee1e2999bf7637fd3c80f}{get\+TailleX}} () const
+\begin{DoxyCompactList}\small\item\em Accesseur \+: récupère la hauteur du terrain. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classTerrain_ae1b9989272af1801cf01c909a1070f7c}{get\+TailleY}} () const
+\begin{DoxyCompactList}\small\item\em Accesseur \+: récupère la largeur du terrain. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTerrain_a7160a06ab07a86ed97d23374405e8ef6}\label{classTerrain_a7160a06ab07a86ed97d23374405e8ef6}} 
+\index{Terrain@{Terrain}!Terrain@{Terrain}}
+\index{Terrain@{Terrain}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{Terrain()}{Terrain()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Terrain\+::\+Terrain (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructeur par défaut du terrain. Initialise tailleX et tailleY à 0. 
+
+\mbox{\Hypertarget{classTerrain_a5374291f671da441aa29616acd4edb09}\label{classTerrain_a5374291f671da441aa29616acd4edb09}} 
+\index{Terrain@{Terrain}!Terrain@{Terrain}}
+\index{Terrain@{Terrain}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{Terrain()}{Terrain()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Terrain\+::\+Terrain (\begin{DoxyParamCaption}\item[{unsigned int}]{tX,  }\item[{unsigned int}]{tY }\end{DoxyParamCaption})}
+
+
+
+Constructeur de la classe \+: initialise tailleX et tailleY (après vérification) puis alloue le tableau de booléen dans le tas. 
+
+\begin{DoxyWarning}{Warning}
+tX et tY doivent être supérieurs ou égaux à 0 
+\end{DoxyWarning}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em tX} & Hauteur du terrain de jeu \\
+\hline
+\mbox{\texttt{ in}}  & {\em tY} & Largeur du terrain de jeu \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTerrain_a2f7f0a2aee54886324ccf48a6f321de0}\label{classTerrain_a2f7f0a2aee54886324ccf48a6f321de0}} 
+\index{Terrain@{Terrain}!````~Terrain@{$\sim$Terrain}}
+\index{````~Terrain@{$\sim$Terrain}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{$\sim$Terrain()}{~Terrain()}}
+{\footnotesize\ttfamily Terrain\+::$\sim$\+Terrain (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructeur de la classe \+: déallocation de la mémoire du tableau de et mise à jour des champs tailleX et tailleY à 0. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTerrain_af6f76f6c2e1ee1e2999bf7637fd3c80f}\label{classTerrain_af6f76f6c2e1ee1e2999bf7637fd3c80f}} 
+\index{Terrain@{Terrain}!getTailleX@{getTailleX}}
+\index{getTailleX@{getTailleX}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{getTailleX()}{getTailleX()}}
+{\footnotesize\ttfamily unsigned int Terrain\+::get\+TailleX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Accesseur \+: récupère la hauteur du terrain. 
+
+\mbox{\Hypertarget{classTerrain_ae1b9989272af1801cf01c909a1070f7c}\label{classTerrain_ae1b9989272af1801cf01c909a1070f7c}} 
+\index{Terrain@{Terrain}!getTailleY@{getTailleY}}
+\index{getTailleY@{getTailleY}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{getTailleY()}{getTailleY()}}
+{\footnotesize\ttfamily unsigned int Terrain\+::get\+TailleY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Accesseur \+: récupère la largeur du terrain. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/core/\mbox{\hyperlink{Terrain_8h}{Terrain.\+h}}\item 
+src/core/\mbox{\hyperlink{Terrain_8cpp}{Terrain.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,11 @@
+<map id="src/core/Couleur.h" name="src/core/Couleur.h">
+<area shape="rect" id="node1" title="Module gérant les couleurs des joueurs." alt="" coords="146,5,285,32"/>
+<area shape="rect" id="node2" href="$Couleur_8cpp.html" title="Implémentation de la classe couleur." alt="" coords="53,80,207,107"/>
+<area shape="rect" id="node3" href="$Serpent_8h.html" title="Module gérant les serpents." alt="" coords="231,80,370,107"/>
+<area shape="rect" id="node4" href="$Jeu_8h.html" title=" " alt="" coords="167,155,277,181"/>
+<area shape="rect" id="node9" href="$Serpent_8cpp.html" title="Implémentation de la classe serpent." alt="" coords="301,155,455,181"/>
+<area shape="rect" id="node5" href="$sdlJeu_8h.html" title=" " alt="" coords="5,229,132,256"/>
+<area shape="rect" id="node6" href="$txtJeu_8cpp.html" title=" " alt="" coords="156,229,288,256"/>
+<area shape="rect" id="node7" href="$txtJeu_8h.html" title=" " alt="" coords="313,229,430,256"/>
+<area shape="rect" id="node8" href="$mainTXT_8cpp.html" title=" " alt="" coords="296,304,447,331"/>
+</map>
