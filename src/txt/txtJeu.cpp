@@ -1,7 +1,3 @@
-//Programme pour le Pacman, histoire de voir les fonction etc....
-/*
-
-
 #include <iostream>
 #ifdef _WIN32
 #include <windows.h>
@@ -9,10 +5,9 @@
 #include <unistd.h>
 #endif // WIN32
 #include "winTxt.h"
-
 #include "Jeu.h"
 
-
+/*
 void txtAff(WinTXT & win, const Jeu & jeu) {
 	const Terrain& ter = jeu.getConstTerrain();
 	const Pacman& pac = jeu.getConstPacman();
@@ -74,6 +69,4 @@ void txtBoucle (Jeu & jeu) {
 	} while (ok);
 
 }
-
-
 */
