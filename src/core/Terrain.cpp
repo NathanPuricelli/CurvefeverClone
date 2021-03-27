@@ -18,7 +18,13 @@ Terrain::Terrain()
 {
     tailleX = 0;
     tailleY = 0;
-    tabCasesOccupees = NULL;
+    for (int i = 0; i< TAILLETERRAIN; i++)
+    {
+        for (int j = 0; j<TAILLETERRAIN; j++)
+        {
+            tabCasesOccupees[i][j] = false;
+        }
+    }
 }
 
 Terrain::Terrain(unsigned int tX, unsigned int tY)
@@ -27,19 +33,16 @@ Terrain::Terrain(unsigned int tX, unsigned int tY)
     assert(tY>=0);
     tailleX = tX;
     tailleY = tY;
-    tabCasesOccupees = new bool[tailleX * tailleY];
+    for (int i = 0; i< TAILLETERRAIN; i++)
+    {
+        for (int j = 0; j<TAILLETERRAIN; j++)
+        {
+            tabCasesOccupees[i][j] = false;
+        }
+    }
 }
 
-Terrain::~Terrain()
-{
-    if (tabCasesOccupees != NULL)
-    {
-        delete[] tabCasesOccupees;
-        tabCasesOccupees = NULL;
-    }
-    tailleX = 0;
-    tailleY = 0;
-}
+Terrain::~Terrain() {}
 
 unsigned int Terrain::getTailleX()const
 {
@@ -49,4 +52,19 @@ unsigned int Terrain::getTailleX()const
 unsigned int Terrain::getTailleY()const
 {
     return tailleY;
+}
+
+void Terrain::setTailleX(unsigned int x)
+{
+    tailleX = x;
+}
+
+void Terrain::setTailleY(unsigned int y)
+{
+    tailleY = y;
+}
+
+bool Terrain::estPositionValide(const int x, const int y)const
+{
+    return ((x>=0) && (x<tailleX) && (y>=0) && (y<tailleY) && (!tabCasesOccupees[x][y]));
 }
