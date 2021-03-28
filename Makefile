@@ -1,5 +1,5 @@
 CORE = core/Couleur.cpp core/Serpent.cpp core/Terrain.cpp core/Jeu.cpp
-TXT = txt/winTxt.cpp txt/txtJeu.cpp txt/mainTXT.cpp
+TXT = txt/winTxt.cpp txt/txtJeu.cpp txt/mainTxt.cpp
 SDL = sdl2/sdlJeu.cpp sdl2/mainSDL.cpp
 
 SRCS_TXT = $(CORE) $(TXT)
@@ -18,7 +18,7 @@ ifeq ($(OS),Windows_NT)
 	INCLUDE_DIR_SDL = 	-Iextern/SDL2_mingw-cb20/SDL2-2.0.12/x86_64-w64-mingw32/include/SDL2 \
 						-Iextern/SDL2_mingw-cb20/SDL2_ttf-2.0.15/x86_64-w64-mingw32/include/SDL2 \
 						-Iextern/SDL2_mingw-cb20/SDL2_image-2.0.5/x86_64-w64-mingw32/include/SDL2 \
-						-Iextern/SDL2_mingw-cb20/SDL2_mixer-2.0.4/x86_64-w64-mingw32/include/SDL2
+					-Iextern/SDL2_mingw-cb20/SDL2_mixer-2.0.4/x86_64-w64-mingw32/include/SDL2
 
 	LIBS_SDL = -Lextern \
 			-Lextern/SDL2_mingw-cb20/SDL2-2.0.12/x86_64-w64-mingw32/lib \

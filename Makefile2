@@ -1,5 +1,5 @@
 CORE = core/Couleur.cpp core/Serpent.cpp core/Terrain.cpp core/Jeu.cpp
-TXT = txt/winTxt.cpp txt/txtJeu.cpp txt/mainTXT.cpp
+TXT = txt/winTxt.cpp txt/txtJeu.cpp txt/mainTxt.cpp
 SDL = sdl2/sdlJeu.cpp sdl2/mainSDL.cpp
 
 SRCS_TXT = $(CORE) $(TXT)
