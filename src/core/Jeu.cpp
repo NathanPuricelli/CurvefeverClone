@@ -7,7 +7,7 @@
 @date : Mars 2021
 */
 
-#include "jeu.h"
+#include "Jeu.h"
 #include <iostream>
 #include <cassert>
 #include <fstream>

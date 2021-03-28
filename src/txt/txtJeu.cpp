@@ -7,23 +7,30 @@
 #include "winTxt.h"
 #include "Jeu.h"
 
-/*
 void txtAff(WinTXT & win, const Jeu & jeu) {
-	const Terrain& ter = jeu.getConstTerrain();
-	const Pacman& pac = jeu.getConstPacman();
-	const Fantome& fan = jeu.getConstFantome();
+	const Terrain& ter = jeu.t;
+	const Serpent& s1 = jeu.getConstS1();
+	const Serpent& s2 = jeu.getConstS2();
 
 	win.clear();
 
     // Affichage des murs et des pastilles
-	for(int x=0;x<ter.getDimX();++x)
-		for(int y=0;y<ter.getDimY();++y)
-			win.print(x,y,ter.getXY(x,y));
+	for(unsigned int x=0;x<ter.getTailleX();++x)
+	{
+		for(unsigned int y=0;y<ter.getTailleY();++y)
+		{
+			if(jeu.t.tabCasesOccupees[x][y])
+			{
+				win.print(x,y,'*');
+			}
+			else win.print(x,y,' ');
+		}
+	}			
 
     // Affichage de Pacman
-	win.print(pac.getX(),pac.getY(),'P');
+	win.print(s1.getTeteX(),s1.getTeteY(),'1');
 	// Affichage du Fantome
-	win.print(fan.getX(),fan.getY(),'F');
+	win.print(s2.getTeteX(),s2.getTeteY(),'2');
 
 	win.draw();
 }
@@ -31,7 +38,7 @@ void txtAff(WinTXT & win, const Jeu & jeu) {
 void txtBoucle (Jeu & jeu) {
 	// Creation d'une nouvelle fenetre en mode texte
 	// => fenetre de dimension et position (WIDTH,HEIGHT,STARTX,STARTY)
-    WinTXT win (jeu.getConstTerrain().getDimX(),jeu.getConstTerrain().getDimY());
+    WinTXT win (jeu.t.getTailleX(),jeu.t.getTailleY());
 
 	bool ok = true;
 	int c;
@@ -49,19 +56,19 @@ void txtBoucle (Jeu & jeu) {
 
 		c = win.getCh();
 		switch (c) {
-			case 'k':
-				jeu.actionClavier('g');
+			case 'q':
+				jeu.actionClavier('q');
 				break;
-			case 'm':
+			case 'd':
 				jeu.actionClavier('d');
 				break;
-			case 'l':
-				jeu.actionClavier('h');
+			case 'k':
+				jeu.actionClavier('k');
 				break;
-			case 'o':
-				jeu.actionClavier('b');
+			case 'm':
+				jeu.actionClavier('m');
 				break;
-			case 'q':
+			case 'e':
 				ok = false;
 				break;
 		}
@@ -69,4 +76,3 @@ void txtBoucle (Jeu & jeu) {
 	} while (ok);
 
 }
-*/

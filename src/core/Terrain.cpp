@@ -33,9 +33,9 @@ Terrain::Terrain(unsigned int tX, unsigned int tY)
     assert(tY>=0);
     tailleX = tX;
     tailleY = tY;
-    for (int i = 0; i< tX; i++)
+    for (unsigned int i = 0; i< tX; i++)
     {
-        for (int j = 0; j<tY; j++)
+        for (unsigned int j = 0; j<tY; j++)
         {
             tabCasesOccupees[i][j] = false;
         }
@@ -64,7 +64,7 @@ void Terrain::setTailleY(unsigned int y)
     tailleY = y;
 }
 
-bool Terrain::estPositionValide(const int x, const int y)const
+bool Terrain::estPositionValide(const unsigned int x, const unsigned int y)const
 {
-    return ((x>=0) && (x<tailleX) && (y>=0) && (y<tailleY) && (!tabCasesOccupees[x][y]));
+    return ((x>0) && (x<tailleX) && (y>0) && (y<tailleY) && (!tabCasesOccupees[x][y]));
 }

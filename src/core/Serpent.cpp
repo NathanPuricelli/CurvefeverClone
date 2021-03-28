@@ -147,5 +147,5 @@ void Serpent::avancer(Terrain &t)
 
 bool Serpent::VerifColision(const Terrain &t) const
 {
-    return ((TeteX<0) || (TeteX>t.getTailleX()) || (TeteY<0) || (TeteY>t.getTailleY()) || (t.tabCasesOccupees[TeteX][TeteY]));
+    return ((TeteX==0) || (TeteX>=t.getTailleX()) || (TeteY==0) || (TeteY>=t.getTailleY()) || (t.tabCasesOccupees[TeteX][TeteY]));
 }

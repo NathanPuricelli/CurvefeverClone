@@ -3,6 +3,6 @@
 #include "Jeu.h"
 
 void txtBoucle (Jeu & j);
-
+void txtAff(WinTXT & win, const Jeu & jeu);
 #endif
  

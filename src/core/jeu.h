@@ -41,12 +41,12 @@ public :
     /**
     @brief Accesseur : Récupère l'adresse du premier serpent.
     */
-    Serpent& getS1()
+    Serpent& getS1();
 
     /**
     @brief Accesseur : Récupère l'adresse du deuxième serpent.
     */
-    Serpent& getS2()
+    Serpent& getS2();
 
     /**
     @brief Accesseur : Récupère l'adresse du premier serpent en const.

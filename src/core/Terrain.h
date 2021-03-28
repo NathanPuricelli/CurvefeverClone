@@ -70,7 +70,7 @@ public :
     @param x : abs de la case à tester
     @param y : ordonnée de la case à tester
     */
-    bool estPositionValide (const int x, const int y) const;
+    bool estPositionValide (const unsigned int x, const unsigned int y) const;
 
     
 };
