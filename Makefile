@@ -47,21 +47,16 @@ INCLUDE_DIR			= -Isrc -Isrc/core -Isrc/sdl2 -Isrc/txt
 all: make_dir $(BIN_DIR)/$(FINAL_TARGET_TXT)
 
 make_dir:
-ifeq ($(OS),Windows_NT)
-	if not exist $(OBJ_DIR) mkdir $(OBJ_DIR) $(OBJ_DIR)\txt $(OBJ_DIR)\sdl2 $(OBJ_DIR)\core
-	if not exist $(BIN_DIR) mkdir $(BIN_DIR) $(BIN_DIR)\txt $(BIN_DIR)\sdl2 $(BIN_DIR)\core
-	if not exist $(BIN_DIR) mkdir $(BIN_DIR)
-else
 	test -d $(OBJ_DIR) || mkdir -p $(OBJ_DIR) $(OBJ_DIR)/txt $(OBJ_DIR)/sdl2 $(OBJ_DIR)/core
 	test -d $(DEP_DIR) || mkdir -p $(DEP_DIR) $(DEP_DIR)/txt $(DEP_DIR)/sdl2 $(DEP_DIR)/core
-	test -d $(BIN_DIR) || mkdir -p $(BIN_DIR)
-endif
+	test -d $(BIN_DIR) || mkdir $(BIN_DIR)
 
 $(BIN_DIR)/$(FINAL_TARGET_TXT): $(OBJS_TXT)
 	$(CC) $+ -o $@
 
 $(BIN_DIR)/$(FINAL_TARGET_SDL): $(OBJS_SDL)
 	$(CC) $+ -o $@
+
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(CC) $(CPPFLAGS) -c $(INCLUDE_DIR) $< -o $@ $(DEPFLAGS)
@@ -73,17 +68,10 @@ archive :
 	tar -cvz --exclude='.git' -f ./../curvefever.tgz ./../curvefever
 
 clean:
-ifeq ($(OS),Windows_NT)
-	del /f $(OBJ_DIR)\txt\*.o $(OBJ_DIR)\sdl2\*.o $(OBJ_DIR)\core\*.o
-else
 	rm -rf $(OBJ_DIR)/*.o $(OBJ_DIR)/core/*.o $(OBJ_DIR)/txt/*.o $(OBJ_DIR)/sdl2/*.o
-endif
 
 veryclean: clean
-ifeq ($(OS),Windows_NT)
-	del /f $(DEP_DIR)\txt\*.d $(DEP_DIR)\sdl2\*.d $(DEP_DIR)\core\*.d $(BIN_DIR)\$(FINAL_TARGET_TXT) $(BIN_DIR)\$(FINAL_TARGET_SDL)
-else
 	rm -rf $(DEP_DIR) $(BIN_DIR)/$(FINAL_TARGET_TXT) $(BIN_DIR)/$(FINAL_TARGET_SDL)
-endif
+
 
 -include $(DEPENDANCES)
