@@ -38,6 +38,10 @@ const Serpent& Jeu::getConstS2() const {return s2;}
 void Jeu::actionsAutomatiques() {
     s1.avancer(t);
     s2.avancer(t);
+    if(s1.VerifColision(t))
+    {
+        s1.setVivant(false);
+    }
 }
 
 void Jeu::actionClavier(const char touche) {
@@ -46,15 +50,15 @@ void Jeu::actionClavier(const char touche) {
     switch (touche)
     {
     case 'q':
-        s1.setDirection((s1.getDirection() + 270 ) % 360);
-        break;
-    case 'd':
         s1.setDirection((s1.getDirection() + 90 ) % 360);
         break;
+    case 'd':
+        s1.setDirection((s1.getDirection() + 270 ) % 360);
+        break;
     case 'k':
-        s2.setDirection((s2.getDirection() + 270 ) % 360);
+        s2.setDirection((s2.getDirection() + 90 ) % 360);
         break;
     case 'm':
-        s2.setDirection((s2.getDirection() + 90 ) % 360);    
+        s2.setDirection((s2.getDirection() + 270 ) % 360);    
     }
 }

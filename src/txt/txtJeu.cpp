@@ -14,7 +14,7 @@ void txtAff(WinTXT & win, const Jeu & jeu) {
 
 	win.clear();
 
-    // Affichage des murs et des pastilles
+    // Affichage de la grille et des serpents
 	for(unsigned int x=0;x<ter.getTailleX();++x)
 	{
 		for(unsigned int y=0;y<ter.getTailleY();++y)
@@ -27,9 +27,9 @@ void txtAff(WinTXT & win, const Jeu & jeu) {
 		}
 	}			
 
-    // Affichage de Pacman
+    // Affichage du serpent 1
 	win.print(s1.getTeteX(),s1.getTeteY(),'1');
-	// Affichage du Fantome
+	// Affichage du serpent 2
 	win.print(s2.getTeteX(),s2.getTeteY(),'2');
 
 	win.draw();
@@ -73,6 +73,6 @@ void txtBoucle (Jeu & jeu) {
 				break;
 		}
 
-	} while (ok);
+	} while (ok && jeu.getConstS1().getVivant() && jeu.getConstS2().getVivant());
 
 }

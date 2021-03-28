@@ -108,6 +108,11 @@ void Serpent::setDirection(unsigned int dir)
     direction = dir;
 }
 
+void Serpent::setVivant(bool vie)
+{
+    vivant = vie;
+}
+
 void Serpent::setTeteX(unsigned int x)
 {
     TeteX = x;

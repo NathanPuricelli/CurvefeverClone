@@ -114,6 +114,12 @@ public :
     void setDirection(unsigned int dir);
 
     /**
+    @brief Mutateur : change la vie du serpent
+    */
+    void setVivant(bool vie);
+
+
+    /**
     @brief Mutateur: change la valeur de la coordonnée TeteX de la tête du serpent.
     @warning x doit appartenir à l'aire du terrain de jeu.
     @param[in] x Position de la tête dans la hauteur.
@@ -132,6 +138,7 @@ public :
     @warning Fonctions trigonométriques complexes pour des mouvements précis, à refaire avec SDL
     */
     void avancer(Terrain &t);
+    
     
     /**
     @brief Vérifie si un serpent est rentré en collision avec une trace ou avec un mur.
