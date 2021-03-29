@@ -42,6 +42,11 @@ void Jeu::actionsAutomatiques() {
     {
         s1.setVivant(false);
     }
+    if(s2.VerifColision(t))
+    {
+        s2.setVivant(false);
+    }
+
 }
 
 void Jeu::actionClavier(const char touche) {

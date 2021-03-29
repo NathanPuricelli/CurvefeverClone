@@ -49,6 +49,11 @@ private :
     */
     Couleur couleur;
 
+    /**
+    @brief Variable servant à la gestion  des trous dans la trace.
+    */
+    unsigned int CompteurTrous;
+
 public :
     /**
     @brief Constructeur par défaut de la classe: initialise le serpent.

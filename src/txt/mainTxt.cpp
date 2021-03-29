@@ -3,7 +3,7 @@
 
 int main (int argc, char** argv){
     termClear();
-    Jeu jeu(60,60);
+    Jeu jeu(110,60);
     txtBoucle(jeu);
     termClear();
     return 0;

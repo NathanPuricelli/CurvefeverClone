@@ -24,6 +24,7 @@ Serpent::Serpent() {
     score = 0;
     direction = 0;
     couleur = Couleur(0,0,0);
+    CompteurTrous = 0;
 }
 
 Serpent::Serpent(unsigned int x,unsigned int y)
@@ -46,6 +47,7 @@ Serpent::Serpent(unsigned int x,unsigned int y)
     direction = (rand()%4) * 90; // pas valide en sdl
     
     couleur = Couleur(rand()%256, rand()%256, rand()%256);
+    CompteurTrous = 0;
 
 }
 
@@ -127,7 +129,7 @@ void Serpent::setTeteY(unsigned int y)
 
 void Serpent::avancer(Terrain &t)
 {
-    t.tabCasesOccupees[TeteX][TeteY] = true;
+    if ((CompteurTrous%30) >= 6) t.tabCasesOccupees[TeteX][TeteY] = true;    
     if (direction == 0)
     {
         TeteY++;
@@ -141,6 +143,7 @@ void Serpent::avancer(Terrain &t)
         TeteY--;
     }
     else TeteX--;    
+    CompteurTrous++;
 }
 
 
