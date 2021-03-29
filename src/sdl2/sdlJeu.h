@@ -7,6 +7,4 @@
 #include <SDL_mixer.h>
 #include "Jeu.h"
 
-
-
 #endif

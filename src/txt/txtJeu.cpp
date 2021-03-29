@@ -8,16 +8,15 @@
 #include "Jeu.h"
 
 void txtAff(WinTXT & win, const Jeu & jeu) {
-	const Terrain& ter = jeu.t;
 	const Serpent& s1 = jeu.getConstS1();
 	const Serpent& s2 = jeu.getConstS2();
 
 	win.clear();
 
     // Affichage de la grille et des serpents
-	for(unsigned int x=0;x<ter.getTailleX();++x)
+	for(unsigned int x=0;x<jeu.t.getTailleX();++x)
 	{
-		for(unsigned int y=0;y<ter.getTailleY();++y)
+		for(unsigned int y=0;y<jeu.t.getTailleY();++y)
 		{
 			if(jeu.t.tabCasesOccupees[x][y])
 			{
