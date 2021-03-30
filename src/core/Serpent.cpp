@@ -126,7 +126,9 @@ void Serpent::setTeteY(unsigned int y)
     TeteY = y;
 }
 
-
+//supprimre les if pour la version sdl
+//cos de l'angle : valeur sur x
+//sin : valeur sur y
 void Serpent::avancer(Terrain &t)
 {
     if ((CompteurTrous%30) >= 6) t.tabCasesOccupees[TeteX][TeteY] = true;    

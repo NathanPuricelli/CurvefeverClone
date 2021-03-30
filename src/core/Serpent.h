@@ -42,7 +42,7 @@ private :
     /**
     @brief La direction du serpent.
     */
-    unsigned int direction;
+    unsigned int direction; // mettre un float car convertir en rad
     
     /**
     @brief La couleur du serpent.
