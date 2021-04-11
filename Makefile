@@ -1,6 +1,6 @@
 CORE = core/Couleur.cpp core/Serpent.cpp core/Terrain.cpp core/Jeu.cpp
 TXT = txt/winTxt.cpp txt/txtJeu.cpp txt/mainTxt.cpp
-SDL = sdl2/sdlJeu.cpp sdl2/mainSDL.cpp
+SDL = sdl2/sdlJeu.cpp sdl2/main_sdl.cpp
 
 SRCS_TXT = $(CORE) $(TXT)
 OBJS_TXT = $(SRCS_TXT:%.cpp=$(OBJ_DIR)/%.o)
@@ -15,16 +15,9 @@ OBJS = $(patsubst %.cpp,$(OBJ_DIR)/%.o,$(CORE) $(TXT) $(SDL))
 DEPENDANCES = $(patsubst %.cpp,$(DEP_DIR)/%.d,$(CORE) $(TXT) $(SDL))
 
 ifeq ($(OS),Windows_NT)
-	INCLUDE_DIR_SDL = 	-Iextern/SDL2_mingw-cb20/SDL2-2.0.12/x86_64-w64-mingw32/include/SDL2 \
-						-Iextern/SDL2_mingw-cb20/SDL2_ttf-2.0.15/x86_64-w64-mingw32/include/SDL2 \
-						-Iextern/SDL2_mingw-cb20/SDL2_image-2.0.5/x86_64-w64-mingw32/include/SDL2 \
-					-Iextern/SDL2_mingw-cb20/SDL2_mixer-2.0.4/x86_64-w64-mingw32/include/SDL2
+	INCLUDE_DIR_SDL = 	-I extern/SDL2-w64/include
 
-	LIBS_SDL = -Lextern \
-			-Lextern/SDL2_mingw-cb20/SDL2-2.0.12/x86_64-w64-mingw32/lib \
-			-Lextern/SDL2_mingw-cb20/SDL2_ttf-2.0.15/x86_64-w64-mingw32/lib \
-			-Lextern/SDL2_mingw-cb20/SDL2_image-2.0.5/x86_64-w64-mingw32/lib \
-			-Lextern/SDL2_mingw-cb20/SDL2_mixer-2.0.4/x86_64-w64-mingw32/lib \
+	LIBS_SDL = -Lextern/SDL2-w64/lib\
 			-lmingw32 -lSDL2main -lSDL2.dll -lSDL2_ttf.dll -lSDL2_image.dll -lSDL2_mixer.dll
 
 else
