@@ -142,7 +142,9 @@ public :
     @brief Fait avancer le serpent et choisi la nouvelle position de la tete en fonction de la direction
     @warning Fonctions trigonométriques complexes pour des mouvements précis, à refaire avec SDL
     */
-    void avancer(Terrain &t);
+    void avancerTXT(Terrain &t);
+
+    void avancerSDL(Terrain &t);
     
     
     /**

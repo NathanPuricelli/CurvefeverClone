@@ -37,7 +37,7 @@ INCLUDE_DIR			= -Isrc -Isrc/core -Isrc/sdl2 -Isrc/txt
 
 
 #EN CONSTRUCTION
-all: make_dir $(BIN_DIR)/$(FINAL_TARGET_TXT)
+all: make_dir $(BIN_DIR)/$(FINAL_TARGET_TXT) $(BIN_DIR)/$(FINAL_TARGET_SDL)
 
 make_dir:
 	test -d $(OBJ_DIR) || mkdir -p $(OBJ_DIR) $(OBJ_DIR)/txt $(OBJ_DIR)/sdl2 $(OBJ_DIR)/core
@@ -48,11 +48,11 @@ $(BIN_DIR)/$(FINAL_TARGET_TXT): $(OBJS_TXT)
 	$(CC) $+ -o $@
 
 $(BIN_DIR)/$(FINAL_TARGET_SDL): $(OBJS_SDL)
-	$(CC) $+ -o $@
+	$(CC) $+ -o $@ $(LIBS_SDL)
 
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
-	$(CC) $(CPPFLAGS) -c $(INCLUDE_DIR) $< -o $@ $(DEPFLAGS)
+	$(CC) $(CPPFLAGS) -c $(INCLUDE_DIR) $(INCLUDE_DIR_SDL) $< -o $@ $(DEPFLAGS)
 
 documentation:
 	doxygen $(DOC_DIR)/curvefever.doxy

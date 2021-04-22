@@ -129,7 +129,27 @@ void Serpent::setTeteY(unsigned int y)
 //supprimre les if pour la version sdl
 //cos de l'angle : valeur sur x
 //sin : valeur sur y
-void Serpent::avancer(Terrain &t)
+void Serpent::avancerTXT(Terrain &t)
+{
+    if ((CompteurTrous%30) >= 6) t.tabCasesOccupees[TeteX][TeteY] = true;    
+    if (direction == 0)
+    {
+        TeteY++;
+    }
+    else if (direction == 90)
+    {
+        TeteX++;
+    }
+    else if (direction == 180)
+    {
+        TeteY--;
+    }
+    else TeteX--;    
+    CompteurTrous++;
+}
+
+
+void Serpent::avancerSDL(Terrain &t)
 {
     if ((CompteurTrous%30) >= 6) t.tabCasesOccupees[TeteX][TeteY] = true;    
     if (direction == 0)

@@ -51,21 +51,21 @@ void txtBoucle (Jeu & jeu) {
 		usleep(100000);
         #endif // WIN32
 
-		jeu.actionsAutomatiques();
+		jeu.actionsAutomatiquesTXT();
 
 		c = win.getCh();
 		switch (c) {
 			case 'q':
-				jeu.actionClavier('q');
+				jeu.actionClavierTXT('q');
 				break;
 			case 'd':
-				jeu.actionClavier('d');
+				jeu.actionClavierTXT('d');
 				break;
 			case 'k':
-				jeu.actionClavier('k');
+				jeu.actionClavierTXT('k');
 				break;
 			case 'm':
-				jeu.actionClavier('m');
+				jeu.actionClavierTXT('m');
 				break;
 			case 'e':
 				ok = false;

@@ -61,12 +61,16 @@ public :
     /**
     @brief Actions qui se déroulent à chaque boucle
     */
-    void actionsAutomatiques();
+    void actionsAutomatiquesTXT();
+
+    void actionsAutomatiquesSDL();
 
     /**
     @brief Réactions du jeu au touches pressées
     */
-    void actionClavier(const char touche);
+    void actionClavierTXT(const char touche);
+
+    void actionClavierSDL(const char touche);
 };
 
 #endif

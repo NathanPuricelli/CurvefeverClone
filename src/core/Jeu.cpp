@@ -35,9 +35,9 @@ const Serpent& Jeu::getConstS1() const {return s1;}
 const Serpent& Jeu::getConstS2() const {return s2;}
 
 
-void Jeu::actionsAutomatiques() {
-    s1.avancer(t);
-    s2.avancer(t);
+void Jeu::actionsAutomatiquesTXT() {
+    s1.avancerTXT(t);
+    s2.avancerTXT(t);
     if(s1.VerifColision(t))
     {
         s1.setVivant(false);
@@ -49,7 +49,21 @@ void Jeu::actionsAutomatiques() {
 
 }
 
-void Jeu::actionClavier(const char touche) {
+void Jeu::actionsAutomatiquesSDL() {
+    s1.avancerSDL(t);
+    s2.avancerSDL(t);
+    if(s1.VerifColision(t))
+    {
+        s1.setVivant(false);
+    }
+    if(s2.VerifColision(t))
+    {
+        s2.setVivant(false);
+    }
+
+}
+
+void Jeu::actionClavierTXT(const char touche) {
     //Serpent 1 utilise q et d
     //Serpent 2 utilise k et m
     switch (touche)
@@ -67,3 +81,24 @@ void Jeu::actionClavier(const char touche) {
         s2.setDirection((s2.getDirection() + 270 ) % 360);    
     }
 }
+
+void Jeu::actionClavierSDL(const char touche)
+{
+    //Serpent 1 utilise q et d
+    //Serpent 2 utilise k et m
+    switch (touche)
+    {
+    case 'q':
+        s1.setDirection((s1.getDirection() + 90 ) % 360);
+        break;
+    case 'd':
+        s1.setDirection((s1.getDirection() + 270 ) % 360);
+        break;
+    case 'k':
+        s2.setDirection((s2.getDirection() + 90 ) % 360);
+        break;
+    case 'm':
+        s2.setDirection((s2.getDirection() + 270 ) % 360);    
+    }
+}
+
