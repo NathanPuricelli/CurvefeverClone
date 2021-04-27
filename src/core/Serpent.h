@@ -42,7 +42,7 @@ private :
     /**
     @brief La direction du serpent.
     */
-    float direction; // mettre un float car convertir en rad
+    float direction; // mettre un float car convertir en rad pour sdl (conversion nécessaire en int pour le mode texte)
     
     /**
     @brief La couleur du serpent.
@@ -106,6 +106,8 @@ public :
     /**
     @brief Accesseur : récupère la direction du serpent
     */
+    int getDirectionTxt()const;
+    
     float getDirection()const ;
 
     /**
@@ -115,11 +117,15 @@ public :
     
     /**
     @brief Mutateur : change la direction du serpent
+    @param[in] dir Nouvelle direction du serpent.
     */
+    void setDirectionTxt(int dir);
+    
     void setDirection(float dir);
 
     /**
     @brief Mutateur : change la vie du serpent
+    @param[in] vie Nouvel état de vie du serpent.
     */
     void setVivant(bool vie);
 

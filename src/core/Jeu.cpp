@@ -70,16 +70,16 @@ void Jeu::actionClavierTXT(const char touche) {
     switch (touche)
     {
     case 'q':
-        s1.setDirection((s1.getDirection() + 90 ) % 360);
+            s1.setDirectionTxt((s1.getDirectionTxt() + 90 ) % 360);
         break;
     case 'd':
-        s1.setDirection((s1.getDirection() + 270 ) % 360);
+            s1.setDirectionTxt((s1.getDirectionTxt() + 270 ) % 360);
         break;
     case 'k':
-        s2.setDirection((s2.getDirection() + 90 ) % 360);
+            s2.setDirectionTxt((s2.getDirectionTxt() + 90 ) % 360);
         break;
     case 'm':
-        s2.setDirection((s2.getDirection() + 270 ) % 360);    
+            s2.setDirectionTxt((s2.getDirectionTxt() + 270 ) % 360);
     }
 }
 
@@ -90,16 +90,16 @@ void Jeu::actionClavierSDL(const char touche)
     switch (touche)
     {
     case 'q':
-        s1.setDirection((s1.getDirection() + 90 ) % 360);
+            s1.setDirection(s1.getDirection() + 90 );
         break;
     case 'd':
-        s1.setDirection((s1.getDirection() + 270 ) % 360);
+            s1.setDirection(s1.getDirection() + 270 );
         break;
     case 'k':
-        s2.setDirection((s2.getDirection() + 90 ) % 360);
+            s2.setDirection(s2.getDirection() + 90 );
         break;
     case 'm':
-        s2.setDirection((s2.getDirection() + 270 ) % 360);    
+            s2.setDirection(s2.getDirection() + 270 );
     }
 }
 

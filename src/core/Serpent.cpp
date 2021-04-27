@@ -92,6 +92,11 @@ unsigned int Serpent::getScore()const
     return score;
 }
 
+int Serpent::getDirectionTxt() const
+{
+    return (int)direction;
+}
+
 float Serpent::getDirection() const
 {
     return direction;
@@ -100,6 +105,12 @@ float Serpent::getDirection() const
 Couleur Serpent::getCouleur()const
 {
     return couleur;
+}
+
+void Serpent::setDirectionTxt(int dir)
+{
+    direction = (int)direction;
+    direction = dir;
 }
 
 void Serpent::setDirection(float dir)
