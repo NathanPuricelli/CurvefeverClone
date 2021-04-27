@@ -31,13 +31,10 @@ Serpent::Serpent(unsigned int x,unsigned int y)
 {   
     srand((unsigned int)time(0));
 
-    //assert(x>=0 && x<=t.getTailleX());
-    //assert(y>=0 && y<=t.getTailleY());
-
     TeteX = x;
     TeteY = y;
     //t[y*(t.getTailleX())+x]=!&t[y*(t.getTailleX())+x];
-    //Je n'y suis pas arrivé, il faudrait changer la valeur du booléen du tableau alloué (terrain) lorqu'on créer le serpent..
+    //Je n'y suis pas arrivé, il faudrait ptetre changer la valeur du booléen du tableau alloué (terrain) lorqu'on créer le serpent..
     
     droite = false;
     gauche = false;
@@ -95,7 +92,7 @@ unsigned int Serpent::getScore()const
     return score;
 }
 
-unsigned int Serpent::getDirection() const
+float Serpent::getDirection() const
 {
     return direction;
 }
@@ -105,7 +102,7 @@ Couleur Serpent::getCouleur()const
     return couleur;
 }
 
-void Serpent::setDirection(unsigned int dir)
+void Serpent::setDirection(float dir)
 {
     direction = dir;
 }
@@ -148,7 +145,9 @@ void Serpent::avancerTXT(Terrain &t)
     CompteurTrous++;
 }
 
-
+//supprimre les if pour la version sdl
+//cos de l'angle : valeur sur x
+//sin : valeur sur y
 void Serpent::avancerSDL(Terrain &t)
 {
     if ((CompteurTrous%30) >= 6) t.tabCasesOccupees[TeteX][TeteY] = true;    

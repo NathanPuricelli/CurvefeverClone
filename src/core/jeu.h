@@ -1,8 +1,18 @@
+/**
+@brief Module gérant le jeu.
+
+Le module Jeu permet de gérer le jeu et les différentes actions.
+
+@file Jeu.h
+@author : Aymeric Leto, Benoît Briguet, Nathan Puricelli
+@date : Mars 2021
+*/
 #ifndef JEU_H
 #define JEU_H
 
 #include "Serpent.h"
 #include "Terrain.h"
+
 class Jeu
 {
 private :
@@ -24,12 +34,15 @@ public :
     Terrain t;
     
     /**
-    @brief Constructeur de la classe, lance une partie avec 2 serpents et 1 terrain de jeu.
+    @brief Constructeur par défaut de la classe.
     */
     Jeu();
 
     /**
-    @brief Constructeur de la classe, lance une partie avec 2 serpents et 1 terrain de jeu.
+    @brief Constructeur de la classe, lance une partie avec 2 serpents et 1 terrain de jeu de taille tailleX x tailleY.
+    @warning tailleX, tailleY doivent être assez grand pour accueillir les 2 serpents aux coordonnées (x, y) respectives (10, 10) et (tailleX-10, tailleY-10) : pour assurer la jouabilité on prendra tailleX et tailleY supérieurs à 30.
+    @param[in] tailleX Hauteur du terrain.
+    @param[in] tailleY Largeur du terrain.
     */
     Jeu(unsigned int tailleX, unsigned int tailleY);
     
@@ -67,6 +80,7 @@ public :
 
     /**
     @brief Réactions du jeu au touches pressées
+    @param[in] touche Touche du clavier pressée qui détermine ainsi l'action.
     */
     void actionClavierTXT(const char touche);
 

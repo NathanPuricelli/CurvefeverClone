@@ -42,7 +42,7 @@ private :
     /**
     @brief La direction du serpent.
     */
-    unsigned int direction; // mettre un float car convertir en rad
+    float direction; // mettre un float car convertir en rad
     
     /**
     @brief La couleur du serpent.
@@ -61,7 +61,7 @@ public :
     Serpent(); // pas hyper utile je pense
     
     /**
-    @brief Constructeur de la classe: initialise le serpent à la position donnée par (x,y) dans un terrain de 50 par 50, avec une couleur aléatoire.
+    @brief Constructeur de la classe: initialise le serpent à la position donnée par (x, y) avec une couleur aléatoire.
     @warning x, y doivent être compris dans l'aire du terrain de jeu.
     @param[in] x Coordonnée de la tête dans la hauteur du terrain.
     @param[in] y Coordonnée de la tête dans la largeur du terrain.
@@ -106,7 +106,7 @@ public :
     /**
     @brief Accesseur : récupère la direction du serpent
     */
-    unsigned int getDirection()const ;
+    float getDirection()const ;
 
     /**
     @brief Accesseur : récupère la couleur du serpent
@@ -116,7 +116,7 @@ public :
     /**
     @brief Mutateur : change la direction du serpent
     */
-    void setDirection(unsigned int dir);
+    void setDirection(float dir);
 
     /**
     @brief Mutateur : change la vie du serpent
@@ -141,6 +141,7 @@ public :
     /**
     @brief Fait avancer le serpent et choisi la nouvelle position de la tete en fonction de la direction
     @warning Fonctions trigonométriques complexes pour des mouvements précis, à refaire avec SDL
+    @param[in] t Terrain de jeu.
     */
     void avancerTXT(Terrain &t);
 
@@ -149,7 +150,7 @@ public :
     
     /**
     @brief Vérifie si un serpent est rentré en collision avec une trace ou avec un mur.
-    @param[in] T Terrain de jeu.
+    @param[in] t Terrain de jeu.
     */
     bool VerifColision(const Terrain &t) const;
 

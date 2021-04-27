@@ -1,7 +1,6 @@
 /**
 @brief Implémentation de la classe jeu
 
-
 @file Terrain.cpp
 @author : Aymeric Leto, Benoît Briguet, Nathan Puricelli
 @date : Mars 2021
@@ -17,6 +16,8 @@ using namespace std;
 Jeu::Jeu() {}
 
 Jeu::Jeu(unsigned int tailleX, unsigned int tailleY) {
+    assert(tailleX>=30);
+    assert(tailleY>=30);
     t = Terrain(tailleX, tailleY);
     s1 = Serpent(10,10);
     s2 = Serpent(t.getTailleX() - 10, t.getTailleY() -10);

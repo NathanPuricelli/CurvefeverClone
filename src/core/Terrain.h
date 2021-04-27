@@ -66,8 +66,8 @@ public :
     void setTailleY(unsigned int y);
 
     /**
-    @brief Renvoie vrai si oun serpent peut aller aux coordonnées (x,y), faux sinon
-    @param x : abs de la case à tester
+    @brief Renvoie vrai si un serpent peut aller aux coordonnées (x,y), faux sinon
+    @param x : abscisse de la case à tester
     @param y : ordonnée de la case à tester
     */
     bool estPositionValide (const unsigned int x, const unsigned int y) const;
