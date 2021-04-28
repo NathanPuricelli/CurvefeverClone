@@ -69,7 +69,7 @@ public :
     Serpent(unsigned int x, unsigned int y); // voir pour couleur, direction.
     
     /**
-    @brief Destructeur de la classe:
+    @brief Destructeur de la classe.
     */
     ~Serpent(); // destructeur
     
@@ -104,19 +104,19 @@ public :
     unsigned int getScore()const ;
     
     /**
-    @brief Accesseur : récupère la direction du serpent
+    @brief Accesseur : récupère la direction du serpent.
     */
     int getDirectionTxt()const;
     
     float getDirection()const ;
 
     /**
-    @brief Accesseur : récupère la couleur du serpent
+    @brief Accesseur : récupère la couleur du serpent.
     */
     Couleur getCouleur()const ;
     
     /**
-    @brief Mutateur : change la direction du serpent
+    @brief Mutateur : change la direction du serpent.
     @param[in] dir Nouvelle direction du serpent.
     */
     void setDirectionTxt(int dir);
@@ -124,7 +124,7 @@ public :
     void setDirection(float dir);
 
     /**
-    @brief Mutateur : change la vie du serpent
+    @brief Mutateur : change la vie du serpent.
     @param[in] vie Nouvel état de vie du serpent.
     */
     void setVivant(bool vie);
@@ -145,8 +145,8 @@ public :
     void setTeteY(unsigned int y);
     
     /**
-    @brief Fait avancer le serpent et choisi la nouvelle position de la tete en fonction de la direction
-    @warning Fonctions trigonométriques complexes pour des mouvements précis, à refaire avec SDL
+    @brief Fait avancer le serpent et choisi la nouvelle position de la tete en fonction de la direction.
+    @warning Utilise des fonctions trigonométriques complexes pour des mouvements précis en SDL.
     @param[in] t Terrain de jeu.
     */
     void avancerTXT(Terrain &t);
