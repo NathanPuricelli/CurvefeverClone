@@ -118,11 +118,11 @@ sdlJeu::sdlJeu(int tailleX, int tailleY):jeu(tailleX, tailleY)
     }
 
 
-    font32 = TTF_OpenFont("res/fonts/DejaVuSansCondensed.ttf", 32);
+    font32 = TTF_OpenFont("res/fonts/cocogoose.ttf", 32);
     if (font32 == NULL)
-        font32 = TTF_OpenFont("../res/fonts/DejaVuSansCondensed.ttf", 32);
+        font32 = TTF_OpenFont("../res/fonts/cocogoose.ttf", 32);
     if (font32 == NULL) {
-            cout << "Erreur lors du chargement de DejaVuSansCondensed.ttf! SDL_TTF Error: " << SDL_GetError() << endl; 
+            cout << "Erreur lors du chargement de cocogoose.ttf! SDL_TTF Error: " << SDL_GetError() << endl; 
             SDL_Quit(); 
             exit(1);
 	}
@@ -288,7 +288,7 @@ void sdlJeu::sdlBoucle()
             } else {
                 renderCenterText(0, -20, "Joueur 2 est mort", font32, blanc);
             }
-            renderCenterText(0, 0, "Cliquez pour continuer", font32, blanc);
+            renderCenterText(0, 10, "Cliquez pour continuer", font32, blanc);
             SDL_RenderPresent(renderer);
             bool reprendrePartie = false;
             while (!reprendrePartie) {
