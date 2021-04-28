@@ -111,11 +111,27 @@ sdlJeu::sdlJeu(int tailleX, int tailleY):jeu(tailleX, tailleY)
         exit(1);
     }
 
+    if (TTF_Init() != 0) {
+        cout << "Erreur lors de l'initialisation de la SDL_ttf : " << SDL_GetError() << endl;
+        SDL_Quit();
+        exit(1);
+    }
+
+
+    font32 = TTF_OpenFont("res/fonts/DejaVuSansCondensed.ttf", 32);
+    if (font32 == NULL)
+        font32 = TTF_OpenFont("../res/fonts/DejaVuSansCondensed.ttf", 32);
+    if (font32 == NULL) {
+            cout << "Erreur lors du chargement de DejaVuSansCondensed.ttf! SDL_TTF Error: " << SDL_GetError() << endl; 
+            SDL_Quit(); 
+            exit(1);
+	}
+
     //chargement de l'image du jeu
     textureJeu = NULL;
     gameRunning = true;
 
-    font32 = TTF_OpenFont("res/fonts/cocogoose.ttf", 32);
+    blanc = { 255, 255, 255 };
 
     cout<<"Construction sdlJeu : Check"<<endl;
 }
@@ -124,6 +140,7 @@ sdlJeu::~sdlJeu()
 {
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
+    TTF_CloseFont(font32);
     textureJeu = NULL;
     SDL_Quit();
 }
@@ -157,6 +174,25 @@ void sdlJeu::renderCenterText(float p_x, float p_y, const char* p_text, TTF_Font
 
 	SDL_RenderCopy(renderer, message, &src, &dst);
 	SDL_FreeSurface(surfaceMessage);
+}
+
+void sdlJeu::recommencerPartie() {
+    for (int i = 0; i < jeu.t.getTailleX(); i++) {
+        for (int j = 0; j < jeu.t.getTailleY(); j++) {
+            jeu.t.tabCasesOccupees[i][j] = false;
+        }
+    }
+    jeu.getS1().setTeteX(10);
+    jeu.getS1().setTeteY(10);
+    jeu.getS1().setVivant(true);
+    jeu.getS1().setDirection(0);
+    
+    
+    jeu.getS2().setTeteX(jeu.t.getTailleX() - 10);
+    jeu.getS2().setTeteY(jeu.t.getTailleY() - 10);
+    jeu.getS2().setVivant(true);
+    jeu.getS2().setDirection(180);
+
 }
 
 void sdlJeu::sdlActionsAutomatiques()
@@ -247,11 +283,28 @@ void sdlJeu::sdlBoucle()
             sdlAff();
             SDL_RenderPresent(renderer);
         } else {
-            cout<<"Affichage texte"<<endl;
-            SDL_Color couleurTexte = { 255, 255, 255 };
-            renderCenterText(0, 0, "Un joueur a perdu !", font32, couleurTexte);
+            if (!jeu.getConstS1().getVivant()) {
+                renderCenterText(0, -20, "Joueur 1 est mort", font32, blanc);
+            } else {
+                renderCenterText(0, -20, "Joueur 2 est mort", font32, blanc);
+            }
+            renderCenterText(0, 0, "Cliquez pour continuer", font32, blanc);
             SDL_RenderPresent(renderer);
-            cout<<"Affichage texte 2"<<endl;
+            bool reprendrePartie = false;
+            while (!reprendrePartie) {
+                while(SDL_PollEvent(&events)) {
+                    if (events.type == SDL_QUIT) {
+                        gameRunning = false;        // Si l'utilisateur a clique sur la croix de fermeture
+                        reprendrePartie = true;
+                    }
+                    else if (events.type == SDL_MOUSEBUTTONDOWN) {
+                        reprendrePartie = true;
+                        recommencerPartie();
+                        SDL_SetRenderDrawColor(renderer, 20, 20, 50, 255);
+                        SDL_RenderClear(renderer);
+                    }
+                }
+            }
         }
 
     }

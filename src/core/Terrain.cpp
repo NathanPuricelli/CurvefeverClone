@@ -29,12 +29,9 @@ Terrain::Terrain(int tX, int tY)
 
     tabCasesOccupees = new bool* [tX];
 
-    for (int i = 0; i < tX; i++)
-    {
+    for (int i = 0; i < tX; i++) {
         tabCasesOccupees[i] = new bool [tY];
-        for (int j = 0; j < tY; j++)
-        {
-            
+        for (int j = 0; j < tY; j++) {
             tabCasesOccupees[i][j] = false;
         }
     }
