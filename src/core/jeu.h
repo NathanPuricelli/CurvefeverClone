@@ -31,7 +31,7 @@ public :
     /**
     @brief Constructeur de la classe, lance une partie avec 2 serpents et 1 terrain de jeu.
     */
-    Jeu(unsigned int tailleX, unsigned int tailleY);
+    Jeu(int tailleX, int tailleY);
     
     /**
     @brief Destructeur de la classe.

@@ -22,7 +22,7 @@ private :
     /**
     @brief La position de la tête du serpent, TeteX dans la hauteur et TeteY dans la largeur du terrain de jeu.
     */
-    unsigned int TeteX, TeteY;
+    int TeteX, TeteY;
     
     /**
     @brief Booléens pour la direction du serpent (à droite ou à gauche).
@@ -37,12 +37,12 @@ private :
     /**
     @brief Le score du joueur du serpent.
     */
-    unsigned int score;
+    int score;
     
     /**
     @brief La direction du serpent.
     */
-    unsigned int direction; // mettre un float car convertir en rad
+    int direction; // mettre un float car convertir en rad
     
     /**
     @brief La couleur du serpent.
@@ -50,9 +50,9 @@ private :
     Couleur couleur;
 
     /**
-    @brief Variable servant à la gestion  des trous dans la trace.
+    @brief Variable servant à la gestion des trous dans la trace.
     */
-    unsigned int CompteurTrous;
+    int CompteurTrous;
 
 public :
     /**
@@ -66,7 +66,7 @@ public :
     @param[in] x Coordonnée de la tête dans la hauteur du terrain.
     @param[in] y Coordonnée de la tête dans la largeur du terrain.
     */
-    Serpent(unsigned int x, unsigned int y); // voir pour couleur, direction.
+    Serpent(int x, int y); // voir pour couleur, direction.
     
     /**
     @brief Destructeur de la classe:
@@ -76,12 +76,12 @@ public :
     /**
     @brief Accesseur : récupère la valeur de la coordonnée TeteX (dans la hauteur) de la tête du serpent.
     */
-    unsigned int getTeteX()const ;
+    int getTeteX()const ;
     
     /**
     @brief Accesseur : récupère la valeur de la coordonnée TeteY (dans la largeur) de la tête du serpent.
     */
-    unsigned int getTeteY()const ;
+    int getTeteY()const ;
     
     /**
     @brief Accesseur : récupère le booléen indiquant si le serpent est encore vivant.
@@ -101,12 +101,12 @@ public :
     /**
     @brief Accesseur : récupère le score du joueur du serpent.
     */
-    unsigned int getScore()const ;
+    int getScore()const ;
     
     /**
     @brief Accesseur : récupère la direction du serpent
     */
-    unsigned int getDirection()const ;
+    int getDirection()const ;
 
     /**
     @brief Accesseur : récupère la couleur du serpent
@@ -116,7 +116,7 @@ public :
     /**
     @brief Mutateur : change la direction du serpent
     */
-    void setDirection(unsigned int dir);
+    void setDirection(int dir);
 
     /**
     @brief Mutateur : change la vie du serpent
@@ -129,14 +129,14 @@ public :
     @warning x doit appartenir à l'aire du terrain de jeu.
     @param[in] x Position de la tête dans la hauteur.
     */
-    void setTeteX(unsigned int x);
+    void setTeteX(int x);
     
     /**
     @brief Mutateur: change la valeur de la coordonnée TeteY de la tête du serpent.
     @warning y doit appartenir à l'aire du terrain de jeu.
     @param[in] y Position de la tête dans la largeur.
     */
-    void setTeteY(unsigned int y);
+    void setTeteY(int y);
     
     /**
     @brief Fait avancer le serpent et choisi la nouvelle position de la tete en fonction de la direction

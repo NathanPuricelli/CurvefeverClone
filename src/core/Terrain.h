@@ -9,7 +9,6 @@ Le module Terrain permet de gérer un tableau de booléens et ainsi la trace des
 */
 #ifndef TERRAIN_H
 #define TERRAIN_H
-#define TAILLETERRAIN 300
 
 
 class Terrain
@@ -18,14 +17,14 @@ private :
     /**
     @brief Les dimensions du terrain de jeu.
     */
-    unsigned int tailleX, tailleY;
+    int tailleX, tailleY;
     
     
 public :
     /**
     @brief Tableau 2D de booléens indiquant si la case est occupée par la trace d'un joueur.
     */
-    bool tabCasesOccupees[TAILLETERRAIN][TAILLETERRAIN];
+    bool** tabCasesOccupees;
     
     /**
     @brief Constructeur par défaut du terrain. Initialise tailleX et tailleY à 0.
@@ -38,7 +37,7 @@ public :
     @param[in] tX Hauteur du terrain de jeu
     @param[in] tY Largeur du terrain de jeu
     */
-    Terrain(unsigned int tX, unsigned int tY);
+    Terrain(int tX, int tY);
     
     /**
     @brief Destructeur de la classe : déallocation de la mémoire du tableau de et mise à jour des champs tailleX et tailleY à 0.
@@ -48,29 +47,29 @@ public :
     /**
     @brief Accesseur : récupère la hauteur du terrain.
     */
-    unsigned int getTailleX()const ;
+    int getTailleX()const ;
     
     /**
     @brief Accesseur : récupère la largeur du terrain
     */
-    unsigned int getTailleY()const ;
+    int getTailleY()const ;
 
     /**
     @brief Mutateur : définit la hauteur du terrain
     */
-    void setTailleX(unsigned int x);
+    void setTailleX(int x);
 
     /**
     @brief Mutateur : définit la largeur du terrain
     */
-    void setTailleY(unsigned int y);
+    void setTailleY(int y);
 
     /**
     @brief Renvoie vrai si oun serpent peut aller aux coordonnées (x,y), faux sinon
     @param x : abs de la case à tester
     @param y : ordonnée de la case à tester
     */
-    bool estPositionValide (const unsigned int x, const unsigned int y) const;
+    bool estPositionValide (const int x, const int y) const;
 
     
 };

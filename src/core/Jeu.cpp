@@ -16,12 +16,13 @@ using namespace std;
 
 Jeu::Jeu() {}
 
-Jeu::Jeu(unsigned int tailleX, unsigned int tailleY) {
+Jeu::Jeu(int tailleX, int tailleY) {
     t = Terrain(tailleX, tailleY);
     s1 = Serpent(10,10);
     s2 = Serpent(t.getTailleX() - 10, t.getTailleY() -10);
     s1.setDirection(0);
     s2.setDirection(180);
+    cout<<"Construction Jeu : Check"<<endl;
 }
 
 Jeu::~Jeu() {}

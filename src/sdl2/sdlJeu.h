@@ -40,7 +40,7 @@ public:
 class sdlJeu
 {
 public:
-    sdlJeu(unsigned int tailleX, unsigned int tailleY);
+    sdlJeu(int tailleX, int tailleY);
     ~sdlJeu();
     void sdlAff(); //private ?
     void sdlBoucle();    
@@ -52,6 +52,8 @@ private:
     SDL_Renderer * renderer;
     SDL_Surface * surfaceJeu;
     SDL_Texture * textureJeu;
+    TTF_Font* font32;
+    void renderCenterText(float p_x, float p_y, const char* p_text, TTF_Font* font, SDL_Color textColor);
     void surfaceToTexture();
     void setPixel(SDL_Surface *screen, int x, int y, Couleur color);
     void sdlActionsAutomatiques();

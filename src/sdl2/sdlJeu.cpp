@@ -1,8 +1,10 @@
 #include "sdlJeu.h"
 #include <cassert>
 
-#define fps 60
+#define fps 20
 const int TAILLE_SPRITE = 10;
+const int WIDTH = 140;
+const int HEIGHT = 72;
 
 //commencer avec une fenetre avec terrain vide et mettre des points à la main dans le main.
 
@@ -76,7 +78,7 @@ void Image::setSurface(SDL_Surface * surf) {surface = surf;}
 
 // ============= CLASS SDLJEU =============== //
 
-sdlJeu::sdlJeu(unsigned int tailleX, unsigned int tailleY):jeu(tailleX, tailleY)
+sdlJeu::sdlJeu(int tailleX, int tailleY):jeu(tailleX, tailleY)
 {
     //Initialisation de la sdl : 
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
@@ -92,7 +94,7 @@ sdlJeu::sdlJeu(unsigned int tailleX, unsigned int tailleY):jeu(tailleX, tailleY)
     }
 
     //creation de la fenetre : 
-    window = SDL_CreateWindow("Curvefever !", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1400, 720, SDL_WINDOW_SHOWN);
+    window = SDL_CreateWindow("Curvefever !", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH*TAILLE_SPRITE, HEIGHT*TAILLE_SPRITE, SDL_WINDOW_SHOWN);
     if (window == NULL)
     {
         cout << "Erreur lors de la creation de la fenetre : " << SDL_GetError() << endl;
@@ -110,17 +112,18 @@ sdlJeu::sdlJeu(unsigned int tailleX, unsigned int tailleY):jeu(tailleX, tailleY)
     }
 
     //chargement de l'image du jeu
-    surfaceJeu = SDL_GetWindowSurface(window);
     textureJeu = NULL;
     gameRunning = true;
+
+    font32 = TTF_OpenFont("res/fonts/cocogoose.ttf", 32);
+
+    cout<<"Construction sdlJeu : Check"<<endl;
 }
 
 sdlJeu::~sdlJeu()
 {
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
-    SDL_FreeSurface(surfaceJeu);
-    surfaceJeu = NULL;
     textureJeu = NULL;
     SDL_Quit();
 }
@@ -135,69 +138,121 @@ void sdlJeu::setPixel(SDL_Surface *screen, int x, int y, Couleur color)
     SDL_FillRect(screen, &pixel, couleur);
 }
 
+void sdlJeu::renderCenterText(float p_x, float p_y, const char* p_text, TTF_Font* font, SDL_Color textColor)
+{
+	SDL_Surface* surfaceMessage = TTF_RenderText_Blended( font, p_text, textColor);
+	SDL_Texture* message = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+
+	SDL_Rect src;
+	src.x = 0;
+	src.y = 0;
+	src.w = surfaceMessage->w;
+	src.h = surfaceMessage->h; 
+
+	SDL_Rect dst;
+	dst.x = (WIDTH*TAILLE_SPRITE)/2 - src.w/2 + p_x;
+	dst.y = (HEIGHT*TAILLE_SPRITE)/2 - src.h/2 + p_y;
+	dst.w = src.w;
+	dst.h = src.h;
+
+	SDL_RenderCopy(renderer, message, &src, &dst);
+	SDL_FreeSurface(surfaceMessage);
+}
+
 void sdlJeu::sdlActionsAutomatiques()
 {
     jeu.actionsAutomatiquesSDL();
-    setPixel(surfaceJeu, jeu.getConstS1().getTeteX(), jeu.getConstS1().getTeteY(), jeu.getConstS1().getCouleur());
+    /*setPixel(surfaceJeu, jeu.getConstS1().getTeteX(), jeu.getConstS1().getTeteY(), jeu.getConstS1().getCouleur());
     setPixel(surfaceJeu, jeu.getConstS2().getTeteX(), jeu.getConstS2().getTeteY(), jeu.getConstS2().getCouleur());
-    SDL_UpdateWindowSurface(window);
-
-
+    SDL_UpdateWindowSurface(window);*/
 }
 
 void sdlJeu::sdlAff()
 {
     //Remplir l'écran de noir
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_SetRenderDrawColor(renderer, 20, 20, 50, 255);
     SDL_RenderClear(renderer);
-    
+
+    SDL_Rect px;
+    px.h = TAILLE_SPRITE;
+    px.w = TAILLE_SPRITE;
+    SDL_SetRenderDrawColor(renderer, 100, 0, 100, 255);
+
+    for (int i = 0; i < jeu.t.getTailleX(); i++) {
+        for (int j = 0; j < jeu.t.getTailleY(); j++) {
+            if(jeu.t.tabCasesOccupees[i][j]) {
+                px.x = i*TAILLE_SPRITE;
+                px.y = j*TAILLE_SPRITE;
+                SDL_RenderFillRect(renderer, &px);
+            }
+        }
+    }
+
+    // AFFICHAGE BONUS : TETES DES SERPENTS //
+    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+    px.x = jeu.getConstS1().getTeteX()*TAILLE_SPRITE;
+    px.y = jeu.getConstS1().getTeteY()*TAILLE_SPRITE;
+    SDL_RenderFillRect(renderer, &px);
+    px.x = jeu.getConstS2().getTeteX()*TAILLE_SPRITE;
+    px.y = jeu.getConstS2().getTeteY()*TAILLE_SPRITE;
+    SDL_RenderFillRect(renderer, &px);
+
+    /*
     //convertir notre surface représentant notre jeu en texture affichable et l'afficher
     int ok;
     surfaceJeu = SDL_ConvertSurfaceFormat(surfaceJeu, SDL_PIXELFORMAT_ARGB8888, 0);
     ok = SDL_UpdateTexture(textureJeu,NULL,surfaceJeu->pixels,surfaceJeu->pitch);
     assert(ok == 0);
     ok = SDL_RenderCopy(renderer,textureJeu,NULL,NULL);
-    assert(ok == 0);
+    assert(ok == 0);*/
 }
 
 void sdlJeu::sdlBoucle()
 {
     Uint32 starting_ticks = SDL_GetTicks(), ticks;
     SDL_Event events;
-    while(gameRunning && jeu.getConstS1().getVivant() && jeu.getConstS2().getVivant())
+    while(gameRunning)
     {
-        ticks = SDL_GetTicks();
-        if (ticks - starting_ticks > 1000 / fps)
-        {
-            sdlActionsAutomatiques();
-            starting_ticks = ticks;
-        }
+        if (jeu.getConstS1().getVivant() && jeu.getConstS2().getVivant()) {
+            ticks = SDL_GetTicks();
+            if (ticks - starting_ticks > 1000 / fps)
+            {
+                sdlActionsAutomatiques();
+                starting_ticks = ticks;
+            }
 
-        while(SDL_PollEvent(&events))
-        {
-            if (events.type == SDL_QUIT) gameRunning = false;           // Si l'utilisateur a clique sur la croix de fermeture
-			else if (events.type == SDL_KEYDOWN) {              // Si une touche est enfoncee
-				switch (events.key.keysym.sym) {
-				case SDLK_q:
-					jeu.actionClavierSDL('q');
-                    break;
-				case SDLK_d:
-					jeu.actionClavierSDL('d');    
-					break;
-				case SDLK_k:
-					jeu.actionClavierSDL('k');
-					break;
-				case SDLK_m:
-					jeu.actionClavierSDL('m');
-					break;
-                case SDLK_ESCAPE:
-                    gameRunning = false;
-				default: break;
+            while(SDL_PollEvent(&events))
+            {
+                if (events.type == SDL_QUIT) gameRunning = false;           // Si l'utilisateur a clique sur la croix de fermeture
+                else if (events.type == SDL_KEYDOWN) {              // Si une touche est enfoncee
+                    switch (events.key.keysym.sym) {
+                    case SDLK_q:
+                        jeu.actionClavierSDL('q');
+                        break;
+                    case SDLK_d:
+                        jeu.actionClavierSDL('d');    
+                        break;
+                    case SDLK_k:
+                        jeu.actionClavierSDL('k');
+                        break;
+                    case SDLK_m:
+                        jeu.actionClavierSDL('m');
+                        break;
+                    case SDLK_ESCAPE:
+                        gameRunning = false;
+                    default: break;
+                    }
                 }
             }
+            sdlAff();
+            SDL_RenderPresent(renderer);
+        } else {
+            cout<<"Affichage texte"<<endl;
+            SDL_Color couleurTexte = { 255, 255, 255 };
+            renderCenterText(0, 0, "Un joueur a perdu !", font32, couleurTexte);
+            SDL_RenderPresent(renderer);
+            cout<<"Affichage texte 2"<<endl;
         }
-        //sdlAff();
-        //SDL_RenderPresent(renderer);
 
     }
 }

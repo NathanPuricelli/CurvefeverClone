@@ -27,7 +27,7 @@ Serpent::Serpent() {
     CompteurTrous = 0;
 }
 
-Serpent::Serpent(unsigned int x,unsigned int y)
+Serpent::Serpent(int x,int y)
 {   
     srand((unsigned int)time(0));
 
@@ -49,6 +49,7 @@ Serpent::Serpent(unsigned int x,unsigned int y)
     couleur = Couleur(rand()%256, rand()%256, rand()%256);
     CompteurTrous = 0;
 
+    cout<<"Construction Serpent en "<<x<<" "<<y<<": Check"<<endl;
 }
 
 
@@ -63,17 +64,15 @@ Serpent::~Serpent()
 }
 
 
-unsigned int Serpent::getTeteX()const
+int Serpent::getTeteX()const
 {
     return TeteX;
 }
 
-
-unsigned int Serpent::getTeteY()const
+int Serpent::getTeteY()const
 {
     return TeteY;
 }
-
 
 bool Serpent::getVivant()const
 {
@@ -90,12 +89,12 @@ bool Serpent::getDroite()const
     return droite;
 }
 
-unsigned int Serpent::getScore()const
+int Serpent::getScore()const
 {
     return score;
 }
 
-unsigned int Serpent::getDirection() const
+int Serpent::getDirection() const
 {
     return direction;
 }
@@ -105,7 +104,7 @@ Couleur Serpent::getCouleur()const
     return couleur;
 }
 
-void Serpent::setDirection(unsigned int dir)
+void Serpent::setDirection(int dir)
 {
     direction = dir;
 }
@@ -115,13 +114,13 @@ void Serpent::setVivant(bool vie)
     vivant = vie;
 }
 
-void Serpent::setTeteX(unsigned int x)
+void Serpent::setTeteX(int x)
 {
     TeteX = x;
 }
 
 
-void Serpent::setTeteY(unsigned int y)
+void Serpent::setTeteY(int y)
 {
     TeteY = y;
 }
@@ -151,7 +150,7 @@ void Serpent::avancerTXT(Terrain &t)
 
 void Serpent::avancerSDL(Terrain &t)
 {
-    if ((CompteurTrous%30) >= 6) t.tabCasesOccupees[TeteX][TeteY] = true;    
+    if ((CompteurTrous%30) >= 5) t.tabCasesOccupees[TeteX][TeteY] = true;    
     if (direction == 0)
     {
         TeteY++;
