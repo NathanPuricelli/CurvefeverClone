@@ -2,7 +2,7 @@
 
 int main(int argc, char* argv[])
 {
-    sdlJeu sjeu(100,100);
+    sdlJeu sjeu(280,157);
     sjeu.sdlBoucle();
     return 0;
 }

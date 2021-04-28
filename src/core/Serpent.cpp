@@ -13,6 +13,10 @@
 #include <string>
 #include <cstdlib>
 #include <time.h>
+#include <math.h>
+
+#define PI 3.14159265
+
 using namespace std;
 
 Serpent::Serpent() {
@@ -48,6 +52,9 @@ Serpent::Serpent(unsigned int x,unsigned int y)
     
     couleur = Couleur(rand()%256, rand()%256, rand()%256);
     CompteurTrous = 0;
+    ID = 0;
+    x_precedent = 0;
+    y_precedent = 0;
 
 }
 
@@ -131,7 +138,7 @@ void Serpent::setTeteY(unsigned int y)
 //sin : valeur sur y
 void Serpent::avancerTXT(Terrain &t)
 {
-    if ((CompteurTrous%30) >= 6) t.tabCasesOccupees[TeteX][TeteY] = true;    
+    if ((CompteurTrous%30) >= 6) t.tabCasesOccupees[TeteX][TeteY] = ID;    
     if (direction == 0)
     {
         TeteY++;
@@ -151,7 +158,10 @@ void Serpent::avancerTXT(Terrain &t)
 
 void Serpent::avancerSDL(Terrain &t)
 {
-    if ((CompteurTrous%30) >= 6) t.tabCasesOccupees[TeteX][TeteY] = true;    
+    y_precedent = TeteY;
+    x_precedent = TeteX;
+    if ((CompteurTrous%30) >= 6) t.tabCasesOccupees[TeteX][TeteY] = ID;    
+    
     if (direction == 0)
     {
         TeteY++;
@@ -165,7 +175,16 @@ void Serpent::avancerSDL(Terrain &t)
         TeteY--;
     }
     else TeteX--;    
-    CompteurTrous++;
+    CompteurTrous++;  /*
+    float x = 3.0 * cos ( direction * PI / 180.0 );
+    float y = 3.0 * sin ( direction * PI / 180.0 );
+    x = (int)x;
+    y = (int)y;
+    TeteX = TeteX + x;
+    TeteY = TeteY + y;
+    
+    CompteurTrous++; */
+
 }
 
 

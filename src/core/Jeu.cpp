@@ -20,6 +20,8 @@ Jeu::Jeu(unsigned int tailleX, unsigned int tailleY) {
     t = Terrain(tailleX, tailleY);
     s1 = Serpent(10,10);
     s2 = Serpent(t.getTailleX() - 10, t.getTailleY() -10);
+    s1.ID = 1;
+    s2.ID = 2;
     s1.setDirection(0);
     s2.setDirection(180);
 }

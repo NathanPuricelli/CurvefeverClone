@@ -53,7 +53,6 @@ private:
     SDL_Window * window;
     SDL_Renderer * renderer;
     void surfaceToTexture();
-    void setPixel(SDL_Surface *screen, int x, int y, Couleur color);
     void sdlActionsAutomatiques();
 };
 

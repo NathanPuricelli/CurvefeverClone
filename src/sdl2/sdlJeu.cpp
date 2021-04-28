@@ -1,11 +1,9 @@
 #include "sdlJeu.h"
 #include <cassert>
 
-#define fps 10
+#define fps 30
 #define window_width 1280
 #define window_height 720
-
-const int TAILLE_SPRITE = 10;
 
 //commencer avec une fenetre avec terrain vide et mettre des points à la main dans le main.
 
@@ -79,7 +77,7 @@ void Image::setSurface(SDL_Surface * surf) {surface = surf;}
 
 // ============= CLASS SDLJEU =============== //
 
-sdlJeu::sdlJeu(unsigned int tailleX, unsigned int tailleY):jeu(tailleX, tailleY), fenetreJeu(0,180)
+sdlJeu::sdlJeu(unsigned int tailleX, unsigned int tailleY):jeu(tailleX, tailleY), fenetreJeu(0,90)
 {
     //Initialisation de la sdl : 
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
@@ -123,19 +121,10 @@ sdlJeu::~sdlJeu()
     SDL_Quit();
 }
 
-void sdlJeu::setPixel(SDL_Surface *screen, int x, int y, Couleur color)
-{
-    Uint32 couleur = SDL_MapRGB(screen->format, color.getRouge(), color.getBleu(), color.getVert());
-    
-    SDL_Rect pixel;
-    pixel.w = TAILLE_SPRITE, pixel.h = TAILLE_SPRITE;
-    pixel.x = x * TAILLE_SPRITE, pixel.y = y* TAILLE_SPRITE; 
-    SDL_FillRect(screen, &pixel, couleur);
-}
-
 void sdlJeu::sdlActionsAutomatiques()
 {
     jeu.actionsAutomatiquesSDL();
+    fenetreJeu.fillSurfaceOnMotion(jeu);
 }
 
 void sdlJeu::sdlAff()

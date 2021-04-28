@@ -55,6 +55,11 @@ private :
     unsigned int CompteurTrous;
 
 public :
+
+    unsigned char ID; //1 ou 2
+
+    unsigned int x_precedent;
+    unsigned int y_precedent;
     /**
     @brief Constructeur par défaut de la classe: initialise le serpent.
     */
