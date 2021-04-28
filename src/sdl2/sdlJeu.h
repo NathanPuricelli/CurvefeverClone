@@ -1,6 +1,7 @@
 #ifndef SDLJEU_H
 #define SDLJEU_H
 #include "Jeu.h"
+#include "fenetreJeu.h"
 #include <iostream>
 
 #ifdef _WIN32
@@ -47,11 +48,10 @@ public:
     bool gameRunning; //private ?
 
 private:
+    fenetreJeu fenetreJeu;
     Jeu jeu;
     SDL_Window * window;
     SDL_Renderer * renderer;
-    SDL_Surface * surfaceJeu;
-    SDL_Texture * textureJeu;
     void surfaceToTexture();
     void setPixel(SDL_Surface *screen, int x, int y, Couleur color);
     void sdlActionsAutomatiques();
