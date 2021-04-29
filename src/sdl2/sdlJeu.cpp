@@ -1,7 +1,7 @@
 #include "sdlJeu.h"
 #include <cassert>
 
-#define fps 20
+#define fps 15
 const int TAILLE_SPRITE = 10;
 const int WIDTH = 140;
 const int HEIGHT = 72;
@@ -176,6 +176,27 @@ void sdlJeu::renderCenterText(float p_x, float p_y, const char* p_text, TTF_Font
 	SDL_FreeSurface(surfaceMessage);
 }
 
+void sdlJeu::renderText(float p_x, float p_y, const char* p_text, TTF_Font* font, SDL_Color textColor)
+{
+	SDL_Surface* surfaceMessage = TTF_RenderText_Blended( font, p_text, textColor);
+	SDL_Texture* message = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+
+	SDL_Rect src;
+	src.x = 0;
+	src.y = 0;
+	src.w = surfaceMessage->w;
+	src.h = surfaceMessage->h; 
+
+	SDL_Rect dst;
+	dst.x = p_x;
+	dst.y = p_y;
+	dst.w = src.w;
+	dst.h = src.h;
+
+	SDL_RenderCopy(renderer, message, &src, &dst);
+	SDL_FreeSurface(surfaceMessage);
+}
+
 void sdlJeu::recommencerPartie() {
     for (int i = 0; i < jeu.t.getTailleX(); i++) {
         for (int j = 0; j < jeu.t.getTailleY(); j++) {
@@ -233,6 +254,17 @@ void sdlJeu::sdlAff()
     px.y = jeu.getConstS2().getTeteY()*TAILLE_SPRITE;
     SDL_RenderFillRect(renderer, &px);
 
+    renderText(10, 10, "Joueur 1 :", font32, blanc);
+    renderText(10, 40, "Joueur 2 :", font32, blanc);
+
+    char txt[4];
+
+    sprintf(txt, "%d", jeu.getS1().getScore());
+    renderText(200, 10, txt, font32, blanc);
+
+    sprintf(txt, "%d", jeu.getS2().getScore());
+    renderText(200, 40, txt, font32, blanc);
+
     /*
     //convertir notre surface représentant notre jeu en texture affichable et l'afficher
     int ok;
@@ -285,8 +317,10 @@ void sdlJeu::sdlBoucle()
         } else {
             if (!jeu.getConstS1().getVivant()) {
                 renderCenterText(0, -20, "Joueur 1 est mort", font32, blanc);
+                jeu.getS2().augmenterScore(1);
             } else {
                 renderCenterText(0, -20, "Joueur 2 est mort", font32, blanc);
+                jeu.getS1().augmenterScore(1);
             }
             renderCenterText(0, 10, "Cliquez pour continuer", font32, blanc);
             SDL_RenderPresent(renderer);

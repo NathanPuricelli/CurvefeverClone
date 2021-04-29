@@ -56,6 +56,7 @@ private:
     SDL_Color blanc;
     void recommencerPartie();
     void renderCenterText(float p_x, float p_y, const char* p_text, TTF_Font* font, SDL_Color textColor);
+    void renderText(float p_x, float p_y, const char* p_text, TTF_Font* font, SDL_Color textColor);
     void surfaceToTexture();
     void setPixel(SDL_Surface *screen, int x, int y, Couleur color);
     void sdlActionsAutomatiques();

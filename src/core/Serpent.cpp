@@ -5,6 +5,7 @@
 @author : Aymeric Leto, Benoît Briguet, Nathan Puricelli
 @date : Mars 2021
 */
+const float PI = 3.1415926535;
 
 #include "Serpent.h"
 #include <iostream>
@@ -13,13 +14,12 @@
 #include <string>
 #include <cstdlib>
 #include <time.h>
+#include <math.h> 
 using namespace std;
 
 Serpent::Serpent() {
     TeteX = 0;
     TeteY = 0;
-    droite = false;
-    gauche = false;
     vivant = true;
     score = 0;
     direction = 0;
@@ -27,7 +27,7 @@ Serpent::Serpent() {
     CompteurTrous = 0;
 }
 
-Serpent::Serpent(int x,int y)
+Serpent::Serpent(float x,float y)
 {   
     srand((unsigned int)time(0));
 
@@ -38,9 +38,7 @@ Serpent::Serpent(int x,int y)
     TeteY = y;
     //t[y*(t.getTailleX())+x]=!&t[y*(t.getTailleX())+x];
     //Je n'y suis pas arrivé, il faudrait changer la valeur du booléen du tableau alloué (terrain) lorqu'on créer le serpent..
-    
-    droite = false;
-    gauche = false;
+
     vivant = true;
     score = 0;
     
@@ -56,20 +54,18 @@ Serpent::Serpent(int x,int y)
 Serpent::~Serpent()
 {
     //Pas sur que tout ça soit nécessaire (A)
-    droite = false;
-    gauche = false;
     vivant = true;
     score = 0;
     couleur.~Couleur();
 }
 
 
-int Serpent::getTeteX()const
+float Serpent::getTeteX()const
 {
     return TeteX;
 }
 
-int Serpent::getTeteY()const
+float Serpent::getTeteY()const
 {
     return TeteY;
 }
@@ -79,22 +75,12 @@ bool Serpent::getVivant()const
     return vivant;
 }
 
-bool Serpent::getGauche()const
-{
-    return gauche;
-}
-
-bool Serpent::getDroite()const
-{
-    return droite;
-}
-
 int Serpent::getScore()const
 {
     return score;
 }
 
-int Serpent::getDirection() const
+float Serpent::getDirection() const
 {
     return direction;
 }
@@ -104,7 +90,7 @@ Couleur Serpent::getCouleur()const
     return couleur;
 }
 
-void Serpent::setDirection(int dir)
+void Serpent::setDirection(float dir)
 {
     direction = dir;
 }
@@ -114,15 +100,18 @@ void Serpent::setVivant(bool vie)
     vivant = vie;
 }
 
-void Serpent::setTeteX(int x)
+void Serpent::setTeteX(float x)
 {
     TeteX = x;
 }
 
-
-void Serpent::setTeteY(int y)
+void Serpent::setTeteY(float y)
 {
     TeteY = y;
+}
+
+void Serpent::augmenterScore(int s) {
+    score+=s;
 }
 
 //supprimre les if pour la version sdl
@@ -130,7 +119,7 @@ void Serpent::setTeteY(int y)
 //sin : valeur sur y
 void Serpent::avancerTXT(Terrain &t)
 {
-    if ((CompteurTrous%30) >= 6) t.tabCasesOccupees[TeteX][TeteY] = true;    
+    if ((CompteurTrous%30) >= 6) t.tabCasesOccupees[(int) TeteX][(int) TeteY] = true;    
     if (direction == 0)
     {
         TeteY++;
@@ -150,20 +139,21 @@ void Serpent::avancerTXT(Terrain &t)
 
 void Serpent::avancerSDL(Terrain &t)
 {
-    if ((CompteurTrous%30) >= 5) t.tabCasesOccupees[TeteX][TeteY] = true;    
-    if (direction == 0)
-    {
-        TeteY++;
-    }
-    else if (direction == 90)
-    {
-        TeteX++;
-    }
-    else if (direction == 180)
-    {
-        TeteY--;
-    }
-    else TeteX--;    
+    if ((CompteurTrous%30) >= 5) t.tabCasesOccupees[(int) TeteX][(int) TeteY] = true;    
+
+    float avanceeX = 1.42 * cos(direction * PI / 180);
+    float avanceeY = 1.42 * sin(direction * PI / 180);
+    /*avanceeX = (int) avanceeX;
+    avanceeY = (int) avanceeY;*/
+    if (avanceeX > 1) avanceeX = 1;
+    if (avanceeX < -1) avanceeX = -1;
+
+    if (avanceeY > 1) avanceeY = 1;
+    if (avanceeY < -1) avanceeY = -1;
+    TeteX += avanceeX;
+    TeteY += avanceeY;
+
+
     CompteurTrous++;
 }
 
@@ -176,5 +166,5 @@ void Serpent::avancerSDL(Terrain &t)
 
 bool Serpent::VerifColision(const Terrain &t) const
 {
-    return ((TeteX==0) || (TeteX>=t.getTailleX()) || (TeteY==0) || (TeteY>=t.getTailleY()) || (t.tabCasesOccupees[TeteX][TeteY]));
+    return ((TeteX==0) || (TeteX>=t.getTailleX()) || (TeteY==0) || (TeteY>=t.getTailleY()) || (t.tabCasesOccupees[(int) TeteX][(int) TeteY]));
 }
