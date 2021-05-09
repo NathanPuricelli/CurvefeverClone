@@ -31,7 +31,7 @@ Serpent::Serpent() {
     CompteurTrous = 0;
 }
 
-Serpent::Serpent(unsigned int x,unsigned int y)
+Serpent::Serpent(unsigned int x,unsigned int y, Couleur c)
 {   
     srand((unsigned int)time(0));
 
@@ -50,8 +50,8 @@ Serpent::Serpent(unsigned int x,unsigned int y)
     
     direction = (rand()%4) * 90; // pas valide en sdl
     
-    couleur = Couleur(rand()%256, rand()%256, rand()%256);
-    CompteurTrous = 0;
+    couleur = c;
+    CompteurTrous = rand()%30;
     ID = 0;
     x_precedent = 0;
     y_precedent = 0;

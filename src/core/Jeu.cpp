@@ -16,10 +16,10 @@ using namespace std;
 
 Jeu::Jeu() {}
 
-Jeu::Jeu(unsigned int tailleX, unsigned int tailleY) {
+Jeu::Jeu(unsigned int tailleX, unsigned int tailleY, Couleur couleur1, Couleur couleur2) {
     t = Terrain(tailleX, tailleY);
-    s1 = Serpent(10,10);
-    s2 = Serpent(t.getTailleX() - 10, t.getTailleY() -10);
+    s1 = Serpent(10,10, couleur1);
+    s2 = Serpent(t.getTailleX() - 10, t.getTailleY() -10, couleur2);
     s1.ID = 1;
     s2.ID = 2;
     s1.setDirection(0);
