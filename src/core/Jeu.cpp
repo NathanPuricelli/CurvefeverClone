@@ -12,6 +12,7 @@
 #include <cassert>
 #include <fstream>
 #include <string>
+#include <math.h>
 using namespace std;
 
 Jeu::Jeu() {}
@@ -68,6 +69,7 @@ void Jeu::actionsAutomatiquesSDL() {
 void Jeu::actionClavierTXT(const char touche) {
     //Serpent 1 utilise q et d
     //Serpent 2 utilise k et m
+    /*
     switch (touche)
     {
     case 'q':
@@ -81,26 +83,18 @@ void Jeu::actionClavierTXT(const char touche) {
         break;
     case 'm':
         s2.setDirection((s2.getDirection() + 270 ) % 360);    
-    }
+    } */
 }
 
-void Jeu::actionClavierSDL(const char touche)
+void Jeu::actionClavierSDL(bool J1GaucheAppuye, bool J1DroiteAppuye, bool J2GaucheAppuye, bool J2DroiteAppuye)
 {
     //Serpent 1 utilise q et d
     //Serpent 2 utilise k et m
-    switch (touche)
-    {
-    case 'q':
-        s1.setDirection((s1.getDirection() + 90 ) % 360);
-        break;
-    case 'd':
-        s1.setDirection((s1.getDirection() + 270 ) % 360);
-        break;
-    case 'k':
-        s2.setDirection((s2.getDirection() + 90 ) % 360);
-        break;
-    case 'm':
-        s2.setDirection((s2.getDirection() + 270 ) % 360);    
-    }
+    int forceVirage = 10;
+    if (J1GaucheAppuye) s1.setDirection(fmod(s1.getDirection() + 360 - forceVirage, 360));
+    if (J1DroiteAppuye) s1.setDirection(fmod(s1.getDirection() + forceVirage, 360));
+    if (J2GaucheAppuye) s2.setDirection(fmod(s2.getDirection() + 360 - forceVirage, 360));
+    if (J2DroiteAppuye) s2.setDirection(fmod(s2.getDirection() + forceVirage, 360));
+
 }
 

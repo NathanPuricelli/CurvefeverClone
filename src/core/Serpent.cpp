@@ -15,7 +15,7 @@
 #include <time.h>
 #include <math.h>
 
-#define PI 3.14159265
+const float PI = 3.1415926535;
 
 using namespace std;
 
@@ -31,7 +31,7 @@ Serpent::Serpent() {
     CompteurTrous = 0;
 }
 
-Serpent::Serpent(unsigned int x,unsigned int y, Couleur c)
+Serpent::Serpent(float x,float y, Couleur c)
 {   
     srand((unsigned int)time(0));
 
@@ -70,13 +70,13 @@ Serpent::~Serpent()
 }
 
 
-unsigned int Serpent::getTeteX()const
+float Serpent::getTeteX()const
 {
     return TeteX;
 }
 
 
-unsigned int Serpent::getTeteY()const
+float Serpent::getTeteY()const
 {
     return TeteY;
 }
@@ -102,7 +102,7 @@ unsigned int Serpent::getScore()const
     return score;
 }
 
-unsigned int Serpent::getDirection() const
+float Serpent::getDirection() const
 {
     return direction;
 }
@@ -112,7 +112,7 @@ Couleur Serpent::getCouleur()const
     return couleur;
 }
 
-void Serpent::setDirection(unsigned int dir)
+void Serpent::setDirection(float dir)
 {
     direction = dir;
 }
@@ -122,13 +122,13 @@ void Serpent::setVivant(bool vie)
     vivant = vie;
 }
 
-void Serpent::setTeteX(unsigned int x)
+void Serpent::setTeteX(float x)
 {
     TeteX = x;
 }
 
 
-void Serpent::setTeteY(unsigned int y)
+void Serpent::setTeteY(float y)
 {
     TeteY = y;
 }
@@ -138,7 +138,7 @@ void Serpent::setTeteY(unsigned int y)
 //sin : valeur sur y
 void Serpent::avancerTXT(Terrain &t)
 {
-    if ((CompteurTrous%30) >= 6) t.tabCasesOccupees[TeteX][TeteY] = ID;    
+    if ((CompteurTrous%30) >= 6) t.tabCasesOccupees[(int)TeteX][(int)TeteY] = ID;    
     if (direction == 0)
     {
         TeteY++;
@@ -160,33 +160,29 @@ void Serpent::avancerSDL(Terrain &t)
 {
     y_precedent = TeteY;
     x_precedent = TeteX;
-    if ((CompteurTrous%30) >= 6) t.tabCasesOccupees[TeteX][TeteY] = ID;    
-    
-    if (direction == 0)
-    {
-        TeteY++;
-    }
-    else if (direction == 90)
-    {
-        TeteX++;
-    }
-    else if (direction == 180)
-    {
-        TeteY--;
-    }
-    else TeteX--;    
-    CompteurTrous++;  /*
-    float x = 3.0 * cos ( direction * PI / 180.0 );
-    float y = 3.0 * sin ( direction * PI / 180.0 );
-    x = (int)x;
-    y = (int)y;
-    TeteX = TeteX + x;
-    TeteY = TeteY + y;
-    
-    CompteurTrous++; */
+    if ((CompteurTrous%30) >= 6) t.tabCasesOccupees[(int)TeteX][(int)TeteY] = ID;       
 
+    float avanceeX = 1.42 * cos(direction * PI / 180);
+    float avanceeY = 1.42 * sin(direction * PI / 180);
+    /*avanceeX = (int) avanceeX;
+    avanceeY = (int) avanceeY;*/
+    if (avanceeX > 1) avanceeX = 1;
+    if (avanceeX < -1) avanceeX = -1;
+
+    if (avanceeY > 1) avanceeY = 1;
+    if (avanceeY < -1) avanceeY = -1;
+    TeteX += avanceeX;
+    TeteY += avanceeY;
+
+
+    CompteurTrous++;
 }
 
+
+void Serpent::augmenterScore(int s)
+{
+    score += s;
+}
 
 // J'ai pas compris a quoi correspond la direction..
 
@@ -196,5 +192,18 @@ void Serpent::avancerSDL(Terrain &t)
 
 bool Serpent::VerifColision(const Terrain &t) const
 {
-    return ((TeteX==0) || (TeteX>=t.getTailleX()) || (TeteY==0) || (TeteY>=t.getTailleY()) || (t.tabCasesOccupees[TeteX][TeteY]));
+    //Vérifie les cases à gauche et à droite de la tête du serpent, ce qui dépent donc de sa direction.
+    //On vérifie les déplacements dans cet ordre : droite haut gauche bas
+    if ((direction > 315 || direction <= 45) || (direction > 135 && direction <= 225)) //droite ou gauche
+        return ((TeteX==0) || (TeteX>=t.getTailleX()) || (TeteY==0) || (TeteY>=t.getTailleY()) 
+            || (t.tabCasesOccupees[(int) TeteX][(int) TeteY])
+            || (t.tabCasesOccupees[(int) TeteX][(int) TeteY + 1]) || (t.tabCasesOccupees[(int) TeteX][(int) TeteY - 1]));
+
+    if ((direction > 45 && direction <= 135) || (direction > 225 && direction <= 315)) //haut ou bas
+        return ((TeteX==0) || (TeteX>=t.getTailleX()) || (TeteY==0) || (TeteY>=t.getTailleY()) 
+            || (t.tabCasesOccupees[(int) TeteX][(int) TeteY])
+            || (t.tabCasesOccupees[(int) TeteX + 1][(int) TeteY]) || (t.tabCasesOccupees[(int) TeteX - 1][(int) TeteY]));
+
+    return ((TeteX==0) || (TeteX>=t.getTailleX()) || (TeteY==0) || (TeteY>=t.getTailleY()) 
+            || (t.tabCasesOccupees[(int) TeteX][(int) TeteY]));
 }

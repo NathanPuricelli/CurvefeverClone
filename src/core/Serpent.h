@@ -23,7 +23,7 @@ private :
     /**
     @brief La position de la tête du serpent, TeteX dans la hauteur et TeteY dans la largeur du terrain de jeu.
     */
-    unsigned int TeteX, TeteY;
+    float TeteX, TeteY;
     
     /**
     @brief Booléens pour la direction du serpent (à droite ou à gauche).
@@ -43,7 +43,7 @@ private :
     /**
     @brief La direction du serpent.
     */
-    unsigned int direction; // mettre un float car convertir en rad
+    float direction; // mettre un float car convertir en rad
     
     /**
     @brief La couleur du serpent.
@@ -72,7 +72,7 @@ public :
     @param[in] x Coordonnée de la tête dans la hauteur du terrain.
     @param[in] y Coordonnée de la tête dans la largeur du terrain.
     */
-    Serpent(unsigned int x, unsigned int y, Couleur c); // voir pour couleur, direction.
+    Serpent(float x, float y, Couleur c); // voir pour couleur, direction.
     
     /**
     @brief Destructeur de la classe:
@@ -82,12 +82,12 @@ public :
     /**
     @brief Accesseur : récupère la valeur de la coordonnée TeteX (dans la hauteur) de la tête du serpent.
     */
-    unsigned int getTeteX()const ;
+    float getTeteX()const ;
     
     /**
     @brief Accesseur : récupère la valeur de la coordonnée TeteY (dans la largeur) de la tête du serpent.
     */
-    unsigned int getTeteY()const ;
+    float getTeteY()const ;
     
     /**
     @brief Accesseur : récupère le booléen indiquant si le serpent est encore vivant.
@@ -112,7 +112,7 @@ public :
     /**
     @brief Accesseur : récupère la direction du serpent
     */
-    unsigned int getDirection()const ;
+    float getDirection()const ;
 
     /**
     @brief Accesseur : récupère la couleur du serpent
@@ -122,7 +122,7 @@ public :
     /**
     @brief Mutateur : change la direction du serpent
     */
-    void setDirection(unsigned int dir);
+    void setDirection(float dir);
 
     /**
     @brief Mutateur : change la vie du serpent
@@ -135,14 +135,14 @@ public :
     @warning x doit appartenir à l'aire du terrain de jeu.
     @param[in] x Position de la tête dans la hauteur.
     */
-    void setTeteX(unsigned int x);
+    void setTeteX(float x);
     
     /**
     @brief Mutateur: change la valeur de la coordonnée TeteY de la tête du serpent.
     @warning y doit appartenir à l'aire du terrain de jeu.
     @param[in] y Position de la tête dans la largeur.
     */
-    void setTeteY(unsigned int y);
+    void setTeteY(float y);
     
     /**
     @brief Fait avancer le serpent et choisi la nouvelle position de la tete en fonction de la direction
@@ -158,6 +158,8 @@ public :
     @param[in] T Terrain de jeu.
     */
     bool VerifColision(const Terrain &t) const;
+
+    void augmenterScore(int s);
 
 };
 

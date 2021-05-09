@@ -17,7 +17,7 @@ private:
     Uint32 couleurJ2;
 
 public:
-    FenetreJeu(int x, int y, int w = 1122, int h = 630);
+    FenetreJeu(int x, int y, int w = 1122, int h = 630);//x et y coordonnées en haut  à gauche de la fenetre, relativement à window
     ~FenetreJeu();
     void couleurJoueurs(const Jeu &j); // doit etre appelée avant de lancer la partie
     void update();

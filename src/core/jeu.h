@@ -70,7 +70,7 @@ public :
     */
     void actionClavierTXT(const char touche);
 
-    void actionClavierSDL(const char touche);
+    void actionClavierSDL(bool J1GaucheAppuye, bool J1DroiteAppuye, bool J2GaucheAppuye, bool J2DroiteAppuye);
 };
 
 #endif

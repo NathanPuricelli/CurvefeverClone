@@ -1,7 +1,7 @@
 #include "sdlJeu.h"
 #include <cassert>
 
-#define fps 30
+#define fps 60
 #define window_width 1280
 #define window_height 720
 
@@ -56,6 +56,26 @@ sdlJeu::~sdlJeu()
     SDL_Quit();
 }
 
+void sdlJeu::recommencerPartie() {
+    for (unsigned int i = 0; i < jeu.t.getTailleX(); i++) {
+        for (unsigned int j = 0; j < jeu.t.getTailleY(); j++) {
+            jeu.t.tabCasesOccupees[i][j] = 0;
+        }
+    }
+    jeu.getS1().setTeteX(10);
+    jeu.getS1().setTeteY(10);
+    jeu.getS1().setVivant(true);
+    jeu.getS1().setDirection(0);
+    
+    
+    jeu.getS2().setTeteX(jeu.t.getTailleX() - 10);
+    jeu.getS2().setTeteY(jeu.t.getTailleY() - 10);
+    jeu.getS2().setVivant(true);
+    jeu.getS2().setDirection(180);
+
+}
+
+
 void sdlJeu::sdlActionsAutomatiques()
 {
     jeu.actionsAutomatiquesSDL();
@@ -82,8 +102,16 @@ void sdlJeu::sdlAff()
 void sdlJeu::sdlBoucle()
 {
     gameRunning = true;
+    bool J1GaucheAppuye = false;
+    bool J1DroiteAppuye = false;
+    bool J2GaucheAppuye = false;
+    bool J2DroiteAppuye = false;
+
+
     Uint32 starting_ticks = SDL_GetTicks(), ticks;
     SDL_Event events;
+
+    /*
     while(gameRunning && jeu.getConstS1().getVivant() && jeu.getConstS2().getVivant())
     {
         ticks = SDL_GetTicks();
@@ -119,5 +147,93 @@ void sdlJeu::sdlBoucle()
         sdlAff();
         SDL_RenderPresent(renderer);
 
+    }*/
+    while(gameRunning)
+    {
+        if (jeu.getConstS1().getVivant() && jeu.getConstS2().getVivant()) {
+            ticks = SDL_GetTicks();
+            if (ticks - starting_ticks > 1000 / fps)
+            {
+                sdlActionsAutomatiques();
+
+                jeu.actionClavierSDL(J1GaucheAppuye, J1DroiteAppuye, J2GaucheAppuye, J2DroiteAppuye);
+                starting_ticks = ticks;
+
+                sdlAff();
+                SDL_RenderPresent(renderer);
+            }
+
+            while(SDL_PollEvent(&events)) {
+                switch (events.type) {
+                    case SDL_QUIT:
+                        gameRunning = false;
+                        break;
+                    case SDL_KEYDOWN:
+                        switch (events.key.keysym.sym) {
+                            case SDLK_q:
+                                J1GaucheAppuye = true;
+                                break;
+                            case SDLK_d:
+                                  J1DroiteAppuye = true;
+                                break;
+                            case SDLK_k:
+                                J2GaucheAppuye = true;
+                                break;
+                            case SDLK_m:
+                                J2DroiteAppuye = true;
+                                break;
+                        }
+                        break;
+                    case SDL_KEYUP:
+                        switch (events.key.keysym.sym) {
+                            case SDLK_q:
+                                J1GaucheAppuye = false;
+                                break;
+                            case SDLK_d:
+                                J1DroiteAppuye = false;
+                                break;
+                            case SDLK_k:
+                                J2GaucheAppuye = false;
+                                break;
+                            case SDLK_m:
+                                J2DroiteAppuye = false;
+                                break;
+                        }
+                        break;
+                }
+            }
+            
+        } else {
+            if (!jeu.getConstS1().getVivant()) {
+                //renderCenterText(0, -20, "Joueur 1 est mort", font32, blanc);
+                jeu.getS2().augmenterScore(1);
+            } else {
+                //renderCenterText(0, -20, "Joueur 2 est mort", font32, blanc);
+                jeu.getS1().augmenterScore(1);
+            }
+            //renderCenterText(0, 10, "Appuyez sur espace pour continuer", font32, blanc);
+            SDL_RenderPresent(renderer);
+            bool reprendrePartie = false;
+            while (!reprendrePartie) {
+                while(SDL_PollEvent(&events)) {
+                    if (events.type == SDL_QUIT) {
+                        gameRunning = false;        // Si l'utilisateur a clique sur la croix de fermeture
+                        reprendrePartie = true;
+                    }
+                    else if (events.type == SDL_KEYDOWN && events.key.keysym.sym == SDLK_SPACE) {
+                        reprendrePartie = true;
+                        recommencerPartie();
+                        J1GaucheAppuye = false;
+                        J1DroiteAppuye = false;
+                        J2GaucheAppuye = false;
+                        J2DroiteAppuye = false;
+                        SDL_SetRenderDrawColor(renderer, 20, 20, 50, 255);
+                        SDL_RenderClear(renderer);
+                    }
+                }
+            }
+        }
     }
+
+
 }

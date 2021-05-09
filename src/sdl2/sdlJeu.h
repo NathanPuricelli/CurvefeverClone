@@ -38,6 +38,7 @@ private:
     SDL_Renderer * renderer;
     void surfaceToTexture();
     void sdlActionsAutomatiques();
+    void recommencerPartie();
 };
 
 

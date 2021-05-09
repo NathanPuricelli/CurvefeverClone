@@ -1,5 +1,5 @@
 #include "fenetreJeu.h"
-#define TAILLE_SPRITE 3
+#define TAILLE_SPRITE 6
 FenetreJeu::FenetreJeu(int x, int y, int w, int h)
 {
     surface = NULL;
@@ -40,11 +40,10 @@ void FenetreJeu::setPix(Uint32 color, int x, int y)
 
 void FenetreJeu::fillSurfaceOnMotion(const Jeu &j)
 {
-    setPix(couleurJ1, j.getConstS1().getTeteX(), j.getConstS1().getTeteY());
-    setPix(couleurJ2, j.getConstS2().getTeteX(), j.getConstS2().getTeteY());
     if (j.t.tabCasesOccupees[j.getConstS1().x_precedent][j.getConstS1().y_precedent] == 0) setPix(couleurFond, j.getConstS1().x_precedent, j.getConstS1().y_precedent);
     if (j.t.tabCasesOccupees[j.getConstS2().x_precedent][j.getConstS2().y_precedent] == 0) setPix(couleurFond, j.getConstS2().x_precedent, j.getConstS2().y_precedent);
-    
+    setPix(couleurJ1, j.getConstS1().getTeteX(), j.getConstS1().getTeteY());
+    setPix(couleurJ2, j.getConstS2().getTeteX(), j.getConstS2().getTeteY());
 }
 
 void FenetreJeu::draw(SDL_Renderer* renderer)

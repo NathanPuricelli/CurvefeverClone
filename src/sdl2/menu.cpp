@@ -76,12 +76,12 @@ bool Menu::isIn(int x, int y, int w, int h, int souris_x, int souris_y)
     
 }
 
-void Menu::menuAff(bool sourisSurJouer)
+void Menu::menuAff(bool sourisSurJoueur)
 {
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
     SDL_RenderClear(renderer);
 
-    if (sourisSurJouer) imMenuPresse.draw(renderer, 0,0,1280,720);
+    if (sourisSurJoueur) imMenuPresse.draw(renderer, 0,0,1280,720);
     else imMenu.draw(renderer, 0,0,1280,720);
 
     //affichage de joueur 1 et joueur 2 en fonction de leur couleur

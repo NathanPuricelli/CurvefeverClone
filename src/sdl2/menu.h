@@ -7,7 +7,6 @@
 class Menu
 {
 private:
-    int largeur, hauteur;
     Image imMenuPresse;
     Image imMenu;
 	SDL_Window* window; //pour la fenetre principale du menu
@@ -20,7 +19,7 @@ private:
 public:
     Menu();
     ~Menu();
-    void menuAff(bool sourisSurJouer);
+    void menuAff(bool sourisSurJoueur);
     void boucleRemplissage();
     bool isIn(int x, int y, int w, int h, int souris_x, int souris_y);
     Couleur couleurJ1;
