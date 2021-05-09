@@ -67,7 +67,15 @@ void sdlJeu::sdlAff()
     //Remplir l'écran de noir
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderClear(renderer);
+
+    //Affichage de la fenetre de jeu
     fenetreJeu.draw(renderer);
+
+    //Affichage du score des joueurs
+
+    //affichage de l'image de fond d'affichage des scores
+
+    //Afichage des boutons recommencer la partie, quitter le jeu. 
     
 }
 
