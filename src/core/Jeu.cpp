@@ -85,10 +85,16 @@ void Jeu::actionClavierTXT(const char touche) {
     }*/
 }
 
-void Jeu::actionClavierSDL(const char touche)
+void Jeu::actionClavierSDL(bool J1GaucheAppuye, bool J1DroiteAppuye, bool J2GaucheAppuye, bool J2DroiteAppuye)
 {
     //Serpent 1 utilise q et d
     //Serpent 2 utilise k et m
+    if (J1GaucheAppuye) s1.setDirection(fmod(s1.getDirection() + 350,360));
+    if (J1DroiteAppuye) s1.setDirection(fmod(s1.getDirection() + 10,360));
+    if (J2GaucheAppuye) s2.setDirection(fmod(s2.getDirection() + 350,360));
+    if (J2DroiteAppuye) s2.setDirection(fmod(s2.getDirection() + 10,360));
+    
+    /*
     switch (touche)
     {
     case 'q':
@@ -103,6 +109,6 @@ void Jeu::actionClavierSDL(const char touche)
     case 'm':
         s2.setDirection(fmod(s2.getDirection() + 20,360));
         break;
-    }
+    }*/
 }
 

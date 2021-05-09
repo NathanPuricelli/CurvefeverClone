@@ -166,5 +166,18 @@ void Serpent::avancerSDL(Terrain &t)
 
 bool Serpent::VerifColision(const Terrain &t) const
 {
-    return ((TeteX==0) || (TeteX>=t.getTailleX()) || (TeteY==0) || (TeteY>=t.getTailleY()) || (t.tabCasesOccupees[(int) TeteX][(int) TeteY]));
+    //Vérifie les cases à gauche et à droite de la tête du serpent, ce qui dépent donc de sa direction.
+    //On vérifie les déplacements dans cet ordre : droite haut gauche bas
+    if ((direction > 315 || direction <= 45) || (direction > 135 && direction <= 225)) //droite ou gauche
+        return ((TeteX==0) || (TeteX>=t.getTailleX()) || (TeteY==0) || (TeteY>=t.getTailleY()) 
+            || (t.tabCasesOccupees[(int) TeteX][(int) TeteY])
+            || (t.tabCasesOccupees[(int) TeteX][(int) TeteY + 1]) || (t.tabCasesOccupees[(int) TeteX][(int) TeteY - 1]));
+
+    if ((direction > 45 && direction <= 135) || (direction > 225 && direction <= 315)) //haut ou bas
+        return ((TeteX==0) || (TeteX>=t.getTailleX()) || (TeteY==0) || (TeteY>=t.getTailleY()) 
+            || (t.tabCasesOccupees[(int) TeteX][(int) TeteY])
+            || (t.tabCasesOccupees[(int) TeteX + 1][(int) TeteY]) || (t.tabCasesOccupees[(int) TeteX - 1][(int) TeteY]));
+
+    return ((TeteX==0) || (TeteX>=t.getTailleX()) || (TeteY==0) || (TeteY>=t.getTailleY()) 
+            || (t.tabCasesOccupees[(int) TeteX][(int) TeteY]));
 }

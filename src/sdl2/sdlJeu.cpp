@@ -1,5 +1,6 @@
 #include "sdlJeu.h"
 #include <cassert>
+#include <cmath>
 
 #define fps 15
 const int TAILLE_SPRITE = 10;
@@ -93,8 +94,8 @@ sdlJeu::sdlJeu(int tailleX, int tailleY):jeu(tailleX, tailleY)
         exit(1);
     }
 
-    //creation de la fenetre : 
-    window = SDL_CreateWindow("Curvefever !", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH*TAILLE_SPRITE, HEIGHT*TAILLE_SPRITE, SDL_WINDOW_SHOWN);
+    //creation de la fenetre : (x ou y peuvent être SDL_WINDOWPOS_CENTERED)
+    window = SDL_CreateWindow("Curvefever !", 10, 10, WIDTH*TAILLE_SPRITE, HEIGHT*TAILLE_SPRITE, SDL_WINDOW_SHOWN);
     if (window == NULL)
     {
         cout << "Erreur lors de la creation de la fenetre : " << SDL_GetError() << endl;
@@ -127,6 +128,15 @@ sdlJeu::sdlJeu(int tailleX, int tailleY):jeu(tailleX, tailleY)
             exit(1);
 	}
 
+    font64 = TTF_OpenFont("res/fonts/cocogoose.ttf", 64);
+    if (font64 == NULL)
+        font64 = TTF_OpenFont("../res/fonts/cocogoose.ttf", 64);
+    if (font64 == NULL) {
+            cout << "Erreur lors du chargement de cocogoose.ttf! SDL_TTF Error: " << SDL_GetError() << endl; 
+            SDL_Quit(); 
+            exit(1);
+	}
+
     //chargement de l'image du jeu
     textureJeu = NULL;
     gameRunning = true;
@@ -145,6 +155,46 @@ sdlJeu::~sdlJeu()
     SDL_Quit();
 }
 
+void sdlJeu::DessinerCercle(SDL_Renderer * renderer, int32_t centreX, int32_t centreY, int32_t radius)
+{
+   const int32_t diameter = (radius * 2);
+
+   int32_t x = (radius - 1);
+   int32_t y = 0;
+   int32_t tx = 1;
+   int32_t ty = 1;
+   int32_t error = (tx - diameter);
+
+   while (x >= y)
+   {
+      //  Each of the following renders an octant of the circle
+      SDL_RenderDrawPoint(renderer, centreX + x, centreY - y);
+      SDL_RenderDrawPoint(renderer, centreX + x, centreY + y);
+      SDL_RenderDrawPoint(renderer, centreX - x, centreY - y);
+      SDL_RenderDrawPoint(renderer, centreX - x, centreY + y);
+      SDL_RenderDrawPoint(renderer, centreX + y, centreY - x);
+      SDL_RenderDrawPoint(renderer, centreX + y, centreY + x);
+      SDL_RenderDrawPoint(renderer, centreX - y, centreY - x);
+      SDL_RenderDrawPoint(renderer, centreX - y, centreY + x);
+
+      if (error <= 0)
+      {
+         ++y;
+         error += ty;
+         ty += 2;
+      }
+
+      if (error > 0)
+      {
+         --x;
+         tx += 2;
+         error += (tx - diameter);
+      }
+   }
+
+}
+
+/*
 void sdlJeu::setPixel(SDL_Surface *screen, int x, int y, Couleur color)
 {
     Uint32 couleur = SDL_MapRGB(screen->format, color.getRouge(), color.getBleu(), color.getVert());
@@ -153,7 +203,7 @@ void sdlJeu::setPixel(SDL_Surface *screen, int x, int y, Couleur color)
     pixel.w = TAILLE_SPRITE, pixel.h = TAILLE_SPRITE;
     pixel.x = x * TAILLE_SPRITE, pixel.y = y* TAILLE_SPRITE; 
     SDL_FillRect(screen, &pixel, couleur);
-}
+}*/
 
 void sdlJeu::renderCenterText(float p_x, float p_y, const char* p_text, TTF_Font* font, SDL_Color textColor)
 {
@@ -224,6 +274,16 @@ void sdlJeu::sdlActionsAutomatiques()
     SDL_UpdateWindowSurface(window);*/
 }
 
+void sdlJeu::DessinerCercleRempli(SDL_Renderer * renderer, int32_t centreX, int32_t centreY, int32_t radius)
+{   
+    int32_t ray = radius;
+    while (ray > 1) {
+        DessinerCercle(renderer, centreX, centreY, ray);
+        ray--;
+    }
+    SDL_RenderDrawPoint(renderer, centreX, centreY);
+}
+
 void sdlJeu::sdlAff()
 {
     //Remplir l'écran de noir
@@ -238,21 +298,27 @@ void sdlJeu::sdlAff()
     for (int i = 0; i < jeu.t.getTailleX(); i++) {
         for (int j = 0; j < jeu.t.getTailleY(); j++) {
             if(jeu.t.tabCasesOccupees[i][j]) {
-                px.x = i*TAILLE_SPRITE;
+                /*px.x = i*TAILLE_SPRITE;
                 px.y = j*TAILLE_SPRITE;
-                SDL_RenderFillRect(renderer, &px);
+                SDL_RenderFillRect(renderer, &px);*/
+                DessinerCercleRempli(renderer, i*TAILLE_SPRITE+TAILLE_SPRITE/2, j*TAILLE_SPRITE+TAILLE_SPRITE/2, TAILLE_SPRITE);
             }
         }
     }
 
     // AFFICHAGE BONUS : TETES DES SERPENTS //
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+    DessinerCercleRempli(renderer, jeu.getConstS1().getTeteX()*TAILLE_SPRITE+TAILLE_SPRITE/2, 
+        jeu.getConstS1().getTeteY()*TAILLE_SPRITE+TAILLE_SPRITE/2, TAILLE_SPRITE);
+    DessinerCercleRempli(renderer, jeu.getConstS2().getTeteX()*TAILLE_SPRITE+TAILLE_SPRITE/2, 
+        jeu.getConstS2().getTeteY()*TAILLE_SPRITE+TAILLE_SPRITE/2, TAILLE_SPRITE);
+    /*
     px.x = jeu.getConstS1().getTeteX()*TAILLE_SPRITE;
     px.y = jeu.getConstS1().getTeteY()*TAILLE_SPRITE;
     SDL_RenderFillRect(renderer, &px);
     px.x = jeu.getConstS2().getTeteX()*TAILLE_SPRITE;
     px.y = jeu.getConstS2().getTeteY()*TAILLE_SPRITE;
-    SDL_RenderFillRect(renderer, &px);
+    SDL_RenderFillRect(renderer, &px);*/
 
     renderText(10, 10, "Joueur 1 :", font32, blanc);
     renderText(10, 40, "Joueur 2 :", font32, blanc);
@@ -279,41 +345,122 @@ void sdlJeu::sdlBoucle()
 {
     Uint32 starting_ticks = SDL_GetTicks(), ticks;
     SDL_Event events;
+    bool menu = true;
+    bool J1GaucheAppuye = false;
+    bool J1DroiteAppuye = false;
+    bool J2GaucheAppuye = false;
+    bool J2DroiteAppuye = false;
+    SDL_Color blancTransition = { 255, 255, 255, 0};
     while(gameRunning)
     {
-        if (jeu.getConstS1().getVivant() && jeu.getConstS2().getVivant()) {
+        if (menu) {
+            if (SDL_GetTicks() < 2500) {
+                SDL_SetRenderDrawColor(renderer, 20, 20, 50, 255);
+                SDL_RenderClear(renderer);
+                
+                if (blancTransition.a < 255) blancTransition.a+=1;
+                renderCenterText(0, sin(SDL_GetTicks()/200) * 10, "CURVE FEVER", font64, blancTransition);
+
+                SDL_RenderPresent(renderer);
+            } else {
+                SDL_SetRenderDrawColor(renderer, 20, 20, 50, 255);
+                SDL_RenderClear(renderer);
+                
+                renderCenterText(0, -50, "CURVE FEVER", font64, blanc);
+                renderCenterText(-100, 5, "J1 : Q & D", font32, blanc);
+                renderCenterText(100, 5, "J2 : K & M", font32, blanc);
+                renderCenterText(0, 40, "Appuyez sur une touche pour commencer", font32, blanc);
+
+                SDL_RenderPresent(renderer);
+            }
+
+            while (SDL_PollEvent(&events)) {
+                switch (events.type) {
+                case SDL_QUIT:
+                    gameRunning = false;
+                    break;
+                case SDL_KEYDOWN:
+                    if (SDL_GetTicks() > 2500) menu = false; 
+                    break;
+                }
+            }
+        }
+        else if (jeu.getConstS1().getVivant() && jeu.getConstS2().getVivant()) {
             ticks = SDL_GetTicks();
             if (ticks - starting_ticks > 1000 / fps)
             {
                 sdlActionsAutomatiques();
+
+                jeu.actionClavierSDL(J1GaucheAppuye, J1DroiteAppuye, J2GaucheAppuye, J2DroiteAppuye);
                 starting_ticks = ticks;
+
+                sdlAff();
+                SDL_RenderPresent(renderer);
             }
 
-            while(SDL_PollEvent(&events))
-            {
+            while(SDL_PollEvent(&events)) {
+                switch (events.type) {
+                    case SDL_QUIT:
+                        gameRunning = false;
+                        break;
+                    case SDL_KEYDOWN:
+                        switch (events.key.keysym.sym) {
+                            case SDLK_q:
+                                J1GaucheAppuye = true;
+                                break;
+                            case SDLK_d:
+                                  J1DroiteAppuye = true;
+                                break;
+                            case SDLK_k:
+                                J2GaucheAppuye = true;
+                                break;
+                            case SDLK_m:
+                                J2DroiteAppuye = true;
+                                break;
+                        }
+                        break;
+                    case SDL_KEYUP:
+                        switch (events.key.keysym.sym) {
+                            case SDLK_q:
+                                J1GaucheAppuye = false;
+                                break;
+                            case SDLK_d:
+                                J1DroiteAppuye = false;
+                                break;
+                            case SDLK_k:
+                                J2GaucheAppuye = false;
+                                break;
+                            case SDLK_m:
+                                J2DroiteAppuye = false;
+                                break;
+                        }
+                        break;
+                }
+                //Là de base
+                
+                /*
                 if (events.type == SDL_QUIT) gameRunning = false;           // Si l'utilisateur a clique sur la croix de fermeture
                 else if (events.type == SDL_KEYDOWN) {              // Si une touche est enfoncee
                     switch (events.key.keysym.sym) {
-                    case SDLK_q:
-                        jeu.actionClavierSDL('q');
-                        break;
-                    case SDLK_d:
-                        jeu.actionClavierSDL('d');    
-                        break;
-                    case SDLK_k:
-                        jeu.actionClavierSDL('k');
-                        break;
-                    case SDLK_m:
-                        jeu.actionClavierSDL('m');
-                        break;
-                    case SDLK_ESCAPE:
-                        gameRunning = false;
-                    default: break;
+                        case SDLK_q:
+                            jeu.actionClavierSDL('q');
+                            break;
+                        case SDLK_d:
+                            jeu.actionClavierSDL('d');    
+                            break;
+                        case SDLK_k:
+                            jeu.actionClavierSDL('k');
+                            break;
+                        case SDLK_m:
+                            jeu.actionClavierSDL('m');
+                            break;
+                        case SDLK_ESCAPE:
+                            gameRunning = false;
+                        default: break;
                     }
-                }
+                }*/
             }
-            sdlAff();
-            SDL_RenderPresent(renderer);
+            
         } else {
             if (!jeu.getConstS1().getVivant()) {
                 renderCenterText(0, -20, "Joueur 1 est mort", font32, blanc);
@@ -322,7 +469,7 @@ void sdlJeu::sdlBoucle()
                 renderCenterText(0, -20, "Joueur 2 est mort", font32, blanc);
                 jeu.getS1().augmenterScore(1);
             }
-            renderCenterText(0, 10, "Cliquez pour continuer", font32, blanc);
+            renderCenterText(0, 10, "Appuyez sur espace pour continuer", font32, blanc);
             SDL_RenderPresent(renderer);
             bool reprendrePartie = false;
             while (!reprendrePartie) {
@@ -331,9 +478,13 @@ void sdlJeu::sdlBoucle()
                         gameRunning = false;        // Si l'utilisateur a clique sur la croix de fermeture
                         reprendrePartie = true;
                     }
-                    else if (events.type == SDL_MOUSEBUTTONDOWN) {
+                    else if (events.type == SDL_KEYDOWN && events.key.keysym.sym == SDLK_SPACE) {
                         reprendrePartie = true;
                         recommencerPartie();
+                        J1GaucheAppuye = false;
+                        J1DroiteAppuye = false;
+                        J2GaucheAppuye = false;
+                        J2DroiteAppuye = false;
                         SDL_SetRenderDrawColor(renderer, 20, 20, 50, 255);
                         SDL_RenderClear(renderer);
                     }

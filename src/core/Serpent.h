@@ -35,7 +35,7 @@ private :
     int score;
     
     /**
-    @brief La direction du serpent.
+    @brief La direction du serpent entre 0 et 360
     */
     float direction; // mettre un float car convertir en rad
     
