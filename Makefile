@@ -1,6 +1,6 @@
 CORE = core/Couleur.cpp core/Serpent.cpp core/Terrain.cpp core/Jeu.cpp
 TXT = txt/winTxt.cpp txt/txtJeu.cpp txt/mainTxt.cpp
-SDL = sdl2/sdlJeu.cpp sdl2/main_sdl.cpp sdl2/fenetreJeu.cpp
+SDL = sdl2/sdlJeu.cpp sdl2/main_sdl.cpp sdl2/fenetreJeu.cpp sdl2/Image.cpp sdl2/menu.cpp
 
 SRCS_TXT = $(CORE) $(TXT)
 OBJS_TXT = $(SRCS_TXT:%.cpp=$(OBJ_DIR)/%.o)
