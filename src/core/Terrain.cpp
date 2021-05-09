@@ -18,13 +18,6 @@ Terrain::Terrain()
 {
     tailleX = 0;
     tailleY = 0;
-    for (int i = 0; i< TAILLETERRAIN; i++)
-    {
-        for (int j = 0; j<TAILLETERRAIN; j++)
-        {
-            tabCasesOccupees[i][j] = false;
-        }
-    }
 }
 
 Terrain::Terrain(unsigned int tX, unsigned int tY)
@@ -33,14 +26,19 @@ Terrain::Terrain(unsigned int tX, unsigned int tY)
     assert(tY>=0);
     tailleX = tX;
     tailleY = tY;
-    for (unsigned int i = 0; i< tX; i++)
+
+    tabCasesOccupees = new unsigned char* [tX];
+
+    for (unsigned int i = 0; i < tX; i++)
     {
-        for (unsigned int j = 0; j<tY; j++)
-        {
-            tabCasesOccupees[i][j] = false;
+        tabCasesOccupees[i] = new unsigned char [tY];
+        for (unsigned int j = 0; j < tY; j++)
+        {            
+            tabCasesOccupees[i][j] = 0;
         }
     }
 }
+
 
 Terrain::~Terrain() {}
 

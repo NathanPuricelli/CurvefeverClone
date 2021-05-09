@@ -1,6 +1,7 @@
 #ifndef SDLJEU_H
 #define SDLJEU_H
 #include "Jeu.h"
+#include "fenetreJeu.h"
 #include <iostream>
 
 #ifdef _WIN32
@@ -20,27 +21,11 @@
 #include <SDL2/SDL_mixer.h>
 #endif
 
-class Image {
-
-private:
-
-    SDL_Surface * surface;
-    SDL_Texture * texture;
-    bool has_changed;
-
-public:
-    Image () ;
-    void loadFromFile (const char* filename, SDL_Renderer * renderer);
-    void loadFromCurrentSurface (SDL_Renderer * renderer);
-    void draw (SDL_Renderer * renderer, int x, int y, int w=-1, int h=-1);
-    SDL_Texture * getTexture() const;
-    void setSurface(SDL_Surface * surf);
-};
 
 class sdlJeu
 {
 public:
-    sdlJeu(unsigned int tailleX, unsigned int tailleY);
+    sdlJeu(unsigned int tailleX, unsigned int tailleY, Couleur couleur1, Couleur couleur2);
     ~sdlJeu();
     void sdlAff(); //private ?
     void sdlBoucle();    
@@ -48,12 +33,10 @@ public:
 
 private:
     Jeu jeu;
+    FenetreJeu fenetreJeu;
     SDL_Window * window;
     SDL_Renderer * renderer;
-    SDL_Surface * surfaceJeu;
-    SDL_Texture * textureJeu;
     void surfaceToTexture();
-    void setPixel(SDL_Surface *screen, int x, int y, Couleur color);
     void sdlActionsAutomatiques();
 };
 

@@ -9,7 +9,6 @@ Le module Terrain permet de gérer un tableau de booléens et ainsi la trace des
 */
 #ifndef TERRAIN_H
 #define TERRAIN_H
-#define TAILLETERRAIN 300
 
 
 class Terrain
@@ -23,10 +22,9 @@ private :
     
 public :
     /**
-    @brief Tableau 2D de booléens indiquant si la case est occupée par la trace d'un joueur.
+    @brief Tableau 2D de unsigned char indiquant si la case est occupée par la trace d'un joueur (0 = vide, 1 = J1, 2 = J2).
     */
-    bool tabCasesOccupees[TAILLETERRAIN][TAILLETERRAIN];
-    
+    unsigned char** tabCasesOccupees;    
     /**
     @brief Constructeur par défaut du terrain. Initialise tailleX et tailleY à 0.
     */

@@ -44,7 +44,7 @@ public :
     @param[in] tailleX Hauteur du terrain.
     @param[in] tailleY Largeur du terrain.
     */
-    Jeu(unsigned int tailleX, unsigned int tailleY);
+    Jeu(unsigned int tailleX, unsigned int tailleY, Couleur couleur1, Couleur couleur2);
     
     /**
     @brief Destructeur de la classe.

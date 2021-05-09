@@ -11,6 +11,7 @@ Le module Serpent permet de gérer un serpent et ses informations.
 #define SERPENT_H
 
 #include <iostream>
+#include <string>
 #include "Couleur.h"
 #include "Terrain.h"
 
@@ -55,6 +56,11 @@ private :
     unsigned int CompteurTrous;
 
 public :
+
+    unsigned char ID; //1 ou 2
+
+    unsigned int x_precedent;
+    unsigned int y_precedent;
     /**
     @brief Constructeur par défaut de la classe: initialise le serpent.
     */
@@ -66,7 +72,7 @@ public :
     @param[in] x Coordonnée de la tête dans la hauteur du terrain.
     @param[in] y Coordonnée de la tête dans la largeur du terrain.
     */
-    Serpent(unsigned int x, unsigned int y); // voir pour couleur, direction.
+    Serpent(unsigned int x, unsigned int y, Couleur c); // voir pour couleur, direction.
     
     /**
     @brief Destructeur de la classe:
