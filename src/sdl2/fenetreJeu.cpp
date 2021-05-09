@@ -5,7 +5,7 @@ FenetreJeu::FenetreJeu(int x, int y, int w, int h)
     surface = NULL;
     texture = NULL;
     surface = SDL_CreateRGBSurface(0,w,h,32,0,0,0,0);
-    Uint32 color = SDL_MapRGB(surface->format,38,30,46);
+    Uint32 color = SDL_MapRGB(surface->format,45,49,66);
     SDL_FillRect(surface, NULL, color);
     rect = surface->clip_rect;
 
@@ -14,7 +14,7 @@ FenetreJeu::FenetreJeu(int x, int y, int w, int h)
 
     rect.x = x - origin_x;
     rect.y = y - origin_y;
-    couleurFond = SDL_MapRGB(surface->format,38,30,46);
+    couleurFond = SDL_MapRGB(surface->format,45,49,66);
 }
 
 void FenetreJeu::couleurJoueurs(const Jeu &j)

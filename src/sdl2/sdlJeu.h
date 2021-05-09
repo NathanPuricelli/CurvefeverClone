@@ -1,6 +1,7 @@
 #ifndef SDLJEU_H
 #define SDLJEU_H
 #include "Jeu.h"
+#include "Image.h"
 #include "fenetreJeu.h"
 #include <iostream>
 
@@ -27,7 +28,7 @@ class sdlJeu
 public:
     sdlJeu(unsigned int tailleX, unsigned int tailleY, Couleur couleur1, Couleur couleur2);
     ~sdlJeu();
-    void sdlAff(); //private ?
+    void sdlAff(bool boutonRecommencer, bool boutonQuitter); //private ?
     void sdlBoucle();    
     bool gameRunning; //private ?
     
@@ -35,11 +36,18 @@ public:
 private:
     Jeu jeu;
     FenetreJeu fenetreJeu;
+    Image imageTitreJeu;
+    Image imageDroiteJeu;
+    Image imQuitterPresse;
+    Image imQuitter;
+    Image imRecommencerPresse;
+    Image imRecommencer;
     TTF_Font * font32;
     TTF_Font * font64;
     SDL_Color blanc;
     SDL_Window * window;
     SDL_Renderer * renderer;
+    bool isIn(int x, int y, int w, int h, int souris_x, int souris_y);
     void renderCenterText(float p_x, float p_y, const char* p_text, TTF_Font* font, SDL_Color textColor);
     void renderText(float p_x, float p_y, const char* p_text, TTF_Font* font, SDL_Color textColor);
     void surfaceToTexture();

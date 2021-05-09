@@ -71,7 +71,13 @@ sdlJeu::sdlJeu(unsigned int tailleX, unsigned int tailleY, Couleur couleur1, Cou
 
     blanc = { 255, 255, 255 };
 
-    //chargement de l'image du plateau de jeu
+    //chargement des images;
+    imageTitreJeu.loadFromFile("data/img/imTitreJeu.png", renderer);
+    imageDroiteJeu.loadFromFile("data/img/imDroiteJeu.png", renderer);
+    imQuitterPresse.loadFromFile("data/img/imQuitterPresse.png", renderer);
+    imQuitter.loadFromFile("data/img/imQuitter.png", renderer);
+    imRecommencerPresse.loadFromFile("data/img/imRecommencerPresse.png", renderer);
+    imRecommencer.loadFromFile("data/img/imRecommencer.png", renderer);
     gameRunning = false;
     fenetreJeu.couleurJoueurs(jeu);
 }
@@ -102,6 +108,12 @@ void sdlJeu::renderCenterText(float p_x, float p_y, const char* p_text, TTF_Font
 
 	SDL_RenderCopy(renderer, message, &src, &dst);
 	SDL_FreeSurface(surfaceMessage);
+}
+
+bool sdlJeu::isIn(int x, int y, int w, int h, int souris_x, int souris_y)
+{
+    return (((souris_x - x) <= w) && ((souris_x - x) >= 0) && ((souris_y - y) <= h) && ((souris_y - y) >= 0)) ;
+    
 }
 
 void sdlJeu::renderText(float p_x, float p_y, const char* p_text, TTF_Font* font, SDL_Color textColor)
@@ -152,7 +164,7 @@ void sdlJeu::sdlActionsAutomatiques()
     fenetreJeu.fillSurfaceOnMotion(jeu);
 }
 
-void sdlJeu::sdlAff()
+void sdlJeu::sdlAff(bool boutonRecommencer, bool boutonQuitter)
 {
     //Remplir l'écran de noir
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
@@ -161,17 +173,29 @@ void sdlJeu::sdlAff()
     //Affichage de la fenetre de jeu
     fenetreJeu.draw(renderer);
 
+    //Affichage de la barre du dessus avec le titre
+    imageTitreJeu.draw(renderer,0,0);
+    imageDroiteJeu.draw(renderer,1122, 90);
+
+    if (boutonRecommencer) imRecommencerPresse.draw(renderer, 1151, 400);
+    else imRecommencer.draw(renderer, 1151, 400);
+
+    if (boutonQuitter) imQuitterPresse.draw(renderer, 1151, 600);
+    else imQuitter.draw(renderer, 1151, 600);
+
+
+
     //Affichage du score des joueurs
 
-    //affichage de l'image de fond d'affichage des scores
-
-    //Afichage des boutons recommencer la partie, quitter le jeu. 
     
 }
 
 void sdlJeu::sdlBoucle()
 {
     gameRunning = true;
+    int x, y = 0; // pour les coordonnées de la souris
+    bool bouttonQuitter = false;
+    bool bouttonRecommencer = false;
     bool J1GaucheAppuye = false;
     bool J1DroiteAppuye = false;
     bool J2GaucheAppuye = false;
@@ -193,8 +217,12 @@ void sdlJeu::sdlBoucle()
                 jeu.actionClavierSDL(J1GaucheAppuye, J1DroiteAppuye, J2GaucheAppuye, J2DroiteAppuye);
                 starting_ticks = ticks;
 
-                sdlAff();
+                bouttonRecommencer=isIn(1151, 400, 100, 50, x, y);
+                bouttonQuitter=isIn(1151,600,100,50,x,y);
+
+                sdlAff(bouttonRecommencer, bouttonQuitter);
                 SDL_RenderPresent(renderer);
+
             }
 
             while(SDL_PollEvent(&events)) {
@@ -234,6 +262,26 @@ void sdlJeu::sdlBoucle()
                                 break;
                         }
                         break;
+                    case SDL_MOUSEMOTION:
+                        SDL_GetMouseState(&x, &y);
+                        break;
+                    case SDL_MOUSEBUTTONDOWN:
+                        std::cout << x <<"  :  " << y << std::endl;
+                        if (bouttonQuitter) {gameRunning=false; exit(0);}
+                        if (bouttonRecommencer) 
+                        {
+                            fenetreJeu.clearSurface();
+                            recommencerPartie();
+                            J1GaucheAppuye = false;
+                            J1DroiteAppuye = false;
+                            J2GaucheAppuye = false;
+                            J2DroiteAppuye = false;
+                            SDL_SetRenderDrawColor(renderer, 20, 20, 50, 255);
+                            SDL_RenderClear(renderer);
+                            jeu.getS1().augmenterScore(- (jeu.getS1().getScore()));
+                            jeu.getS2().augmenterScore(- (jeu.getS2().getScore()));
+                        }
+
                 }
             }
             

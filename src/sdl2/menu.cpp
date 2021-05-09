@@ -54,8 +54,8 @@ Menu::Menu()
     couleurJ1 = Couleur(222,10,0);
     couleurJ2 = Couleur(222,10,0);
 
-    imMenuPresse.loadFromFile("data/imMenuPresse.png", renderer);
-    imMenu.loadFromFile("data/imMenu.png", renderer);
+    imMenuPresse.loadFromFile("data/img/imMenuPresse.png", renderer);
+    imMenu.loadFromFile("data/img/imMenu.png", renderer);
 }
 
 Menu::~Menu()
