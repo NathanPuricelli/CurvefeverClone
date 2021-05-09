@@ -2,7 +2,7 @@
 #include <cassert>
 #include <cmath>
 
-#define fps 15
+#define fps 20
 const int TAILLE_SPRITE = 10;
 const int WIDTH = 140;
 const int HEIGHT = 72;
