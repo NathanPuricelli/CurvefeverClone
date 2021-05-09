@@ -32,8 +32,8 @@ public:
     bool gameRunning; //private ?
 
 private:
-    fenetreJeu fenetreJeu;
     Jeu jeu;
+    fenetreJeu fenetreJeu;
     SDL_Window * window;
     SDL_Renderer * renderer;
     void surfaceToTexture();

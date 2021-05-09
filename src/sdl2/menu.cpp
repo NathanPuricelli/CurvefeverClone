@@ -92,7 +92,7 @@ void Menu::menuAff(bool sourisSurJouer)
     font_color1.b = couleurJ1.getBleu();
     FontJoueur1.setSurface(TTF_RenderText_Solid(font, "Joueur 1", font_color1));
     SDL_Rect PositionJoueur1;
-    PositionJoueur1.x = 200; PositionJoueur1.y = 300; PositionJoueur1.w = 300; PositionJoueur1.h = 70;
+    PositionJoueur1.x = 180; PositionJoueur1.y = 290; PositionJoueur1.w = 300; PositionJoueur1.h = 70;
     FontJoueur1.loadFromCurrentSurface(renderer);
     SDL_RenderCopy(renderer, FontJoueur1.getTexture(), NULL, &PositionJoueur1);
 
@@ -102,7 +102,7 @@ void Menu::menuAff(bool sourisSurJouer)
     font_color2.b = couleurJ2.getBleu();
     FontJoueur2.setSurface(TTF_RenderText_Solid(font, "Joueur 2", font_color2));
     SDL_Rect PositionJoueur2;
-    PositionJoueur2.x = 800; PositionJoueur2.y = 300; PositionJoueur2.w = 300; PositionJoueur2.h = 70;
+    PositionJoueur2.x = 820; PositionJoueur2.y = 290; PositionJoueur2.w = 300; PositionJoueur2.h = 70;
     FontJoueur2.loadFromCurrentSurface(renderer);
     SDL_RenderCopy(renderer, FontJoueur2.getTexture(), NULL, &PositionJoueur2);
 }

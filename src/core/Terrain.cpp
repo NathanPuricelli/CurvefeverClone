@@ -29,10 +29,10 @@ Terrain::Terrain(unsigned int tX, unsigned int tY)
 
     tabCasesOccupees = new unsigned char* [tX];
 
-    for (int i = 0; i < tX; i++)
+    for (unsigned int i = 0; i < tX; i++)
     {
         tabCasesOccupees[i] = new unsigned char [tY];
-        for (int j = 0; j < tY; j++)
+        for (unsigned int j = 0; j < tY; j++)
         {            
             tabCasesOccupees[i][j] = 0;
         }
