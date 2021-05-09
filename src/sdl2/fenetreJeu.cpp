@@ -1,6 +1,6 @@
 #include "fenetreJeu.h"
 #define TAILLE_SPRITE 3
-fenetreJeu::fenetreJeu(int x, int y, int w, int h)
+FenetreJeu::FenetreJeu(int x, int y, int w, int h)
 {
     surface = NULL;
     texture = NULL;
@@ -17,20 +17,20 @@ fenetreJeu::fenetreJeu(int x, int y, int w, int h)
     couleurFond = SDL_MapRGB(surface->format, 50,50,50);
 }
 
-void fenetreJeu::couleurJoueurs(const Jeu &j)
+void FenetreJeu::couleurJoueurs(const Jeu &j)
 {
     couleurJ1 = SDL_MapRGB(surface->format, j.getConstS1().getCouleur().getRouge(), j.getConstS1().getCouleur().getVert(), j.getConstS1().getCouleur().getBleu());
     couleurJ2 = SDL_MapRGB(surface->format, j.getConstS2().getCouleur().getRouge(), j.getConstS2().getCouleur().getVert(), j.getConstS2().getCouleur().getBleu());
 }
 
 
-fenetreJeu::~fenetreJeu()
+FenetreJeu::~FenetreJeu()
 {
     SDL_FreeSurface(surface);
     texture = NULL;
 }
 
-void fenetreJeu::setPix(Uint32 color, int x, int y)
+void FenetreJeu::setPix(Uint32 color, int x, int y)
 {    
     SDL_Rect pixel;
     pixel.w = TAILLE_SPRITE, pixel.h = TAILLE_SPRITE;
@@ -38,7 +38,7 @@ void fenetreJeu::setPix(Uint32 color, int x, int y)
     SDL_FillRect(surface, &pixel, color);
 }
 
-void fenetreJeu::fillSurfaceOnMotion(const Jeu &j)
+void FenetreJeu::fillSurfaceOnMotion(const Jeu &j)
 {
     setPix(couleurJ1, j.getConstS1().getTeteX(), j.getConstS1().getTeteY());
     setPix(couleurJ2, j.getConstS2().getTeteX(), j.getConstS2().getTeteY());
@@ -47,7 +47,7 @@ void fenetreJeu::fillSurfaceOnMotion(const Jeu &j)
     
 }
 
-void fenetreJeu::draw(SDL_Renderer* renderer)
+void FenetreJeu::draw(SDL_Renderer* renderer)
 {
     texture = SDL_CreateTextureFromSurface(renderer, surface);
     if (texture == NULL) {

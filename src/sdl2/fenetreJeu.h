@@ -5,7 +5,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 
-class fenetreJeu
+class FenetreJeu
 {
 private:
     SDL_Surface* surface;
@@ -17,8 +17,8 @@ private:
     Uint32 couleurJ2;
 
 public:
-    fenetreJeu(int x, int y, int w = 1122, int h = 630);
-    ~fenetreJeu();
+    FenetreJeu(int x, int y, int w = 1122, int h = 630);
+    ~FenetreJeu();
     void couleurJoueurs(const Jeu &j); // doit etre appelée avant de lancer la partie
     void update();
     void draw(SDL_Renderer* renderer);

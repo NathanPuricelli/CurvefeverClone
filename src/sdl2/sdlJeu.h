@@ -33,7 +33,7 @@ public:
 
 private:
     Jeu jeu;
-    fenetreJeu fenetreJeu;
+    FenetreJeu fenetreJeu;
     SDL_Window * window;
     SDL_Renderer * renderer;
     void surfaceToTexture();
