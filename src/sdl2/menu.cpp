@@ -39,25 +39,20 @@ Menu::Menu()
         exit(1);
     }
 
-    font = TTF_OpenFont("data/cocogoose.ttf", 50);
+    font = TTF_OpenFont("data/fonts/cocogoose.ttf", 50);
     if (font == NULL)
-        font = TTF_OpenFont("../data/cocogoose.ttf", 50);
+        font = TTF_OpenFont("../data/fonts/cocogoose.ttf", 50);
     if (font == NULL) {
         std::cout << "Failed to load cocogoose.ttf! SDL_TTF Error: " << SDL_GetError() << std::endl;
         SDL_Quit();
         exit(1);
     }
-    font_color1.r = 255;
-    font_color1.g = 255;
-    font_color1.b = 255;
+
     font_color1.a = 0;
-    font_color2.r = 255;
-    font_color2.g = 255;
-    font_color2.b = 255;
     font_color2.a = 0;
 
-    couleurJ1 = Couleur(255,255,255);
-    couleurJ2 = Couleur(255,255,255);
+    couleurJ1 = Couleur(222,10,0);
+    couleurJ2 = Couleur(222,10,0);
 
     imMenuPresse.loadFromFile("data/imMenuPresse.png", renderer);
     imMenu.loadFromFile("data/imMenu.png", renderer);
@@ -92,7 +87,7 @@ void Menu::menuAff(bool sourisSurJoueur)
     font_color1.b = couleurJ1.getBleu();
     FontJoueur1.setSurface(TTF_RenderText_Solid(font, "Joueur 1", font_color1));
     SDL_Rect PositionJoueur1;
-    PositionJoueur1.x = 180; PositionJoueur1.y = 290; PositionJoueur1.w = 300; PositionJoueur1.h = 70;
+    PositionJoueur1.x = 180; PositionJoueur1.y = 275; PositionJoueur1.w = 300; PositionJoueur1.h = 85;
     FontJoueur1.loadFromCurrentSurface(renderer);
     SDL_RenderCopy(renderer, FontJoueur1.getTexture(), NULL, &PositionJoueur1);
 
@@ -102,7 +97,7 @@ void Menu::menuAff(bool sourisSurJoueur)
     font_color2.b = couleurJ2.getBleu();
     FontJoueur2.setSurface(TTF_RenderText_Solid(font, "Joueur 2", font_color2));
     SDL_Rect PositionJoueur2;
-    PositionJoueur2.x = 820; PositionJoueur2.y = 290; PositionJoueur2.w = 300; PositionJoueur2.h = 70;
+    PositionJoueur2.x = 820; PositionJoueur2.y = 275; PositionJoueur2.w = 300; PositionJoueur2.h = 85;
     FontJoueur2.loadFromCurrentSurface(renderer);
     SDL_RenderCopy(renderer, FontJoueur2.getTexture(), NULL, &PositionJoueur2);
 }

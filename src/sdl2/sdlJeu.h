@@ -30,12 +30,18 @@ public:
     void sdlAff(); //private ?
     void sdlBoucle();    
     bool gameRunning; //private ?
+    
 
 private:
     Jeu jeu;
     FenetreJeu fenetreJeu;
+    TTF_Font * font32;
+    TTF_Font * font64;
+    SDL_Color blanc;
     SDL_Window * window;
     SDL_Renderer * renderer;
+    void renderCenterText(float p_x, float p_y, const char* p_text, TTF_Font* font, SDL_Color textColor);
+    void renderText(float p_x, float p_y, const char* p_text, TTF_Font* font, SDL_Color textColor);
     void surfaceToTexture();
     void sdlActionsAutomatiques();
     void recommencerPartie();

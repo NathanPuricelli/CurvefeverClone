@@ -1,7 +1,7 @@
 #include "sdlJeu.h"
 #include <cassert>
 
-#define fps 60
+#define fps 15
 #define window_width 1280
 #define window_height 720
 
@@ -44,6 +44,33 @@ sdlJeu::sdlJeu(unsigned int tailleX, unsigned int tailleY, Couleur couleur1, Cou
         exit(1);
     }
 
+    if (TTF_Init() != 0) {
+        cout << "Erreur lors de l'initialisation de la SDL_ttf : " << SDL_GetError() << endl;
+        SDL_Quit();
+        exit(1);
+    }
+
+
+    font32 = TTF_OpenFont("data/fonts/cocogoose.ttf", 32);
+    if (font32 == NULL)
+        font32 = TTF_OpenFont("../data/fonts/cocogoose.ttf", 32);
+    if (font32 == NULL) {
+            cout << "Erreur lors du chargement de cocogoose.ttf! SDL_TTF Error: " << SDL_GetError() << endl; 
+            SDL_Quit(); 
+            exit(1);
+	}
+
+    font64 = TTF_OpenFont("data/fonts/cocogoose.ttf", 64);
+    if (font64 == NULL)
+        font64 = TTF_OpenFont("../data/fonts/cocogoose.ttf", 64);
+    if (font64 == NULL) {
+            cout << "Erreur lors du chargement de cocogoose.ttf! SDL_TTF Error: " << SDL_GetError() << endl; 
+            SDL_Quit(); 
+            exit(1);
+	}
+
+    blanc = { 255, 255, 255 };
+
     //chargement de l'image du plateau de jeu
     gameRunning = false;
     fenetreJeu.couleurJoueurs(jeu);
@@ -55,6 +82,49 @@ sdlJeu::~sdlJeu()
     SDL_DestroyWindow(window);
     SDL_Quit();
 }
+
+void sdlJeu::renderCenterText(float p_x, float p_y, const char* p_text, TTF_Font* font, SDL_Color textColor)
+{
+	SDL_Surface* surfaceMessage = TTF_RenderText_Blended( font, p_text, textColor);
+	SDL_Texture* message = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+
+	SDL_Rect src;
+	src.x = 0;
+	src.y = 0;
+	src.w = surfaceMessage->w;
+	src.h = surfaceMessage->h; 
+
+	SDL_Rect dst;
+	dst.x = 1122/2 - src.w/2 + p_x;
+	dst.y = 630/2 - src.h/2 + p_y;
+	dst.w = src.w;
+	dst.h = src.h;
+
+	SDL_RenderCopy(renderer, message, &src, &dst);
+	SDL_FreeSurface(surfaceMessage);
+}
+
+void sdlJeu::renderText(float p_x, float p_y, const char* p_text, TTF_Font* font, SDL_Color textColor)
+{
+	SDL_Surface* surfaceMessage = TTF_RenderText_Blended( font, p_text, textColor);
+	SDL_Texture* message = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+
+	SDL_Rect src;
+	src.x = 0;
+	src.y = 0;
+	src.w = surfaceMessage->w;
+	src.h = surfaceMessage->h; 
+
+	SDL_Rect dst;
+	dst.x = p_x;
+	dst.y = p_y;
+	dst.w = src.w;
+	dst.h = src.h;
+
+	SDL_RenderCopy(renderer, message, &src, &dst);
+	SDL_FreeSurface(surfaceMessage);
+}
+
 
 void sdlJeu::recommencerPartie() {
     for (unsigned int i = 0; i < jeu.t.getTailleX(); i++) {
@@ -111,43 +181,7 @@ void sdlJeu::sdlBoucle()
     Uint32 starting_ticks = SDL_GetTicks(), ticks;
     SDL_Event events;
 
-    /*
-    while(gameRunning && jeu.getConstS1().getVivant() && jeu.getConstS2().getVivant())
-    {
-        ticks = SDL_GetTicks();
-        if (ticks - starting_ticks > 1000 / fps)
-        {
-            sdlActionsAutomatiques();
-            starting_ticks = ticks;
-        }
-
-        while(SDL_PollEvent(&events))
-        {
-            if (events.type == SDL_QUIT) gameRunning = false;           // Si l'utilisateur a clique sur la croix de fermeture
-			else if (events.type == SDL_KEYDOWN) {              // Si une touche est enfoncee
-				switch (events.key.keysym.sym) {
-				case SDLK_q:
-					jeu.actionClavierSDL('q');
-                    break;
-				case SDLK_d:
-					jeu.actionClavierSDL('d');    
-					break;
-				case SDLK_k:
-					jeu.actionClavierSDL('k');
-					break;
-				case SDLK_m:
-					jeu.actionClavierSDL('m');
-					break;
-                case SDLK_ESCAPE:
-                    gameRunning = false;
-				default: break;
-                }
-            }
-        }
-        sdlAff();
-        SDL_RenderPresent(renderer);
-
-    }*/
+    
     while(gameRunning)
     {
         if (jeu.getConstS1().getVivant() && jeu.getConstS2().getVivant()) {
@@ -205,13 +239,13 @@ void sdlJeu::sdlBoucle()
             
         } else {
             if (!jeu.getConstS1().getVivant()) {
-                //renderCenterText(0, -20, "Joueur 1 est mort", font32, blanc);
+                renderCenterText(0, -20, "Joueur 1 est mort", font32, blanc);
                 jeu.getS2().augmenterScore(1);
             } else {
-                //renderCenterText(0, -20, "Joueur 2 est mort", font32, blanc);
+                renderCenterText(0, -20, "Joueur 2 est mort", font32, blanc);
                 jeu.getS1().augmenterScore(1);
             }
-            //renderCenterText(0, 10, "Appuyez sur espace pour continuer", font32, blanc);
+            renderCenterText(0, 10, "Appuyez sur espace pour continuer", font32, blanc);
             SDL_RenderPresent(renderer);
             bool reprendrePartie = false;
             while (!reprendrePartie) {
@@ -221,6 +255,7 @@ void sdlJeu::sdlBoucle()
                         reprendrePartie = true;
                     }
                     else if (events.type == SDL_KEYDOWN && events.key.keysym.sym == SDLK_SPACE) {
+                        fenetreJeu.clearSurface();
                         reprendrePartie = true;
                         recommencerPartie();
                         J1GaucheAppuye = false;

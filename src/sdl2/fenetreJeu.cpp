@@ -5,7 +5,7 @@ FenetreJeu::FenetreJeu(int x, int y, int w, int h)
     surface = NULL;
     texture = NULL;
     surface = SDL_CreateRGBSurface(0,w,h,32,0,0,0,0);
-    Uint32 color = SDL_MapRGB(surface->format,50,50,50);
+    Uint32 color = SDL_MapRGB(surface->format,38,30,46);
     SDL_FillRect(surface, NULL, color);
     rect = surface->clip_rect;
 
@@ -14,7 +14,7 @@ FenetreJeu::FenetreJeu(int x, int y, int w, int h)
 
     rect.x = x - origin_x;
     rect.y = y - origin_y;
-    couleurFond = SDL_MapRGB(surface->format, 50,50,50);
+    couleurFond = SDL_MapRGB(surface->format,38,30,46);
 }
 
 void FenetreJeu::couleurJoueurs(const Jeu &j)
@@ -23,6 +23,11 @@ void FenetreJeu::couleurJoueurs(const Jeu &j)
     couleurJ2 = SDL_MapRGB(surface->format, j.getConstS2().getCouleur().getRouge(), j.getConstS2().getCouleur().getVert(), j.getConstS2().getCouleur().getBleu());
 }
 
+void FenetreJeu::clearSurface()
+{
+    SDL_FillRect(surface, NULL, couleurFond);
+
+}
 
 FenetreJeu::~FenetreJeu()
 {
@@ -33,17 +38,77 @@ FenetreJeu::~FenetreJeu()
 void FenetreJeu::setPix(Uint32 color, int x, int y)
 {    
     SDL_Rect pixel;
-    pixel.w = TAILLE_SPRITE, pixel.h = TAILLE_SPRITE;
-    pixel.x = x * TAILLE_SPRITE, pixel.y = y* TAILLE_SPRITE; 
+    pixel.w = 2 * TAILLE_SPRITE, pixel.h = 2 * TAILLE_SPRITE;
+    pixel.x = x * (TAILLE_SPRITE - 1), pixel.y = y* (TAILLE_SPRITE - 1); 
     SDL_FillRect(surface, &pixel, color);
 }
 
+void FenetreJeu::setPixUnique(Uint32 color, int x, int y)
+{
+    SDL_Rect pixel;
+    pixel.w = 1, pixel.h = 1;
+    pixel.x = x, pixel.y = y; 
+    SDL_FillRect(surface, &pixel, color);
+}
+
+void FenetreJeu::dessinerCercle(Uint32 color, int32_t centreX, int32_t centreY, int32_t radius)
+{
+    const int32_t diameter = (radius * 2);
+
+   int32_t x = (radius - 1);
+   int32_t y = 0;
+   int32_t tx = 1;
+   int32_t ty = 1;
+   int32_t error = (tx - diameter);
+
+   while (x >= y)
+   {
+      //  Each of the following renders an octant of the circle
+      setPixUnique(color, centreX + x, centreY - y);
+      setPixUnique(color, centreX + x, centreY + y);
+      setPixUnique(color, centreX - x, centreY - y);
+      setPixUnique(color, centreX - x, centreY + y);
+      setPixUnique(color, centreX + y, centreY - x);
+      setPixUnique(color, centreX + y, centreY + x);
+      setPixUnique(color, centreX - y, centreY - x);
+      setPixUnique(color, centreX - y, centreY + x);
+
+      if (error <= 0)
+      {
+         ++y;
+         error += ty;
+         ty += 2;
+      }
+
+      if (error > 0)
+      {
+         --x;
+         tx += 2;
+         error += (tx - diameter);
+      }
+   }
+
+}
+
+void FenetreJeu::dessinerCercleRempli(Uint32 color, int32_t centreX, int32_t centreY, int32_t radius)
+{   
+    int32_t ray = radius;
+    while (ray > 1) {
+        dessinerCercle(color, centreX, centreY, ray);
+        ray--;
+    }
+    setPixUnique(color, centreX, centreY);
+}
+
+
 void FenetreJeu::fillSurfaceOnMotion(const Jeu &j)
 {
-    if (j.t.tabCasesOccupees[j.getConstS1().x_precedent][j.getConstS1().y_precedent] == 0) setPix(couleurFond, j.getConstS1().x_precedent, j.getConstS1().y_precedent);
-    if (j.t.tabCasesOccupees[j.getConstS2().x_precedent][j.getConstS2().y_precedent] == 0) setPix(couleurFond, j.getConstS2().x_precedent, j.getConstS2().y_precedent);
-    setPix(couleurJ1, j.getConstS1().getTeteX(), j.getConstS1().getTeteY());
-    setPix(couleurJ2, j.getConstS2().getTeteX(), j.getConstS2().getTeteY());
+    dessinerCercleRempli(couleurJ1, j.getConstS1().getTeteX() * TAILLE_SPRITE, j.getConstS1().getTeteY() * TAILLE_SPRITE, TAILLE_SPRITE);
+    dessinerCercleRempli(couleurJ2, j.getConstS2().getTeteX() * TAILLE_SPRITE, j.getConstS2().getTeteY() * TAILLE_SPRITE, TAILLE_SPRITE);
+    if (j.t.tabCasesOccupees[j.getConstS1().x_precedent][j.getConstS1().y_precedent] == 0) 
+        setPix(couleurFond, (j.getConstS1().x_precedent), (j.getConstS1().y_precedent));
+    if (j.t.tabCasesOccupees[j.getConstS2().x_precedent][j.getConstS2().y_precedent] == 0)
+        setPix(couleurFond, (j.getConstS2().x_precedent), (j.getConstS2().y_precedent));
 }
 
 void FenetreJeu::draw(SDL_Renderer* renderer)
