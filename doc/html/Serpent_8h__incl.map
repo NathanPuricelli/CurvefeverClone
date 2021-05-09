@@ -1,6 +1,0 @@
-<map id="src/core/Serpent.h" name="src/core/Serpent.h">
-<area shape="rect" id="node1" title="Module gérant les serpents." alt="" coords="81,5,220,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,85,107"/>
-<area shape="rect" id="node3" href="$Couleur_8h.html" title="Module gérant les couleurs des joueurs." alt="" coords="109,80,192,107"/>
-<area shape="rect" id="node4" href="$Terrain_8h.html" title="Module gérant le terrain de jeu et la trace." alt="" coords="217,80,295,107"/>
-</map>
