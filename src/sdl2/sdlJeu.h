@@ -1,7 +1,7 @@
 /**
 @brief Module gérant la partie SDL
 
-C'est le coeur de la version graphique du jeu, ce module contient les images utilisée, les polices d'écritures ou encore la fenêtre du jeu.
+Coeur de la version graphique du jeu, ce module contient les images utilisées, les couleurs, les polices d'écriture ou encore la fenêtre du jeu.
 sdlJeu appelle tpit
 
 @file : sdlJeu.h

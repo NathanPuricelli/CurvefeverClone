@@ -27,7 +27,7 @@ sdlJeu::sdlJeu(unsigned int tailleX, unsigned int tailleY, Couleur couleur1, Cou
         exit(1);
     }
 
-    //creation de la fenetre : 
+    //Creation de la fenetre : 
     window = SDL_CreateWindow("Curvefever !", 50, 50, window_width, window_height, SDL_WINDOW_SHOWN);
     if (window == NULL)
     {
@@ -36,7 +36,7 @@ sdlJeu::sdlJeu(unsigned int tailleX, unsigned int tailleY, Couleur couleur1, Cou
         exit(1);
     }
 
-    //creation du rendu : 
+    //Creation du rendu : 
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
     if (renderer == NULL)
     {
@@ -45,6 +45,7 @@ sdlJeu::sdlJeu(unsigned int tailleX, unsigned int tailleY, Couleur couleur1, Cou
         exit(1);
     }
 
+    //Initialisation des polices d'écriture
     if (TTF_Init() != 0) {
         cout << "Erreur lors de l'initialisation de la SDL_ttf : " << SDL_GetError() << endl;
         SDL_Quit();
@@ -87,10 +88,18 @@ sdlJeu::sdlJeu(unsigned int tailleX, unsigned int tailleY, Couleur couleur1, Cou
             exit(1);
 	}
 
-    blanc = { 255, 255, 255 };
-    grisEcriture = { 216, 213, 219 };
+    //Initialisation des couleurs
+    blanc.r = 255;
+    blanc.g = 255;
+    blanc.b = 255;
+    blanc.a = 255;
 
-    //chargement des images;
+    grisEcriture.r = 216;
+    grisEcriture.g = 213;
+    grisEcriture.b = 219;
+    grisEcriture.a = 255;
+
+    //Chargement des images;
     imageTitreJeu.loadFromFile("data/img/imTitreJeu.png", renderer);
     imageDroiteJeu.loadFromFile("data/img/imDroiteJeu.png", renderer);
     imQuitterPresse.loadFromFile("data/img/imQuitterPresse.png", renderer);
@@ -98,7 +107,7 @@ sdlJeu::sdlJeu(unsigned int tailleX, unsigned int tailleY, Couleur couleur1, Cou
     imRecommencerPresse.loadFromFile("data/img/imRecommencerPresse.png", renderer);
     imRecommencer.loadFromFile("data/img/imRecommencer.png", renderer);
 
-    //chargement des images des tetes de serpents
+    //Chargement des images des tetes de serpents
     for(int i = 0; i < 6; i++)
     {
         string istr = to_string(i);
