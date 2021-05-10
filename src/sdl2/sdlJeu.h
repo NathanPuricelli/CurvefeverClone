@@ -42,7 +42,7 @@ private:
     Image imQuitter;
     Image imRecommencerPresse;
     Image imRecommencer;
-    Image imTeteSerpent;
+    Image imTeteSerpent[6];
     TTF_Font * font32;
     TTF_Font * font48;
     TTF_Font * font64;

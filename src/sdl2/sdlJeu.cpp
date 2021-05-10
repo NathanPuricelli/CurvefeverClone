@@ -89,7 +89,17 @@ sdlJeu::sdlJeu(unsigned int tailleX, unsigned int tailleY, Couleur couleur1, Cou
     imQuitter.loadFromFile("data/img/imQuitter.png", renderer);
     imRecommencerPresse.loadFromFile("data/img/imRecommencerPresse.png", renderer);
     imRecommencer.loadFromFile("data/img/imRecommencer.png", renderer);
-    imTeteSerpent.loadFromFile("data/img/Serpent.png", renderer);
+
+    //chargement des images des tetes de serpents
+    for(int i = 0; i < 6; i++)
+    {
+        string istr = to_string(i);
+        string str = "data/img/teteSerpent" + istr + ".png";
+        char filename[60];
+        strcpy(filename, str.c_str());
+        imTeteSerpent[i].loadFromFile(filename, renderer);
+    }
+    
     gameRunning = false;
     fenetreJeu.couleurJoueurs(jeu);
 }
@@ -181,7 +191,15 @@ void sdlJeu::afficherTeteSerpent(SDL_Renderer* renderer, Serpent S) {
 	dst.y = S.getTeteY() * TAILLE_SPRITE - 3.5*TAILLE_SPRITE + 90;
 	dst.w = 40;
 	dst.h = 40;
-    SDL_RenderCopyEx(renderer, imTeteSerpent.getTexture(), NULL, &dst, S.getDirection() , NULL, SDL_FLIP_NONE);
+    //Si le serpent est rouge
+    if(S.getCouleur().getRouge() == 222) SDL_RenderCopyEx(renderer, imTeteSerpent[0].getTexture(), NULL, &dst, S.getDirection() , NULL, SDL_FLIP_NONE);
+    if(S.getCouleur().getRouge() == 246) SDL_RenderCopyEx(renderer, imTeteSerpent[1].getTexture(), NULL, &dst, S.getDirection() , NULL, SDL_FLIP_NONE);
+    if(S.getCouleur().getVert() == 217) SDL_RenderCopyEx(renderer, imTeteSerpent[2].getTexture(), NULL, &dst, S.getDirection() , NULL, SDL_FLIP_NONE);
+    if(S.getCouleur().getVert() == 6) SDL_RenderCopyEx(renderer, imTeteSerpent[3].getTexture(), NULL, &dst, S.getDirection() , NULL, SDL_FLIP_NONE);
+    if(S.getCouleur().getRouge() == 248) SDL_RenderCopyEx(renderer, imTeteSerpent[4].getTexture(), NULL, &dst, S.getDirection() , NULL, SDL_FLIP_NONE);
+    if(S.getCouleur().getRouge() == 162) SDL_RenderCopyEx(renderer, imTeteSerpent[5].getTexture(), NULL, &dst, S.getDirection() , NULL, SDL_FLIP_NONE);
+
+    
 }
 
 void sdlJeu::sdlAff(bool boutonRecommencer, bool boutonQuitter)
