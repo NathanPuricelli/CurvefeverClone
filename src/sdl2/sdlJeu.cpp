@@ -4,6 +4,7 @@
 #define fps 15
 #define window_width 1280
 #define window_height 720
+#define TAILLE_SPRITE 6
 
 //commencer avec une fenetre avec terrain vide et mettre des points à la main dans le main.
 
@@ -175,7 +176,12 @@ void sdlJeu::sdlActionsAutomatiques()
 }
 
 void sdlJeu::afficherTeteSerpent(SDL_Renderer* renderer, Serpent S) {
-
+    SDL_Rect dst;
+	dst.x = S.getTeteX() * TAILLE_SPRITE - 3.5*TAILLE_SPRITE;
+	dst.y = S.getTeteY() * TAILLE_SPRITE - 3.5*TAILLE_SPRITE + 90;
+	dst.w = 40;
+	dst.h = 40;
+    SDL_RenderCopyEx(renderer, imTeteSerpent.getTexture(), NULL, &dst, S.getDirection() , NULL, SDL_FLIP_NONE);
 }
 
 void sdlJeu::sdlAff(bool boutonRecommencer, bool boutonQuitter)
@@ -241,6 +247,7 @@ void sdlJeu::sdlAff(bool boutonRecommencer, bool boutonQuitter)
     afficherTeteSerpent(renderer, jeu.getConstS2());
 
     //affichage des tetes de serpent
+    /*
     int x_origin = 0;
     int y_origin = 90;
     int tailleSprite = 6;
@@ -251,6 +258,7 @@ void sdlJeu::sdlAff(bool boutonRecommencer, bool boutonQuitter)
     imTeteSerpent.draw(renderer, x_origin - tailleSprite/2 + (int)jeu.getConstS2().getTeteX() * tailleSprite,  
         y_origin - tailleSprite +(int)jeu.getConstS2().getTeteY() * tailleSprite, 
         tailleTeteSerpent, tailleTeteSerpent);
+    */
     
 }
 
