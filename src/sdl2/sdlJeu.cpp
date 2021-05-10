@@ -264,10 +264,11 @@ void sdlJeu::sdlAff(bool boutonRecommencer, bool boutonQuitter)
 
 void sdlJeu::sdlBoucle()
 {
-    gameRunning = true;
+    gameRunning = true; //Tant que celle valeur est vraie, on reste dans la boucle
     int x, y = 0; // pour les coordonnées de la souris
     bool bouttonQuitter = false;
     bool bouttonRecommencer = false;
+    //Quatre booleen qui indiquent quelles touches sont pressees et donc quelles actions faire, de base aucune touche n'est pressee
     bool J1GaucheAppuye = false;
     bool J1DroiteAppuye = false;
     bool J2GaucheAppuye = false;
@@ -278,27 +279,31 @@ void sdlJeu::sdlBoucle()
     SDL_Event events;
 
     
-    while(gameRunning)
+    while(gameRunning) //On reste dans la boucle tant que le jeu continu
     {
-        if (jeu.getConstS1().getVivant() && jeu.getConstS2().getVivant()) 
+        if (jeu.getConstS1().getVivant() && jeu.getConstS2().getVivant()) //On entre dans ce if si les deux joueurs sont encore vivants
         {
             ticks = SDL_GetTicks();
-            if (ticks - starting_ticks > 1000 / fps)
+            if (ticks - starting_ticks > 1000 / fps) //La fréquence d'entrée dans ce if peut varier en modifiant la valeur fps
             {
+                //On appelles les actions automatiques, ce qui met à jour le terrain visuellement
                 sdlActionsAutomatiques();
 
+                //En fonctions des touches actuellements pressees jeu.actionClavierSDL va modifier les trajectoires des serpents
                 jeu.actionClavierSDL(J1GaucheAppuye, J1DroiteAppuye, J2GaucheAppuye, J2DroiteAppuye);
                 starting_ticks = ticks;
 
+                //On regarde si la souris survole l'un des deux boutons
                 bouttonRecommencer=isIn(1151, 400, 100, 50, x, y);
                 bouttonQuitter=isIn(1151,600,100,50,x,y);
 
+                //On affiche le jeu
                 sdlAff(bouttonRecommencer, bouttonQuitter);
                 SDL_RenderPresent(renderer);
 
             }
 
-            while(SDL_PollEvent(&events))
+            while(SDL_PollEvent(&events)) //On met à jour les touches pressees par les joueurs
             {
                 switch (events.type) {
                     case SDL_QUIT:
@@ -336,13 +341,13 @@ void sdlJeu::sdlBoucle()
                                 break;
                         }
                         break;
+                    //On regarde également si la souris à bougé pour gérer les boutons
                     case SDL_MOUSEMOTION:
                         SDL_GetMouseState(&x, &y);
                         break;
                     case SDL_MOUSEBUTTONDOWN:
-                        std::cout << x <<"  :  " << y << std::endl;
                         if (bouttonQuitter) {gameRunning=false; exit(0);}
-                        if (bouttonRecommencer) 
+                        if (bouttonRecommencer) //Si le boutons recommencer est selectionné on recommence toute la partie
                         {
                             fenetreJeu.clearSurface();
                             recommencerPartie();
@@ -359,7 +364,7 @@ void sdlJeu::sdlBoucle()
                 }
             }
         } 
-        else if (jeu.getConstS1().getScore() != 4 && jeu.getConstS2().getScore() != 4)
+        else if (jeu.getConstS1().getScore() != 4 && jeu.getConstS2().getScore() != 4) //On entre dans ce if si l'un des serpents est mort, et pour autant qu'il n'y a pas de gagnant
         {
             if (!jeu.getConstS1().getVivant()) jeu.getS2().augmenterScore(1);      
             else jeu.getS1().augmenterScore(1);
@@ -426,7 +431,7 @@ void sdlJeu::sdlBoucle()
                 }
             }
         } 
-        else
+        else //Si l'un des joueurs est mort et qu'il y a un gagnant
         {
             if (!jeu.getConstS1().getVivant()) jeu.getS2().augmenterScore(1);      
             else jeu.getS1().augmenterScore(1);
