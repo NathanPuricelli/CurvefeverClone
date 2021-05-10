@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['wintxt_187',['WinTXT',['../classWinTXT.html#ad471ddd48d2a7c43acccd1204e419527',1,'WinTXT']]]
+  ['verifcolision_257',['VerifColision',['../classSerpent.html#a35c919e8d5b3e76037c69c832df64b4c',1,'Serpent']]]
 ];

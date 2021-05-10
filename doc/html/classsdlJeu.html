@@ -63,24 +63,115 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classsdlJeu-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">sdlJeu Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
+<p>Module gérant la boucle du jeu.  
+ <a href="classsdlJeu.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="sdlJeu_8h_source.html">sdlJeu.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a875ba178fd4d7dfa98d302181c7db89f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdlJeu.html#a875ba178fd4d7dfa98d302181c7db89f">sdlJeu</a> (unsigned int tailleX, unsigned int tailleY, <a class="el" href="classCouleur.html">Couleur</a> couleur1, <a class="el" href="classCouleur.html">Couleur</a> couleur2)</td></tr>
+<tr class="memdesc:a875ba178fd4d7dfa98d302181c7db89f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur de la classe, démarre une partie avec une taille de terrain de largeur tailleX et hauteur tailleY De plus on passe en paramètre les couleurs des deux serpents.  <a href="classsdlJeu.html#a875ba178fd4d7dfa98d302181c7db89f">More...</a><br /></td></tr>
 <tr class="separator:a875ba178fd4d7dfa98d302181c7db89f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bcd8f5ed17a2cea2ad2fc633415cbcc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdlJeu.html#a5bcd8f5ed17a2cea2ad2fc633415cbcc">~sdlJeu</a> ()</td></tr>
+<tr class="memdesc:a5bcd8f5ed17a2cea2ad2fc633415cbcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur de la classe, il libère le renderer, la fenêtre, et ferme SDL.  <a href="classsdlJeu.html#a5bcd8f5ed17a2cea2ad2fc633415cbcc">More...</a><br /></td></tr>
 <tr class="separator:a5bcd8f5ed17a2cea2ad2fc633415cbcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5628835d7efcab056985c3aa3de56836"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdlJeu.html#a5628835d7efcab056985c3aa3de56836">sdlBoucle</a> ()</td></tr>
+<tr class="memdesc:a5628835d7efcab056985c3aa3de56836"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boucle principale du jeu, elle est appelée une unique fois dans le programme principal.  <a href="classsdlJeu.html#a5628835d7efcab056985c3aa3de56836">More...</a><br /></td></tr>
 <tr class="separator:a5628835d7efcab056985c3aa3de56836"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a9a7e63c65a196e3769bc269a09eb4f1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdlJeu.html#a9a7e63c65a196e3769bc269a09eb4f1d">sdlAff</a> (bool boutonRecommencer, bool boutonQuitter)</td></tr>
+<tr class="memdesc:a9a7e63c65a196e3769bc269a09eb4f1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction principale d'affichage, elle appelle l'affichage des courbes, affiche les boutons, écrit les scores, les textes et appelle l'affichage des têtes des serpents.  <a href="classsdlJeu.html#a9a7e63c65a196e3769bc269a09eb4f1d">More...</a><br /></td></tr>
+<tr class="separator:a9a7e63c65a196e3769bc269a09eb4f1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a148952aae35435749943ff0d5abfa51e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdlJeu.html#a148952aae35435749943ff0d5abfa51e">isIn</a> (int x, int y, int w, int h, int souris_x, int souris_y)</td></tr>
+<tr class="memdesc:a148952aae35435749943ff0d5abfa51e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si la souris est dans un certain rectangle spécifiée par les arguments.  <a href="classsdlJeu.html#a148952aae35435749943ff0d5abfa51e">More...</a><br /></td></tr>
+<tr class="separator:a148952aae35435749943ff0d5abfa51e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a289c764ae38416d3c860df2bc36eda80"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdlJeu.html#a289c764ae38416d3c860df2bc36eda80">afficherTeteSerpent</a> (SDL_Renderer *<a class="el" href="classsdlJeu.html#aee1a517fb83b31bf7b19330d652bd7fe">renderer</a>, <a class="el" href="classSerpent.html">Serpent</a> S)</td></tr>
+<tr class="memdesc:a289c764ae38416d3c860df2bc36eda80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction d'affichage de la tête des serpent, en affiche la tête de chaque serpent avec la bonne couleur, et la bonne orientation.  <a href="classsdlJeu.html#a289c764ae38416d3c860df2bc36eda80">More...</a><br /></td></tr>
+<tr class="separator:a289c764ae38416d3c860df2bc36eda80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7a0dc225d8fcea78c22bde0a7ae0f3a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdlJeu.html#af7a0dc225d8fcea78c22bde0a7ae0f3a">renderCenterText</a> (float p_x, float p_y, const char *p_text, TTF_Font *font, SDL_Color textColor)</td></tr>
+<tr class="memdesc:af7a0dc225d8fcea78c22bde0a7ae0f3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction d'affichage d'un texte centré au milieu de la fenêtre, on peut le decaler si on le souhaite, ou bien le centrer parfaitement en entrant 0 pour p_x et p_y.  <a href="classsdlJeu.html#af7a0dc225d8fcea78c22bde0a7ae0f3a">More...</a><br /></td></tr>
+<tr class="separator:af7a0dc225d8fcea78c22bde0a7ae0f3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a1889f13bfcda2c473b6d5930069902"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdlJeu.html#a0a1889f13bfcda2c473b6d5930069902">renderText</a> (float p_x, float p_y, const char *p_text, TTF_Font *font, SDL_Color textColor)</td></tr>
+<tr class="memdesc:a0a1889f13bfcda2c473b6d5930069902"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction d'affichage d'un texte où l'on souhaite dans la fenêtre fenêtre.  <a href="classsdlJeu.html#a0a1889f13bfcda2c473b6d5930069902">More...</a><br /></td></tr>
+<tr class="separator:a0a1889f13bfcda2c473b6d5930069902"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af11d4ab8cd3900e7298ea350bb117096"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdlJeu.html#af11d4ab8cd3900e7298ea350bb117096">sdlActionsAutomatiques</a> ()</td></tr>
+<tr class="memdesc:af11d4ab8cd3900e7298ea350bb117096"><td class="mdescLeft">&#160;</td><td class="mdescRight">Avancée automatique des serpents, et traçage de leur courbe au fur et à mesure.  <a href="classsdlJeu.html#af11d4ab8cd3900e7298ea350bb117096">More...</a><br /></td></tr>
+<tr class="separator:af11d4ab8cd3900e7298ea350bb117096"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae9f1288e01d6db39c550f735adaa554"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdlJeu.html#aae9f1288e01d6db39c550f735adaa554">recommencerPartie</a> ()</td></tr>
+<tr class="memdesc:aae9f1288e01d6db39c550f735adaa554"><td class="mdescLeft">&#160;</td><td class="mdescRight">Réinitialise les données membres de la classe pour redémarrer une partie, en passant par <a class="el" href="classJeu.html" title="Classe avec les fonctions de coeur du jeu.">Jeu</a>, <a class="el" href="classTerrain.html" title="Classe définissant le terrain de jeu.">Terrain</a>, Serpents, etc.  <a href="classsdlJeu.html#aae9f1288e01d6db39c550f735adaa554">More...</a><br /></td></tr>
+<tr class="separator:aae9f1288e01d6db39c550f735adaa554"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a729abee0513e6b300a1e7b403f80dff2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdlJeu.html#a729abee0513e6b300a1e7b403f80dff2">gameRunning</a></td></tr>
+<tr class="memdesc:a729abee0513e6b300a1e7b403f80dff2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Booleen étant initialisé à true, quand il devient false le programme se termine en sortant de la boucle de jeu.  <a href="classsdlJeu.html#a729abee0513e6b300a1e7b403f80dff2">More...</a><br /></td></tr>
+<tr class="separator:a729abee0513e6b300a1e7b403f80dff2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43eec470e1819a9df66e019e02928497"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJeu.html">Jeu</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdlJeu.html#a43eec470e1819a9df66e019e02928497">jeu</a></td></tr>
+<tr class="memdesc:a43eec470e1819a9df66e019e02928497"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classJeu.html" title="Classe avec les fonctions de coeur du jeu.">Jeu</a> qui contient les infos de la partie, tel que les serpents ou le terrain.  <a href="classsdlJeu.html#a43eec470e1819a9df66e019e02928497">More...</a><br /></td></tr>
+<tr class="separator:a43eec470e1819a9df66e019e02928497"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a794a24962747ee3d2bd81b6287a6ec63"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classFenetreJeu.html">FenetreJeu</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdlJeu.html#a794a24962747ee3d2bd81b6287a6ec63">fenetreJeu</a></td></tr>
+<tr class="memdesc:a794a24962747ee3d2bd81b6287a6ec63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module fenêtre du jeu qui contient les fonctions d'affichage des surfaces ou encore des tracés des serpents.  <a href="classsdlJeu.html#a794a24962747ee3d2bd81b6287a6ec63">More...</a><br /></td></tr>
+<tr class="separator:a794a24962747ee3d2bd81b6287a6ec63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad789efac1eb760913959a0e724aad793"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classImage.html">Image</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdlJeu.html#ad789efac1eb760913959a0e724aad793">imageTitreJeu</a></td></tr>
+<tr class="memdesc:ad789efac1eb760913959a0e724aad793"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classImage.html" title="Classe gérant l&#39;affichage et la gestion des images.">Image</a> correspondant à la barre horizontale au dessus du jeu, avec le titre CURVEFEVER.  <a href="classsdlJeu.html#ad789efac1eb760913959a0e724aad793">More...</a><br /></td></tr>
+<tr class="separator:ad789efac1eb760913959a0e724aad793"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd20ca3db6b14dcbacc8dfbeae651c15"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classImage.html">Image</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdlJeu.html#abd20ca3db6b14dcbacc8dfbeae651c15">imageDroiteJeu</a></td></tr>
+<tr class="memdesc:abd20ca3db6b14dcbacc8dfbeae651c15"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classImage.html" title="Classe gérant l&#39;affichage et la gestion des images.">Image</a> correspondant à la barre latérale à droite du jeu.  <a href="classsdlJeu.html#abd20ca3db6b14dcbacc8dfbeae651c15">More...</a><br /></td></tr>
+<tr class="separator:abd20ca3db6b14dcbacc8dfbeae651c15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee5e76006dba9d8bcd65c8d1e43f763f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classImage.html">Image</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdlJeu.html#aee5e76006dba9d8bcd65c8d1e43f763f">imQuitterPresse</a></td></tr>
+<tr class="memdesc:aee5e76006dba9d8bcd65c8d1e43f763f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classImage.html" title="Classe gérant l&#39;affichage et la gestion des images.">Image</a> correspondant au bouton Quitter, sous forme Presse.  <a href="classsdlJeu.html#aee5e76006dba9d8bcd65c8d1e43f763f">More...</a><br /></td></tr>
+<tr class="separator:aee5e76006dba9d8bcd65c8d1e43f763f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8acf3b5d9a49a681e360eba79f491ced"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classImage.html">Image</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdlJeu.html#a8acf3b5d9a49a681e360eba79f491ced">imQuitter</a></td></tr>
+<tr class="memdesc:a8acf3b5d9a49a681e360eba79f491ced"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classImage.html" title="Classe gérant l&#39;affichage et la gestion des images.">Image</a> correspondant au bouton Quitter, sous forme non Presse.  <a href="classsdlJeu.html#a8acf3b5d9a49a681e360eba79f491ced">More...</a><br /></td></tr>
+<tr class="separator:a8acf3b5d9a49a681e360eba79f491ced"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbe8893edbb6460e1c882507f7738c2e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classImage.html">Image</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdlJeu.html#abbe8893edbb6460e1c882507f7738c2e">imRecommencerPresse</a></td></tr>
+<tr class="memdesc:abbe8893edbb6460e1c882507f7738c2e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classImage.html" title="Classe gérant l&#39;affichage et la gestion des images.">Image</a> correspondant au bouton Recommencer, sous forme Presse.  <a href="classsdlJeu.html#abbe8893edbb6460e1c882507f7738c2e">More...</a><br /></td></tr>
+<tr class="separator:abbe8893edbb6460e1c882507f7738c2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f022b4530eef1d7343f40f48fd83ece"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classImage.html">Image</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdlJeu.html#a3f022b4530eef1d7343f40f48fd83ece">imRecommencer</a></td></tr>
+<tr class="memdesc:a3f022b4530eef1d7343f40f48fd83ece"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classImage.html" title="Classe gérant l&#39;affichage et la gestion des images.">Image</a> correspondant au bouton Recommencer, sous forme non Presse.  <a href="classsdlJeu.html#a3f022b4530eef1d7343f40f48fd83ece">More...</a><br /></td></tr>
+<tr class="separator:a3f022b4530eef1d7343f40f48fd83ece"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad03e1238002e34922af8b97f18580560"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classImage.html">Image</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdlJeu.html#ad03e1238002e34922af8b97f18580560">imTeteSerpent</a> [6]</td></tr>
+<tr class="memdesc:ad03e1238002e34922af8b97f18580560"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tableau d'images de serpent, il contient les 6 têtes colorées qui seront selectionnées en fonctions des images des serpents.  <a href="classsdlJeu.html#ad03e1238002e34922af8b97f18580560">More...</a><br /></td></tr>
+<tr class="separator:ad03e1238002e34922af8b97f18580560"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09a617ee7a199ee6f09ab6e0051896ef"><td class="memItemLeft" align="right" valign="top">TTF_Font *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdlJeu.html#a09a617ee7a199ee6f09ab6e0051896ef">font24</a></td></tr>
+<tr class="memdesc:a09a617ee7a199ee6f09ab6e0051896ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Police d'écriture de taille 24.  <a href="classsdlJeu.html#a09a617ee7a199ee6f09ab6e0051896ef">More...</a><br /></td></tr>
+<tr class="separator:a09a617ee7a199ee6f09ab6e0051896ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a168affb2cca15b7bae3bc83200dc3f25"><td class="memItemLeft" align="right" valign="top">TTF_Font *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdlJeu.html#a168affb2cca15b7bae3bc83200dc3f25">font32</a></td></tr>
+<tr class="memdesc:a168affb2cca15b7bae3bc83200dc3f25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Police d'écriture de taille 32.  <a href="classsdlJeu.html#a168affb2cca15b7bae3bc83200dc3f25">More...</a><br /></td></tr>
+<tr class="separator:a168affb2cca15b7bae3bc83200dc3f25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a365e93950ff9af3c4de6c45b5517d112"><td class="memItemLeft" align="right" valign="top">TTF_Font *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdlJeu.html#a365e93950ff9af3c4de6c45b5517d112">font48</a></td></tr>
+<tr class="memdesc:a365e93950ff9af3c4de6c45b5517d112"><td class="mdescLeft">&#160;</td><td class="mdescRight">Police d'écriture de taille 48.  <a href="classsdlJeu.html#a365e93950ff9af3c4de6c45b5517d112">More...</a><br /></td></tr>
+<tr class="separator:a365e93950ff9af3c4de6c45b5517d112"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9647c8eb78387a479af348c573adb38d"><td class="memItemLeft" align="right" valign="top">TTF_Font *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdlJeu.html#a9647c8eb78387a479af348c573adb38d">font64</a></td></tr>
+<tr class="memdesc:a9647c8eb78387a479af348c573adb38d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Police d'écriture de taille 64.  <a href="classsdlJeu.html#a9647c8eb78387a479af348c573adb38d">More...</a><br /></td></tr>
+<tr class="separator:a9647c8eb78387a479af348c573adb38d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0c0d67004bac5b22d05eb1e4b8fead0"><td class="memItemLeft" align="right" valign="top">SDL_Color&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdlJeu.html#aa0c0d67004bac5b22d05eb1e4b8fead0">blanc</a></td></tr>
+<tr class="memdesc:aa0c0d67004bac5b22d05eb1e4b8fead0"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classCouleur.html" title="Classe définissant une couleur rgb.">Couleur</a> pour les écritures : Blanc.  <a href="classsdlJeu.html#aa0c0d67004bac5b22d05eb1e4b8fead0">More...</a><br /></td></tr>
+<tr class="separator:aa0c0d67004bac5b22d05eb1e4b8fead0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a295d140903f8b2922e69b951535d802f"><td class="memItemLeft" align="right" valign="top">SDL_Color&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdlJeu.html#a295d140903f8b2922e69b951535d802f">grisEcriture</a></td></tr>
+<tr class="memdesc:a295d140903f8b2922e69b951535d802f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classCouleur.html" title="Classe définissant une couleur rgb.">Couleur</a> pour les écritures : Gris clair.  <a href="classsdlJeu.html#a295d140903f8b2922e69b951535d802f">More...</a><br /></td></tr>
+<tr class="separator:a295d140903f8b2922e69b951535d802f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c6b207c8f9108cc52c570f890f20cba"><td class="memItemLeft" align="right" valign="top">SDL_Window *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdlJeu.html#a9c6b207c8f9108cc52c570f890f20cba">window</a></td></tr>
+<tr class="memdesc:a9c6b207c8f9108cc52c570f890f20cba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fenêtre du jeu.  <a href="classsdlJeu.html#a9c6b207c8f9108cc52c570f890f20cba">More...</a><br /></td></tr>
+<tr class="separator:a9c6b207c8f9108cc52c570f890f20cba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee1a517fb83b31bf7b19330d652bd7fe"><td class="memItemLeft" align="right" valign="top">SDL_Renderer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdlJeu.html#aee1a517fb83b31bf7b19330d652bd7fe">renderer</a></td></tr>
+<tr class="memdesc:aee1a517fb83b31bf7b19330d652bd7fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renderer du jeu.  <a href="classsdlJeu.html#aee1a517fb83b31bf7b19330d652bd7fe">More...</a><br /></td></tr>
+<tr class="separator:aee1a517fb83b31bf7b19330d652bd7fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Module gérant la boucle du jeu. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a875ba178fd4d7dfa98d302181c7db89f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a875ba178fd4d7dfa98d302181c7db89f">&#9670;&nbsp;</a></span>sdlJeu()</h2>
 
@@ -119,6 +210,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Constructeur de la classe, démarre une partie avec une taille de terrain de largeur tailleX et hauteur tailleY De plus on passe en paramètre les couleurs des deux serpents. </p>
+
 </div>
 </div>
 <a id="a5bcd8f5ed17a2cea2ad2fc633415cbcc"></a>
@@ -136,9 +229,361 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Destructeur de la classe, il libère le renderer, la fenêtre, et ferme SDL. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a289c764ae38416d3c860df2bc36eda80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a289c764ae38416d3c860df2bc36eda80">&#9670;&nbsp;</a></span>afficherTeteSerpent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sdlJeu::afficherTeteSerpent </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classSerpent.html">Serpent</a>&#160;</td>
+          <td class="paramname"><em>S</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Fonction d'affichage de la tête des serpent, en affiche la tête de chaque serpent avec la bonne couleur, et la bonne orientation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">renderer</td><td>Renderer de la partie </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">S</td><td><a class="el" href="classSerpent.html" title="Classe définissant un serpent et ses données.">Serpent</a> dont on doit afficher la tête </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a148952aae35435749943ff0d5abfa51e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a148952aae35435749943ff0d5abfa51e">&#9670;&nbsp;</a></span>isIn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool sdlJeu::isIn </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>souris_x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>souris_y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Vérifie si la souris est dans un certain rectangle spécifiée par les arguments. </p>
+<dl class="section return"><dt>Returns</dt><dd>Booleen valant vrai si la souris est dans la zone, faux sinon </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>Coordonnée x du coin gauche de la zone </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>Coordonnée y du coin gauche de la zone </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">w</td><td>Largeur de la zone </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">h</td><td>Hauteur de la zone </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">souris_x</td><td>Coordonnée x de la souris </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">souris_y</td><td>Coordonnée y de la souris </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aae9f1288e01d6db39c550f735adaa554"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae9f1288e01d6db39c550f735adaa554">&#9670;&nbsp;</a></span>recommencerPartie()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sdlJeu::recommencerPartie </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Réinitialise les données membres de la classe pour redémarrer une partie, en passant par <a class="el" href="classJeu.html" title="Classe avec les fonctions de coeur du jeu.">Jeu</a>, <a class="el" href="classTerrain.html" title="Classe définissant le terrain de jeu.">Terrain</a>, Serpents, etc. </p>
+
+</div>
+</div>
+<a id="af7a0dc225d8fcea78c22bde0a7ae0f3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7a0dc225d8fcea78c22bde0a7ae0f3a">&#9670;&nbsp;</a></span>renderCenterText()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sdlJeu::renderCenterText </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>p_x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>p_y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>p_text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>font</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Color&#160;</td>
+          <td class="paramname"><em>textColor</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Fonction d'affichage d'un texte centré au milieu de la fenêtre, on peut le decaler si on le souhaite, ou bien le centrer parfaitement en entrant 0 pour p_x et p_y. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_x</td><td>Décalage horizontal du texte (+ -&gt; texte décalé à droite) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_y</td><td>Décalage vertical du texte (+ -&gt; texte décalé en bas) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_text</td><td>Chaine de caractère que l'on veut écrire </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">font</td><td>Police d'écriture désirée </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">textColor</td><td><a class="el" href="classCouleur.html" title="Classe définissant une couleur rgb.">Couleur</a> désirée </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0a1889f13bfcda2c473b6d5930069902"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a1889f13bfcda2c473b6d5930069902">&#9670;&nbsp;</a></span>renderText()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sdlJeu::renderText </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>p_x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>p_y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>p_text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>font</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Color&#160;</td>
+          <td class="paramname"><em>textColor</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Fonction d'affichage d'un texte où l'on souhaite dans la fenêtre fenêtre. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_x</td><td>Coordonnée x du texte </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_y</td><td>Coordonnée y du texte </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_text</td><td>Chaine de caractère que l'on veut écrire </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">font</td><td>Police d'écriture désirée </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">textColor</td><td><a class="el" href="classCouleur.html" title="Classe définissant une couleur rgb.">Couleur</a> désirée </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af11d4ab8cd3900e7298ea350bb117096"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af11d4ab8cd3900e7298ea350bb117096">&#9670;&nbsp;</a></span>sdlActionsAutomatiques()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sdlJeu::sdlActionsAutomatiques </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Avancée automatique des serpents, et traçage de leur courbe au fur et à mesure. </p>
+
+</div>
+</div>
+<a id="a9a7e63c65a196e3769bc269a09eb4f1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a7e63c65a196e3769bc269a09eb4f1d">&#9670;&nbsp;</a></span>sdlAff()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sdlJeu::sdlAff </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>boutonRecommencer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>boutonQuitter</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Fonction principale d'affichage, elle appelle l'affichage des courbes, affiche les boutons, écrit les scores, les textes et appelle l'affichage des têtes des serpents. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">boutonRecommencer</td><td>Booleen indiquant si la souris survole le bouton Recommencer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">boutonQuitter</td><td>Booleen indiquant si la souris survole le bouton Quitter </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a5628835d7efcab056985c3aa3de56836"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5628835d7efcab056985c3aa3de56836">&#9670;&nbsp;</a></span>sdlBoucle()</h2>
 
@@ -153,6 +598,441 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Boucle principale du jeu, elle est appelée une unique fois dans le programme principal. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aa0c0d67004bac5b22d05eb1e4b8fead0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0c0d67004bac5b22d05eb1e4b8fead0">&#9670;&nbsp;</a></span>blanc</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Color sdlJeu::blanc</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classCouleur.html" title="Classe définissant une couleur rgb.">Couleur</a> pour les écritures : Blanc. </p>
+
+</div>
+</div>
+<a id="a794a24962747ee3d2bd81b6287a6ec63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a794a24962747ee3d2bd81b6287a6ec63">&#9670;&nbsp;</a></span>fenetreJeu</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classFenetreJeu.html">FenetreJeu</a> sdlJeu::fenetreJeu</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Module fenêtre du jeu qui contient les fonctions d'affichage des surfaces ou encore des tracés des serpents. </p>
+
+</div>
+</div>
+<a id="a09a617ee7a199ee6f09ab6e0051896ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09a617ee7a199ee6f09ab6e0051896ef">&#9670;&nbsp;</a></span>font24</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TTF_Font* sdlJeu::font24</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Police d'écriture de taille 24. </p>
+
+</div>
+</div>
+<a id="a168affb2cca15b7bae3bc83200dc3f25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a168affb2cca15b7bae3bc83200dc3f25">&#9670;&nbsp;</a></span>font32</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TTF_Font* sdlJeu::font32</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Police d'écriture de taille 32. </p>
+
+</div>
+</div>
+<a id="a365e93950ff9af3c4de6c45b5517d112"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a365e93950ff9af3c4de6c45b5517d112">&#9670;&nbsp;</a></span>font48</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TTF_Font* sdlJeu::font48</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Police d'écriture de taille 48. </p>
+
+</div>
+</div>
+<a id="a9647c8eb78387a479af348c573adb38d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9647c8eb78387a479af348c573adb38d">&#9670;&nbsp;</a></span>font64</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TTF_Font* sdlJeu::font64</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Police d'écriture de taille 64. </p>
+
+</div>
+</div>
+<a id="a729abee0513e6b300a1e7b403f80dff2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a729abee0513e6b300a1e7b403f80dff2">&#9670;&nbsp;</a></span>gameRunning</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool sdlJeu::gameRunning</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Booleen étant initialisé à true, quand il devient false le programme se termine en sortant de la boucle de jeu. </p>
+
+</div>
+</div>
+<a id="a295d140903f8b2922e69b951535d802f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a295d140903f8b2922e69b951535d802f">&#9670;&nbsp;</a></span>grisEcriture</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Color sdlJeu::grisEcriture</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classCouleur.html" title="Classe définissant une couleur rgb.">Couleur</a> pour les écritures : Gris clair. </p>
+
+</div>
+</div>
+<a id="abd20ca3db6b14dcbacc8dfbeae651c15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd20ca3db6b14dcbacc8dfbeae651c15">&#9670;&nbsp;</a></span>imageDroiteJeu</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classImage.html">Image</a> sdlJeu::imageDroiteJeu</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classImage.html" title="Classe gérant l&#39;affichage et la gestion des images.">Image</a> correspondant à la barre latérale à droite du jeu. </p>
+
+</div>
+</div>
+<a id="ad789efac1eb760913959a0e724aad793"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad789efac1eb760913959a0e724aad793">&#9670;&nbsp;</a></span>imageTitreJeu</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classImage.html">Image</a> sdlJeu::imageTitreJeu</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classImage.html" title="Classe gérant l&#39;affichage et la gestion des images.">Image</a> correspondant à la barre horizontale au dessus du jeu, avec le titre CURVEFEVER. </p>
+
+</div>
+</div>
+<a id="a8acf3b5d9a49a681e360eba79f491ced"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8acf3b5d9a49a681e360eba79f491ced">&#9670;&nbsp;</a></span>imQuitter</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classImage.html">Image</a> sdlJeu::imQuitter</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classImage.html" title="Classe gérant l&#39;affichage et la gestion des images.">Image</a> correspondant au bouton Quitter, sous forme non Presse. </p>
+
+</div>
+</div>
+<a id="aee5e76006dba9d8bcd65c8d1e43f763f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee5e76006dba9d8bcd65c8d1e43f763f">&#9670;&nbsp;</a></span>imQuitterPresse</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classImage.html">Image</a> sdlJeu::imQuitterPresse</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classImage.html" title="Classe gérant l&#39;affichage et la gestion des images.">Image</a> correspondant au bouton Quitter, sous forme Presse. </p>
+
+</div>
+</div>
+<a id="a3f022b4530eef1d7343f40f48fd83ece"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f022b4530eef1d7343f40f48fd83ece">&#9670;&nbsp;</a></span>imRecommencer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classImage.html">Image</a> sdlJeu::imRecommencer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classImage.html" title="Classe gérant l&#39;affichage et la gestion des images.">Image</a> correspondant au bouton Recommencer, sous forme non Presse. </p>
+
+</div>
+</div>
+<a id="abbe8893edbb6460e1c882507f7738c2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbe8893edbb6460e1c882507f7738c2e">&#9670;&nbsp;</a></span>imRecommencerPresse</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classImage.html">Image</a> sdlJeu::imRecommencerPresse</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classImage.html" title="Classe gérant l&#39;affichage et la gestion des images.">Image</a> correspondant au bouton Recommencer, sous forme Presse. </p>
+
+</div>
+</div>
+<a id="ad03e1238002e34922af8b97f18580560"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad03e1238002e34922af8b97f18580560">&#9670;&nbsp;</a></span>imTeteSerpent</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classImage.html">Image</a> sdlJeu::imTeteSerpent[6]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tableau d'images de serpent, il contient les 6 têtes colorées qui seront selectionnées en fonctions des images des serpents. </p>
+
+</div>
+</div>
+<a id="a43eec470e1819a9df66e019e02928497"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43eec470e1819a9df66e019e02928497">&#9670;&nbsp;</a></span>jeu</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classJeu.html">Jeu</a> sdlJeu::jeu</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classJeu.html" title="Classe avec les fonctions de coeur du jeu.">Jeu</a> qui contient les infos de la partie, tel que les serpents ou le terrain. </p>
+
+</div>
+</div>
+<a id="aee1a517fb83b31bf7b19330d652bd7fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee1a517fb83b31bf7b19330d652bd7fe">&#9670;&nbsp;</a></span>renderer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Renderer* sdlJeu::renderer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Renderer du jeu. </p>
+
+</div>
+</div>
+<a id="a9c6b207c8f9108cc52c570f890f20cba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c6b207c8f9108cc52c570f890f20cba">&#9670;&nbsp;</a></span>window</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Window* sdlJeu::window</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Fenêtre du jeu. </p>
 
 </div>
 </div>

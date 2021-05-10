@@ -1,8 +1,23 @@
 var searchData=
 [
-  ['id_39',['ID',['../classSerpent.html#a52034120d2a3902d6a0ac688ff0886cb',1,'Serpent']]],
-  ['image_40',['Image',['../classImage.html',1,'Image'],['../classImage.html#a58edd1c45b4faeb5f789b0d036d02313',1,'Image::Image()']]],
-  ['image_2ecpp_41',['Image.cpp',['../Image_8cpp.html',1,'']]],
-  ['image_2eh_42',['Image.h',['../Image_8h.html',1,'']]],
-  ['isin_43',['isIn',['../classMenu.html#adf3ef55de4118e599f12c8ec9746966a',1,'Menu']]]
+  ['g_45',['g',['../classCouleur.html#a5829744f15fa3305a33e2619ac917680',1,'Couleur']]],
+  ['gamerunning_46',['gameRunning',['../classsdlJeu.html#a729abee0513e6b300a1e7b403f80dff2',1,'sdlJeu']]],
+  ['getbleu_47',['getBleu',['../classCouleur.html#ac286701dbd7b282c78ab6c287b7d2113',1,'Couleur']]],
+  ['getch_48',['getCh',['../classWinTXT.html#a418c66475403586ac57a80eceb409166',1,'WinTXT']]],
+  ['getconsts1_49',['getConstS1',['../classJeu.html#a5afb0f9213775cb9c490eb856508b113',1,'Jeu']]],
+  ['getconsts2_50',['getConstS2',['../classJeu.html#a3ffc2e2a634198e94a97b2d9da6021f0',1,'Jeu']]],
+  ['getcouleur_51',['getCouleur',['../classSerpent.html#a49bfd1831cdea81149df7b42809511fa',1,'Serpent']]],
+  ['getdirection_52',['getDirection',['../classSerpent.html#a8aa5d117172245f6ceee1283904c0454',1,'Serpent']]],
+  ['getrouge_53',['getRouge',['../classCouleur.html#a254e28523bdebe61a721aa17043cf82f',1,'Couleur']]],
+  ['gets1_54',['getS1',['../classJeu.html#a5942a7c6c90316d18332553e511c514b',1,'Jeu']]],
+  ['gets2_55',['getS2',['../classJeu.html#acfacd00156e71ea80e1780b8ae8da933',1,'Jeu']]],
+  ['getscore_56',['getScore',['../classSerpent.html#af7b8e2976de730c6c6676737b2388f71',1,'Serpent']]],
+  ['gettaillex_57',['getTailleX',['../classTerrain.html#af6f76f6c2e1ee1e2999bf7637fd3c80f',1,'Terrain']]],
+  ['gettailley_58',['getTailleY',['../classTerrain.html#ae1b9989272af1801cf01c909a1070f7c',1,'Terrain']]],
+  ['gettetex_59',['getTeteX',['../classSerpent.html#a91ab341eac8614ecc6960682a2009af7',1,'Serpent']]],
+  ['gettetey_60',['getTeteY',['../classSerpent.html#a89a8c9a23b0da82fe55e938f8042c080',1,'Serpent']]],
+  ['gettexture_61',['getTexture',['../classImage.html#ae9e27e310b4322d04366f2882f3a4242',1,'Image']]],
+  ['getvert_62',['getVert',['../classCouleur.html#a7cc75a3c4e00e9a28f3e13ddf907d35a',1,'Couleur']]],
+  ['getvivant_63',['getVivant',['../classSerpent.html#a204c2ada085da0956b9f1fa121708f0e',1,'Serpent']]],
+  ['grisecriture_64',['grisEcriture',['../classsdlJeu.html#a295d140903f8b2922e69b951535d802f',1,'sdlJeu']]]
 ];

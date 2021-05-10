@@ -1,3 +1,6 @@
+@mainpage Documentation Curvefever
+
+
 |===========================================================|
 |================= PROJET LIFAP4 imagiNABle ================|
 |===========================================================|
@@ -7,7 +10,7 @@
 
 Notes du groupe : 
    Un affichage en plein écran est conseillé pour une lecture plus agréable du fichier readme.txt.
-   Jeu jouable sous Linux, Windows et MacOS.
+   Jeu jouable sous Linux, Windows.
 
 
 
@@ -31,8 +34,6 @@ PROJET SUR LA FORGE DE LYON1 :
 
 
 
-
-
 #===========================================================#
 		  MANUEL D'UTILISATION : 
 =============================================================
@@ -43,10 +44,19 @@ PROJET SUR LA FORGE DE LYON1 :
                Comment compiler et exécuter : 
 =============================================================
 
+Avant de compiler : 
+   Il faut installer les librairies de sdl.
+   Sous windows : Il faut disposer de la fonction make dans les variables d'environnement
+   Sous Linux : effectuer la commande : sudo apt install  libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev
+
 Pour compiler :
    Sur la console, se mettre dans le répertoire racine (il contient le makefile).
-   Ensuite, effectuer les commandes :	$> make veryclean
-					$> make 
+   Sous Linux et macOS : 
+      effectuer les commandes :	$> make veryclean
+					                  $> make 
+   Sous windows :
+      effectuer les commandes :  $> make veryclean -f Makefile2
+					                  $> make -f Makefile2
 					
 =============================================================
 
@@ -70,9 +80,6 @@ Les règles :
    L'application imagiNABle reprend le jeu de serpents "Curve Fever" où chaque joueur doit éviter le plus longtemps possible de rentrer dans sa propre trace et celle de son adversaire sur un plateau de jeu.
    Les "traces" des joueurs sont marquées sur le terrain aux endroits où les serpents passent tout au long de la partie.
    Lorsqu’une des deux “têtes” entre en contact avec une trace, le joueur la controllant perd la partie qui se termine alors.
-   Des bonus sont accessibles pendant la partie :
-    ---> Un power-up permettant de pouvoir effectuer un saut par dessus une trace est accessible aux deux joueurs toutes les 10 secondes, apparaissant à un emplacement aléatoire sur le terrain.
-    ---> Un power-up permettant de ** est accessible aux deux joueurs toutes les ** secondes, apparaissant à un emplacement aléatoire sur le terrain.
 
 =============================================================
 
@@ -81,8 +88,8 @@ Utilisation de l'application :
    Pour utiliser l'application imagiNABle (en version graphique, c'est plus sympa), il faut tout d'abord compiler le programme et ensuite l'exécuter (cf. Comment compiler et exécuter).
    Vous entrez ainsi dans l'interface de jeu.
    ***
-    ---> Le joueur 1 (serpent de couleur **) se déplace avec les touches Q et D du clavier.
-    ---> Le joueur 2 (serpent de couleur **) se déplace avec les touches K et M du clavier.
+    ---> Le joueur 1 se déplace avec les touches Q et D du clavier.
+    ---> Le joueur 2 se déplace avec les touches K et M du clavier.
    ***
    Pour fermer l'application il suffit de ***.
 
@@ -101,8 +108,7 @@ Voici une liste des fonctionnalités de l’application imagiNABle :
    -> Départ simultané et déplacement des têtes des 2 joueurs + contrôle de leur direction via le clavier (cf. Utilisation de l'application).
    -> La trace des joueurs est marquée sur le terrain de jeu et laisse parfois des trous.
    -> Le contact entre la tête d’un joueur et les traces ou les délimitations du terrain entraîne la défaite du joueur.
-   -> Apparition des bonus au cours de la partie.
-   -> ***.
+
 
 #===========================================================#
 
@@ -119,6 +125,8 @@ Le répertoire principal contient les sous-répertoires bin, src, obj, data et d
 
 
    -> /bin : contient les executables.
+
+   -> /dep : contient des fichiers de dépendances pour la compilation après avoir compilé.
 
    -> /src : contient les fichiers sources (.h et .cpp) du projet, et plus globalement tout le code de l'application.
 
@@ -143,10 +151,6 @@ Le répertoire principal contient un fichier Readme.txt (celui-ci !), un fichier
    -> l'organisation de l'archive.
 
 #===========================================================#
-
-
-
-
 
 
 |===========================================================|

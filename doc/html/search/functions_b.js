@@ -1,12 +1,6 @@
 var searchData=
 [
-  ['sdlboucle_171',['sdlBoucle',['../classsdlJeu.html#a5628835d7efcab056985c3aa3de56836',1,'sdlJeu']]],
-  ['sdljeu_172',['sdlJeu',['../classsdlJeu.html#a875ba178fd4d7dfa98d302181c7db89f',1,'sdlJeu']]],
-  ['serpent_173',['Serpent',['../classSerpent.html#a01c99f2226938edaa0d9ba5a21e3f1b5',1,'Serpent::Serpent()'],['../classSerpent.html#a6f08d49c6f2ee24533061fbd22df886e',1,'Serpent::Serpent(float x, float y, Couleur c)']]],
-  ['setcouleur_174',['setCouleur',['../classCouleur.html#a87123965f94b916579e387a4dbddcc31',1,'Couleur']]],
-  ['setdirection_175',['setDirection',['../classSerpent.html#ab808bd47fb2e23d68136a1fb9b50465f',1,'Serpent']]],
-  ['setsurface_176',['setSurface',['../classImage.html#a833f5d3b4b9f905320c6dffcc9b84b95',1,'Image']]],
-  ['settetex_177',['setTeteX',['../classSerpent.html#a83a7536f7c93e7c01d3a6be3e4cb3f8e',1,'Serpent']]],
-  ['settetey_178',['setTeteY',['../classSerpent.html#a3e71a1569a511d5b4ca70bf84facfb74',1,'Serpent']]],
-  ['setvivant_179',['setVivant',['../classSerpent.html#a587358d6b00fd8115a2191492253c9b4',1,'Serpent']]]
+  ['recommencerpartie_236',['recommencerPartie',['../classsdlJeu.html#aae9f1288e01d6db39c550f735adaa554',1,'sdlJeu']]],
+  ['rendercentertext_237',['renderCenterText',['../classsdlJeu.html#af7a0dc225d8fcea78c22bde0a7ae0f3a',1,'sdlJeu']]],
+  ['rendertext_238',['renderText',['../classsdlJeu.html#a0a1889f13bfcda2c473b6d5930069902',1,'sdlJeu']]]
 ];

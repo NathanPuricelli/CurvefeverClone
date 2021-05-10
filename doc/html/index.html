@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CurveFever: Main Page</title>
+<title>CurveFever: Documentation Curvefever</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -60,11 +60,66 @@ $(function() {
 </iframe>
 </div>
 
-<div class="header">
+<div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">CurveFever Documentation</div>  </div>
+<div class="title">Documentation Curvefever </div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><p>|===========================================================| |================= PROJET LIFAP4 imagiNABle ================| |===========================================================|</p>
+<p>Notes du groupe : Un affichage en plein écran est conseillé pour une lecture plus agréable du fichier readme.txt. <a class="el" href="classJeu.html" title="Classe avec les fonctions de coeur du jeu.">Jeu</a> jouable sous Linux, Windows.</p>
+<p>#===========================================================# </p>
+<h1><a class="anchor" id="autotoc_md0"></a>
+Informations factuelles du projet :</h1>
+<p>ÉTUDIANTS : BRIGUET Benoît p1915036 LETO Aymeric p1907585 PURICELLI Nathan p1907453</p>
+<p>PROJET SUR LA FORGE DE LYON1 : Nom : CurveFever Project ID : 18519 Créateur : PURICELLI Nathan p1907453</p>
+<p>#===========================================================#</p>
+<p>#===========================================================# </p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+MANUEL D'UTILISATION :</h1>
+<p>#===========================================================# </p>
+<h1><a class="anchor" id="autotoc_md2"></a>
+Comment compiler et exécuter :</h1>
+<p>Avant de compiler : Il faut installer les librairies de sdl. Sous windows : Il faut disposer de la fonction make dans les variables d'environnement Sous Linux : effectuer la commande : sudo apt install libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev</p>
+<p>Pour compiler : Sur la console, se mettre dans le répertoire racine (il contient le makefile). Sous Linux et macOS : effectuer les commandes : $&gt; make veryclean $&gt; make Sous windows : effectuer les commandes : $&gt; make veryclean -f Makefile2 $&gt; make -f Makefile2</p>
+<hr  />
+<p>Pour exécuter : Sur la console, se mettre dans le répertoire racine, puis faire la commande : $&gt; ./bin/nom_de_lexecutable </p><pre class="fragment">             $&gt; ./bin/curvefever_txt ---&gt; Pour lancer une version .txt du jeu.
+             $&gt; ./bin/       ---&gt; Pour lancer la version graphique du jeu (utilisant SDL).
+</pre><p> =============================================================</p>
+<p>#===========================================================# </p>
+<h1><a class="anchor" id="autotoc_md4"></a>
+Règles du jeu et utilisation de l'application :</h1>
+<p>Les règles :</p>
+<p>L'application imagiNABle reprend le jeu de serpents "Curve Fever" où chaque joueur doit éviter le plus longtemps possible de rentrer dans sa propre trace et celle de son adversaire sur un plateau de jeu. Les "traces" des joueurs sont marquées sur le terrain aux endroits où les serpents passent tout au long de la partie. Lorsqu’une des deux “têtes” entre en contact avec une trace, le joueur la controllant perd la partie qui se termine alors.</p>
+<hr  />
+<p>Utilisation de l'application :</p>
+<p>Pour utiliser l'application imagiNABle (en version graphique, c'est plus sympa), il faut tout d'abord compiler le programme et ensuite l'exécuter (cf. Comment compiler et exécuter). Vous entrez ainsi dans l'interface de jeu. </p><hr  />
+<p> &mdash;&gt; Le joueur 1 se déplace avec les touches Q et D du clavier. &mdash;&gt; Le joueur 2 se déplace avec les touches K et M du clavier. </p><hr  />
+<p> Pour fermer l'application il suffit de ***.</p>
+<hr  />
+<p>#===========================================================# </p>
+<h1><a class="anchor" id="autotoc_md7"></a>
+Liste des fonctionnalités du programme :</h1>
+<p>Voici une liste des fonctionnalités de l’application imagiNABle :</p>
+<p>-&gt; <a class="el" href="classJeu.html" title="Classe avec les fonctions de coeur du jeu.">Jeu</a> à 2 joueurs en local. -&gt; Départ simultané et déplacement des têtes des 2 joueurs + contrôle de leur direction via le clavier (cf. Utilisation de l'application). -&gt; La trace des joueurs est marquée sur le terrain de jeu et laisse parfois des trous. -&gt; Le contact entre la tête d’un joueur et les traces ou les délimitations du terrain entraîne la défaite du joueur.</p>
+<p>#===========================================================#</p>
+<p>#===========================================================# </p>
+<h1><a class="anchor" id="autotoc_md8"></a>
+ORGANISATION DE L'ARCHIVE :</h1>
+<p>Le répertoire principal contient les sous-répertoires bin, src, obj, data et doc.</p>
+<p>-&gt; /bin : contient les executables.</p>
+<p>-&gt; /dep : contient des fichiers de dépendances pour la compilation après avoir compilé.</p>
+<p>-&gt; /src : contient les fichiers sources (.h et .cpp) du projet, et plus globalement tout le code de l'application.</p>
+<p>-&gt; /obj : contient les fichiers .o (fichiers objets) de tous les fichiers .cpp pour exécuter.</p>
+<p>-&gt; /data : contient les assets de notre application.</p>
+<p>-&gt; /doc : contient la présentation orale du projet, le diagramme des classes UML final du projet, le diagramme de Gantt final du projet avec une description de ce qui a été fait. contient la partie documentation Doxygen avec : curvefever.doxy qui est le fichier de configuration de doxygen. html/index.html qui est la page d'entrée de la documentation (générée avec doxygen).</p>
+<hr  />
+<p>Le répertoire principal contient le fichier Makefile.</p>
+<hr  />
+<p>Le répertoire principal contient un fichier Readme.txt (celui-ci !), un fichier texte contenant</p>
+<p>-&gt; des informations factuelles. -&gt; un manuel d'utilisation. -&gt; l'organisation de l'archive.</p>
+<p>#===========================================================#</p>
+<p>|===========================================================| |============= PROJET LIFAP4 imagiNABle (FIN) ==============| |===========================================================| </p>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

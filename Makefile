@@ -58,7 +58,7 @@ documentation:
 	doxygen $(DOC_DIR)/curvefever.doxy
 
 archive :
-	tar -cvz --exclude='.git' -f ./../curvefever.tgz ./../curvefever
+	tar -cvz --exclude='.git' -f ./../Imaginable_11907453_11907585_11915036.tar.gz ./../curvefever
 
 clean:
 	rm -rf $(OBJ_DIR)/*.o $(OBJ_DIR)/core/*.o $(OBJ_DIR)/txt/*.o $(OBJ_DIR)/sdl2/*.o

@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['_7ecouleur_92',['~Couleur',['../classCouleur.html#ad3be30be83649bc5db48ef46b592aec2',1,'Couleur']]],
-  ['_7efenetrejeu_93',['~FenetreJeu',['../classFenetreJeu.html#aa7a5e95f4ee5ee655432c918272fe63a',1,'FenetreJeu']]],
-  ['_7ejeu_94',['~Jeu',['../classJeu.html#a9cd19e73df169d7f09397be61ba8548c',1,'Jeu']]],
-  ['_7emenu_95',['~Menu',['../classMenu.html#a831387f51358cfb88cd018e1777bc980',1,'Menu']]],
-  ['_7esdljeu_96',['~sdlJeu',['../classsdlJeu.html#a5bcd8f5ed17a2cea2ad2fc633415cbcc',1,'sdlJeu']]],
-  ['_7eserpent_97',['~Serpent',['../classSerpent.html#a3ad2e1cf6049f9d6b044cf1f6a0e67ab',1,'Serpent']]],
-  ['_7eterrain_98',['~Terrain',['../classTerrain.html#a2f7f0a2aee54886324ccf48a6f321de0',1,'Terrain']]]
+  ['win_143',['win',['../classWinTXT.html#ace5ef6c746d586385fcea85073bd1d41',1,'WinTXT']]],
+  ['window_144',['window',['../classMenu.html#a9ec7fe2ea749d968f18673abe264a546',1,'Menu::window()'],['../classsdlJeu.html#a9c6b207c8f9108cc52c570f890f20cba',1,'sdlJeu::window()']]],
+  ['window_5fheight_145',['window_height',['../sdlJeu_8cpp.html#ab2b8ce0216d9f11f046f97557b0b4eba',1,'sdlJeu.cpp']]],
+  ['window_5fwidth_146',['window_width',['../sdlJeu_8cpp.html#a9b05db8ab08a44c8bb2dfeb78fd61412',1,'sdlJeu.cpp']]],
+  ['wintxt_147',['WinTXT',['../classWinTXT.html',1,'WinTXT'],['../classWinTXT.html#ad471ddd48d2a7c43acccd1204e419527',1,'WinTXT::WinTXT()']]],
+  ['wintxt_2ecpp_148',['winTxt.cpp',['../winTxt_8cpp.html',1,'']]],
+  ['wintxt_2eh_149',['winTxt.h',['../winTxt_8h.html',1,'']]]
 ];

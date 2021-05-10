@@ -64,7 +64,7 @@ documentation:
 	doxygen $(DOC_DIR)/curvefever.doxy
 
 archive :
-	tar -cvz --exclude='.git' -f ./../curvefever.tgz ./../curvefever
+	tar -cvz --exclude='.git' -f ./../Imaginable_11907453_11907585_11915036.tar.gz ./../curvefever
 
 clean:
 ifeq ($(OS),Windows_NT)

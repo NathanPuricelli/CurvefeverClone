@@ -63,6 +63,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classFenetreJeu-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">FenetreJeu Class Reference</div>  </div>
@@ -94,6 +96,39 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7f64344bce83f4a9cd4192864dc59040"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFenetreJeu.html#a7f64344bce83f4a9cd4192864dc59040">fillSurfaceOnMotion</a> (const <a class="el" href="classJeu.html">Jeu</a> &amp;j)</td></tr>
 <tr class="memdesc:a7f64344bce83f4a9cd4192864dc59040"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction permettant de remplir la surface du plateau de jeu lors du mouvement des joueurs.  <a href="classFenetreJeu.html#a7f64344bce83f4a9cd4192864dc59040">More...</a><br /></td></tr>
 <tr class="separator:a7f64344bce83f4a9cd4192864dc59040"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a8141bebd5cfebc2b44b3bb75f1d8f93b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFenetreJeu.html#a8141bebd5cfebc2b44b3bb75f1d8f93b">dessinerCercle</a> (Uint32 color, int32_t centreX, int32_t centreY, int32_t radius)</td></tr>
+<tr class="memdesc:a8141bebd5cfebc2b44b3bb75f1d8f93b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction permettant de dessiner un cercle sur la surface du plateau de jeu.  <a href="classFenetreJeu.html#a8141bebd5cfebc2b44b3bb75f1d8f93b">More...</a><br /></td></tr>
+<tr class="separator:a8141bebd5cfebc2b44b3bb75f1d8f93b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd0924aac0dee95c950af6f68f0c3c1a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFenetreJeu.html#afd0924aac0dee95c950af6f68f0c3c1a">dessinerCercleRempli</a> (Uint32 color, int32_t centreX, int32_t centreY, int32_t radius)</td></tr>
+<tr class="memdesc:afd0924aac0dee95c950af6f68f0c3c1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction permettant de dessiner un cercle rempli sur la surface du plateau de jeu.  <a href="classFenetreJeu.html#afd0924aac0dee95c950af6f68f0c3c1a">More...</a><br /></td></tr>
+<tr class="separator:afd0924aac0dee95c950af6f68f0c3c1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef940499e105ee9fed033a01a8f0951a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFenetreJeu.html#aef940499e105ee9fed033a01a8f0951a">setPixUnique</a> (Uint32 color, int x, int y)</td></tr>
+<tr class="memdesc:aef940499e105ee9fed033a01a8f0951a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction permettant de dessiner un pixel sur la surface du plateau.  <a href="classFenetreJeu.html#aef940499e105ee9fed033a01a8f0951a">More...</a><br /></td></tr>
+<tr class="separator:aef940499e105ee9fed033a01a8f0951a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a23086a86cbab698dc56921eaaa7b8926"><td class="memItemLeft" align="right" valign="top">SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFenetreJeu.html#a23086a86cbab698dc56921eaaa7b8926">surface</a></td></tr>
+<tr class="memdesc:a23086a86cbab698dc56921eaaa7b8926"><td class="mdescLeft">&#160;</td><td class="mdescRight">Surface sdl du plateau de jeu.  <a href="classFenetreJeu.html#a23086a86cbab698dc56921eaaa7b8926">More...</a><br /></td></tr>
+<tr class="separator:a23086a86cbab698dc56921eaaa7b8926"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abffcb42440d4c9564a8608c3a62fd0be"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFenetreJeu.html#abffcb42440d4c9564a8608c3a62fd0be">texture</a></td></tr>
+<tr class="memdesc:abffcb42440d4c9564a8608c3a62fd0be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Texture sdl du plateau de jeu.  <a href="classFenetreJeu.html#abffcb42440d4c9564a8608c3a62fd0be">More...</a><br /></td></tr>
+<tr class="separator:abffcb42440d4c9564a8608c3a62fd0be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e808d9d22244fc2bf2e65825b2bdfcf"><td class="memItemLeft" align="right" valign="top">SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFenetreJeu.html#a3e808d9d22244fc2bf2e65825b2bdfcf">rect</a></td></tr>
+<tr class="memdesc:a3e808d9d22244fc2bf2e65825b2bdfcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rect sdl du plateau de jeu pour l'affichage.  <a href="classFenetreJeu.html#a3e808d9d22244fc2bf2e65825b2bdfcf">More...</a><br /></td></tr>
+<tr class="separator:a3e808d9d22244fc2bf2e65825b2bdfcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a944b90fb970aa2571db0ddb690292a9e"><td class="memItemLeft" align="right" valign="top">Uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFenetreJeu.html#a944b90fb970aa2571db0ddb690292a9e">couleurFond</a></td></tr>
+<tr class="memdesc:a944b90fb970aa2571db0ddb690292a9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Entier non signé correspondant à la couleur de fond du plateau de jeu.  <a href="classFenetreJeu.html#a944b90fb970aa2571db0ddb690292a9e">More...</a><br /></td></tr>
+<tr class="separator:a944b90fb970aa2571db0ddb690292a9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a5867543659343b756d1f5867589411"><td class="memItemLeft" align="right" valign="top">Uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFenetreJeu.html#a9a5867543659343b756d1f5867589411">couleurJ1</a></td></tr>
+<tr class="memdesc:a9a5867543659343b756d1f5867589411"><td class="mdescLeft">&#160;</td><td class="mdescRight">Entier non signé correspondant à la couleur du serpent 1.  <a href="classFenetreJeu.html#a9a5867543659343b756d1f5867589411">More...</a><br /></td></tr>
+<tr class="separator:a9a5867543659343b756d1f5867589411"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08c97be13c56085aef278162697e5f34"><td class="memItemLeft" align="right" valign="top">Uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFenetreJeu.html#a08c97be13c56085aef278162697e5f34">couleurJ2</a></td></tr>
+<tr class="memdesc:a08c97be13c56085aef278162697e5f34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Entier non signé correspondant à la couleur du serpent 2.  <a href="classFenetreJeu.html#a08c97be13c56085aef278162697e5f34">More...</a><br /></td></tr>
+<tr class="separator:a08c97be13c56085aef278162697e5f34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Classe gérant l'affichage de la fenetre de jeu. </p>
@@ -215,6 +250,124 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a8141bebd5cfebc2b44b3bb75f1d8f93b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8141bebd5cfebc2b44b3bb75f1d8f93b">&#9670;&nbsp;</a></span>dessinerCercle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FenetreJeu::dessinerCercle </td>
+          <td>(</td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>color</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>centreX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>centreY</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>radius</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Fonction permettant de dessiner un cercle sur la surface du plateau de jeu. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">color</td><td><a class="el" href="classCouleur.html" title="Classe définissant une couleur rgb.">Couleur</a> du cercle à dessiner </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">centreX</td><td>Coordonnée X du centre du cercle à dessiner </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">centreY</td><td>Coordonnée Y du centre du cercle à dessiner </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">radius</td><td>Rayon du cercle à dessiner </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afd0924aac0dee95c950af6f68f0c3c1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd0924aac0dee95c950af6f68f0c3c1a">&#9670;&nbsp;</a></span>dessinerCercleRempli()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FenetreJeu::dessinerCercleRempli </td>
+          <td>(</td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>color</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>centreX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>centreY</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>radius</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Fonction permettant de dessiner un cercle rempli sur la surface du plateau de jeu. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">color</td><td><a class="el" href="classCouleur.html" title="Classe définissant une couleur rgb.">Couleur</a> du cercle rempli à dessiner </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">centreX</td><td>Coordonnée X du centre du cercle rempli à dessiner </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">centreY</td><td>Coordonnée Y du centre du cercle rempli à dessiner </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">radius</td><td>Rayon du cercle rempli à dessiner </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="acea5c5f5bc9272844dedb24d88b6d63f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acea5c5f5bc9272844dedb24d88b6d63f">&#9670;&nbsp;</a></span>draw()</h2>
 
@@ -264,6 +417,203 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="aef940499e105ee9fed033a01a8f0951a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef940499e105ee9fed033a01a8f0951a">&#9670;&nbsp;</a></span>setPixUnique()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FenetreJeu::setPixUnique </td>
+          <td>(</td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>color</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Fonction permettant de dessiner un pixel sur la surface du plateau. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">color</td><td><a class="el" href="classCouleur.html" title="Classe définissant une couleur rgb.">Couleur</a> du pixel à dessiner </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>Coordonnée x du pixel à dessiner </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>Coorconnée y du pixel à dessiner </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a944b90fb970aa2571db0ddb690292a9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a944b90fb970aa2571db0ddb690292a9e">&#9670;&nbsp;</a></span>couleurFond</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint32 FenetreJeu::couleurFond</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Entier non signé correspondant à la couleur de fond du plateau de jeu. </p>
+
+</div>
+</div>
+<a id="a9a5867543659343b756d1f5867589411"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a5867543659343b756d1f5867589411">&#9670;&nbsp;</a></span>couleurJ1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint32 FenetreJeu::couleurJ1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Entier non signé correspondant à la couleur du serpent 1. </p>
+
+</div>
+</div>
+<a id="a08c97be13c56085aef278162697e5f34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08c97be13c56085aef278162697e5f34">&#9670;&nbsp;</a></span>couleurJ2</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint32 FenetreJeu::couleurJ2</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Entier non signé correspondant à la couleur du serpent 2. </p>
+
+</div>
+</div>
+<a id="a3e808d9d22244fc2bf2e65825b2bdfcf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e808d9d22244fc2bf2e65825b2bdfcf">&#9670;&nbsp;</a></span>rect</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Rect FenetreJeu::rect</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Rect sdl du plateau de jeu pour l'affichage. </p>
+
+</div>
+</div>
+<a id="a23086a86cbab698dc56921eaaa7b8926"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23086a86cbab698dc56921eaaa7b8926">&#9670;&nbsp;</a></span>surface</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Surface* FenetreJeu::surface</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Surface sdl du plateau de jeu. </p>
+
+</div>
+</div>
+<a id="abffcb42440d4c9564a8608c3a62fd0be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abffcb42440d4c9564a8608c3a62fd0be">&#9670;&nbsp;</a></span>texture</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Texture* FenetreJeu::texture</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Texture sdl du plateau de jeu. </p>
 
 </div>
 </div>
