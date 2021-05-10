@@ -1,3 +1,14 @@
+/**
+@brief Module gérant la partie SDL
+
+C'est le coeur de la version graphique du jeu, ce module contient les images utilisée, les polices d'écritures ou encore la fenêtre du jeu.
+sdlJeu appelle tpit
+
+@file : sdlJeu.h
+@author : Aymeric Leto, Benoît Briguet, Nathan Puricelli
+@date : Mars 2021
+*/
+
 #ifndef SDLJEU_H
 #define SDLJEU_H
 #include "Jeu.h"
@@ -25,12 +36,10 @@ class sdlJeu
 public:
     sdlJeu(unsigned int tailleX, unsigned int tailleY, Couleur couleur1, Couleur couleur2);
     ~sdlJeu();
-    void sdlAff(bool boutonRecommencer, bool boutonQuitter); //private ?
     void sdlBoucle();    
-    bool gameRunning; //private ?
-    
 
 private:
+    bool gameRunning;
     Jeu jeu;
     FenetreJeu fenetreJeu;
     Image imageTitreJeu;
@@ -48,6 +57,7 @@ private:
     SDL_Color grisEcriture;
     SDL_Window * window;
     SDL_Renderer * renderer;
+    void sdlAff(bool boutonRecommencer, bool boutonQuitter);
     bool isIn(int x, int y, int w, int h, int souris_x, int souris_y);
     void afficherTeteSerpent(SDL_Renderer* renderer, Serpent S);
     void renderCenterText(float p_x, float p_y, const char* p_text, TTF_Font* font, SDL_Color textColor);

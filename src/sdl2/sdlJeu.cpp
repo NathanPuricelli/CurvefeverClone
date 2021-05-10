@@ -1,7 +1,7 @@
 #include "sdlJeu.h"
 #include <cassert>
 
-#define fps 15
+#define fps 20
 #define window_width 1280
 #define window_height 720
 #define TAILLE_SPRITE 6
@@ -206,7 +206,6 @@ void sdlJeu::afficherTeteSerpent(SDL_Renderer* renderer, Serpent S) {
     if(S.getCouleur().getVert() == 6) SDL_RenderCopyEx(renderer, imTeteSerpent[3].getTexture(), NULL, &dst, S.getDirection() , NULL, SDL_FLIP_NONE);
     if(S.getCouleur().getRouge() == 248) SDL_RenderCopyEx(renderer, imTeteSerpent[4].getTexture(), NULL, &dst, S.getDirection() , NULL, SDL_FLIP_NONE);
     if(S.getCouleur().getRouge() == 162) SDL_RenderCopyEx(renderer, imTeteSerpent[5].getTexture(), NULL, &dst, S.getDirection() , NULL, SDL_FLIP_NONE);
-
     
 }
 
@@ -230,65 +229,23 @@ void sdlJeu::sdlAff(bool boutonRecommencer, bool boutonQuitter)
     else imQuitter.draw(renderer, 1151, 600);
 
     //Affichage du score des joueurs
-
-    Image scoreJ1;
-    SDL_Color font_color1;
-    font_color1.r = jeu.getConstS1().getCouleur().getRouge();
-    font_color1.g = jeu.getConstS1().getCouleur().getVert();
-    font_color1.b = jeu.getConstS1().getCouleur().getBleu();
-
-    /*
-    char score1[4];
-    sprintf(score1, "%d", jeu.getConstS1().getScore());
-    scoreJ1.setSurface(TTF_RenderText_Solid(font32, score1, font_color1));
-    SDL_Rect positionScore1;
-    positionScore1.x = 247; positionScore1.y = 10; positionScore1.w = 30; positionScore1.h = 70;
-    scoreJ1.loadFromCurrentSurface(renderer);
-    SDL_RenderCopy(renderer, scoreJ1.getTexture(), NULL, &positionScore1);
-    */
     char txt[4];
 
     sprintf(txt, "%d", jeu.getS1().getScore());
     renderText(240, 10, txt, font48, grisEcriture);
 
-    Image scoreJ2;
-    SDL_Color font_color2;
-    font_color2.r = jeu.getConstS2().getCouleur().getRouge();
-    font_color2.g = jeu.getConstS2().getCouleur().getVert();
-    font_color2.b = jeu.getConstS2().getCouleur().getBleu();
-
-    /*
-    char score2[4];
-    sprintf(score2, "%d", jeu.getConstS2().getScore());
-    scoreJ2.setSurface(TTF_RenderText_Solid(font32, score2, font_color2));
-    SDL_Rect positionScore2;
-    positionScore2.x = 1230; positionScore2.y = 10; positionScore2.w = 30; positionScore2.h = 70;
-    scoreJ2.loadFromCurrentSurface(renderer);
-    SDL_RenderCopy(renderer, scoreJ2.getTexture(), NULL, &positionScore2);
-    */
     sprintf(txt, "%d", jeu.getS2().getScore());
     renderText(1225, 10, txt, font48, grisEcriture);
 
+
+    //Affichage du texte "Partie en 5 points"
     renderText(1135, 200, "Partie en", font24, grisEcriture);
     renderText(1135, 230, "5 points", font24, grisEcriture);
 
+    //Affichage de la tête de chaque serpent
     afficherTeteSerpent(renderer, jeu.getConstS1());
     afficherTeteSerpent(renderer, jeu.getConstS2());
 
-    //affichage des tetes de serpent
-    /*
-    int x_origin = 0;
-    int y_origin = 90;
-    int tailleSprite = 6;
-    int tailleTeteSerpent = 40;
-    imTeteSerpent.draw(renderer, x_origin - tailleSprite/2 + (int)jeu.getConstS1().getTeteX() * tailleSprite, 
-        y_origin - tailleSprite +(int)jeu.getConstS1().getTeteY() * tailleSprite, 
-        tailleTeteSerpent, tailleTeteSerpent);
-    imTeteSerpent.draw(renderer, x_origin - tailleSprite/2 + (int)jeu.getConstS2().getTeteX() * tailleSprite,  
-        y_origin - tailleSprite +(int)jeu.getConstS2().getTeteY() * tailleSprite, 
-        tailleTeteSerpent, tailleTeteSerpent);
-    */
-    
 }
 
 void sdlJeu::sdlBoucle()
