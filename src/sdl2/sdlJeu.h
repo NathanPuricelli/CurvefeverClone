@@ -44,11 +44,14 @@ private:
     Image imRecommencer;
     Image imTeteSerpent;
     TTF_Font * font32;
+    TTF_Font * font48;
     TTF_Font * font64;
     SDL_Color blanc;
+    SDL_Color grisEcriture;
     SDL_Window * window;
     SDL_Renderer * renderer;
     bool isIn(int x, int y, int w, int h, int souris_x, int souris_y);
+    void afficherTeteSerpent(SDL_Renderer* renderer, Serpent S);
     void renderCenterText(float p_x, float p_y, const char* p_text, TTF_Font* font, SDL_Color textColor);
     void renderText(float p_x, float p_y, const char* p_text, TTF_Font* font, SDL_Color textColor);
     void surfaceToTexture();

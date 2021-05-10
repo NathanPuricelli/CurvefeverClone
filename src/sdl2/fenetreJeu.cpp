@@ -98,6 +98,12 @@ void FenetreJeu::dessinerCercleRempli(Uint32 color, int32_t centreX, int32_t cen
         ray--;
     }
     setPixUnique(color, centreX, centreY);
+
+    //Tracé à la main de 4 pixel restant
+    setPixUnique(color, centreX + 3, centreY + 3);
+    setPixUnique(color, centreX + 3, centreY - 3);
+    setPixUnique(color, centreX - 3, centreY - 3);
+    setPixUnique(color, centreX - 3, centreY + 3);
 }
 
 
@@ -111,7 +117,6 @@ void FenetreJeu::fillSurfaceOnMotion(const Jeu &j)
     {
         dessinerCercleRempli(couleurJ2, j.getConstS2().x_precedent * TAILLE_SPRITE, j.getConstS2().y_precedent * TAILLE_SPRITE, TAILLE_SPRITE);
     }
-
 
     /*
     dessinerCercleRempli(couleurJ1, j.getConstS1().getTeteX() * TAILLE_SPRITE, j.getConstS1().getTeteY() * TAILLE_SPRITE, TAILLE_SPRITE);

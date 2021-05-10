@@ -60,6 +60,15 @@ sdlJeu::sdlJeu(unsigned int tailleX, unsigned int tailleY, Couleur couleur1, Cou
             exit(1);
 	}
 
+    font48 = TTF_OpenFont("data/fonts/cocogoose.ttf", 48);
+    if (font48 == NULL)
+        font48 = TTF_OpenFont("../data/fonts/cocogoose.ttf", 48);
+    if (font48 == NULL) {
+            cout << "Erreur lors du chargement de cocogoose.ttf! SDL_TTF Error: " << SDL_GetError() << endl; 
+            SDL_Quit(); 
+            exit(1);
+	}
+
     font64 = TTF_OpenFont("data/fonts/cocogoose.ttf", 64);
     if (font64 == NULL)
         font64 = TTF_OpenFont("../data/fonts/cocogoose.ttf", 64);
@@ -70,6 +79,7 @@ sdlJeu::sdlJeu(unsigned int tailleX, unsigned int tailleY, Couleur couleur1, Cou
 	}
 
     blanc = { 255, 255, 255 };
+    grisEcriture = { 216, 213, 219 };
 
     //chargement des images;
     imageTitreJeu.loadFromFile("data/img/imTitreJeu.png", renderer);
@@ -114,7 +124,6 @@ void sdlJeu::renderCenterText(float p_x, float p_y, const char* p_text, TTF_Font
 bool sdlJeu::isIn(int x, int y, int w, int h, int souris_x, int souris_y)
 {
     return (((souris_x - x) <= w) && ((souris_x - x) >= 0) && ((souris_y - y) <= h) && ((souris_y - y) >= 0)) ;
-    
 }
 
 void sdlJeu::renderText(float p_x, float p_y, const char* p_text, TTF_Font* font, SDL_Color textColor)
@@ -165,6 +174,10 @@ void sdlJeu::sdlActionsAutomatiques()
     fenetreJeu.fillSurfaceOnMotion(jeu);
 }
 
+void sdlJeu::afficherTeteSerpent(SDL_Renderer* renderer, Serpent S) {
+
+}
+
 void sdlJeu::sdlAff(bool boutonRecommencer, bool boutonQuitter)
 {
     //Remplir l'écran de noir
@@ -192,6 +205,7 @@ void sdlJeu::sdlAff(bool boutonRecommencer, bool boutonQuitter)
     font_color1.g = jeu.getConstS1().getCouleur().getVert();
     font_color1.b = jeu.getConstS1().getCouleur().getBleu();
 
+    /*
     char score1[4];
     sprintf(score1, "%d", jeu.getConstS1().getScore());
     scoreJ1.setSurface(TTF_RenderText_Solid(font32, score1, font_color1));
@@ -199,6 +213,11 @@ void sdlJeu::sdlAff(bool boutonRecommencer, bool boutonQuitter)
     positionScore1.x = 247; positionScore1.y = 10; positionScore1.w = 30; positionScore1.h = 70;
     scoreJ1.loadFromCurrentSurface(renderer);
     SDL_RenderCopy(renderer, scoreJ1.getTexture(), NULL, &positionScore1);
+    */
+    char txt[4];
+
+    sprintf(txt, "%d", jeu.getS1().getScore());
+    renderText(240, 10, txt, font48, grisEcriture);
 
     Image scoreJ2;
     SDL_Color font_color2;
@@ -206,6 +225,7 @@ void sdlJeu::sdlAff(bool boutonRecommencer, bool boutonQuitter)
     font_color2.g = jeu.getConstS2().getCouleur().getVert();
     font_color2.b = jeu.getConstS2().getCouleur().getBleu();
 
+    /*
     char score2[4];
     sprintf(score2, "%d", jeu.getConstS2().getScore());
     scoreJ2.setSurface(TTF_RenderText_Solid(font32, score2, font_color2));
@@ -213,13 +233,24 @@ void sdlJeu::sdlAff(bool boutonRecommencer, bool boutonQuitter)
     positionScore2.x = 1230; positionScore2.y = 10; positionScore2.w = 30; positionScore2.h = 70;
     scoreJ2.loadFromCurrentSurface(renderer);
     SDL_RenderCopy(renderer, scoreJ2.getTexture(), NULL, &positionScore2);
+    */
+    sprintf(txt, "%d", jeu.getS2().getScore());
+    renderText(1225, 10, txt, font48, grisEcriture);
+
+    afficherTeteSerpent(renderer, jeu.getConstS1());
+    afficherTeteSerpent(renderer, jeu.getConstS2());
 
     //affichage des tetes de serpent
     int x_origin = 0;
     int y_origin = 90;
     int tailleSprite = 6;
-    imTeteSerpent.draw(renderer, x_origin - tailleSprite/2 + (int)jeu.getConstS1().getTeteX() * tailleSprite, y_origin - tailleSprite +(int)jeu.getConstS1().getTeteY() * tailleSprite, 20, 20);
-    imTeteSerpent.draw(renderer, x_origin - tailleSprite/2 + (int)jeu.getConstS2().getTeteX() * tailleSprite,  y_origin - tailleSprite +(int)jeu.getConstS2().getTeteY() * tailleSprite, 20, 20);
+    int tailleTeteSerpent = 40;
+    imTeteSerpent.draw(renderer, x_origin - tailleSprite/2 + (int)jeu.getConstS1().getTeteX() * tailleSprite, 
+        y_origin - tailleSprite +(int)jeu.getConstS1().getTeteY() * tailleSprite, 
+        tailleTeteSerpent, tailleTeteSerpent);
+    imTeteSerpent.draw(renderer, x_origin - tailleSprite/2 + (int)jeu.getConstS2().getTeteX() * tailleSprite,  
+        y_origin - tailleSprite +(int)jeu.getConstS2().getTeteY() * tailleSprite, 
+        tailleTeteSerpent, tailleTeteSerpent);
     
 }
 
