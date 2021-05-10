@@ -22,8 +22,6 @@ using namespace std;
 Serpent::Serpent() {
     TeteX = 0;
     TeteY = 0;
-    droite = false;
-    gauche = false;
     vivant = true;
     score = 0;
     direction = 0;
@@ -35,16 +33,10 @@ Serpent::Serpent(float x,float y, Couleur c)
 {   
     srand((unsigned int)time(0));
 
-    //assert(x>=0 && x<=t.getTailleX());
-    //assert(y>=0 && y<=t.getTailleY());
 
     TeteX = x;
     TeteY = y;
-    //t[y*(t.getTailleX())+x]=!&t[y*(t.getTailleX())+x];
-    //Je n'y suis pas arrivé, il faudrait changer la valeur du booléen du tableau alloué (terrain) lorqu'on créer le serpent..
-    
-    droite = false;
-    gauche = false;
+
     vivant = true;
     score = 0;
     
@@ -61,9 +53,6 @@ Serpent::Serpent(float x,float y, Couleur c)
 
 Serpent::~Serpent()
 {
-    //Pas sur que tout ça soit nécessaire (A)
-    droite = false;
-    gauche = false;
     vivant = true;
     score = 0;
     couleur.~Couleur();
@@ -87,15 +76,6 @@ bool Serpent::getVivant()const
     return vivant;
 }
 
-bool Serpent::getGauche()const
-{
-    return gauche;
-}
-
-bool Serpent::getDroite()const
-{
-    return droite;
-}
 
 unsigned int Serpent::getScore()const
 {

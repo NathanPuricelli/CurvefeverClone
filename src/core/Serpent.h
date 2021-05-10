@@ -26,11 +26,6 @@ private :
     float TeteX, TeteY;
     
     /**
-    @brief Booléens pour la direction du serpent (à droite ou à gauche).
-    */
-    bool droite, gauche;
-    
-    /**
     @brief Booléens pour indiquer si le serpent est toujours en vie.
     */
     bool vivant;
@@ -43,7 +38,7 @@ private :
     /**
     @brief La direction du serpent.
     */
-    float direction; // mettre un float car convertir en rad
+    float direction; 
     
     /**
     @brief La couleur du serpent.
@@ -93,16 +88,6 @@ public :
     @brief Accesseur : récupère le booléen indiquant si le serpent est encore vivant.
     */
     bool getVivant()const ;
-
-    /**
-    @brief Accesseur : récupère le booléen indiquant si le serpent tourne à gauche.
-    */
-    bool getGauche()const ;
-
-    /**
-    @brief Accesseur : récupère le booléen indiquant si le serpent tourne à droite.
-    */
-    bool getDroite()const ;
     
     /**
     @brief Accesseur : récupère le score du joueur du serpent.
@@ -159,6 +144,10 @@ public :
     */
     bool VerifColision(const Terrain &t) const;
 
+    /**
+    @brief Incrémente le score du serpent.
+    @param[in] s Score à ajouter au serpent
+    */
     void augmenterScore(int s);
 
 };

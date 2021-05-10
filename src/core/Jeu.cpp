@@ -2,7 +2,7 @@
 @brief Implémentation de la classe jeu
 
 
-@file Terrain.cpp
+@file Jeu.cpp
 @author : Aymeric Leto, Benoît Briguet, Nathan Puricelli
 @date : Mars 2021
 */
@@ -88,8 +88,6 @@ void Jeu::actionClavierTXT(const char touche) {
 
 void Jeu::actionClavierSDL(bool J1GaucheAppuye, bool J1DroiteAppuye, bool J2GaucheAppuye, bool J2DroiteAppuye)
 {
-    //Serpent 1 utilise q et d
-    //Serpent 2 utilise k et m
     int forceVirage = 10;
     if (J1GaucheAppuye) s1.setDirection(fmod(s1.getDirection() + 360 - forceVirage, 360));
     if (J1DroiteAppuye) s1.setDirection(fmod(s1.getDirection() + forceVirage, 360));
