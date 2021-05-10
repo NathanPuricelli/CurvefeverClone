@@ -42,6 +42,7 @@ private:
     Image imQuitter;
     Image imRecommencerPresse;
     Image imRecommencer;
+    Image imTeteSerpent;
     TTF_Font * font32;
     TTF_Font * font64;
     SDL_Color blanc;

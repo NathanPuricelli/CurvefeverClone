@@ -78,6 +78,7 @@ sdlJeu::sdlJeu(unsigned int tailleX, unsigned int tailleY, Couleur couleur1, Cou
     imQuitter.loadFromFile("data/img/imQuitter.png", renderer);
     imRecommencerPresse.loadFromFile("data/img/imRecommencerPresse.png", renderer);
     imRecommencer.loadFromFile("data/img/imRecommencer.png", renderer);
+    imTeteSerpent.loadFromFile("data/img/Serpent.png", renderer);
     gameRunning = false;
     fenetreJeu.couleurJoueurs(jeu);
 }
@@ -212,6 +213,13 @@ void sdlJeu::sdlAff(bool boutonRecommencer, bool boutonQuitter)
     positionScore2.x = 1230; positionScore2.y = 10; positionScore2.w = 30; positionScore2.h = 70;
     scoreJ2.loadFromCurrentSurface(renderer);
     SDL_RenderCopy(renderer, scoreJ2.getTexture(), NULL, &positionScore2);
+
+    //affichage des tetes de serpent
+    int x_origin = 0;
+    int y_origin = 90;
+    int tailleSprite = 6;
+    imTeteSerpent.draw(renderer, x_origin - tailleSprite/2 + (int)jeu.getConstS1().getTeteX() * tailleSprite, y_origin - tailleSprite +(int)jeu.getConstS1().getTeteY() * tailleSprite, 20, 20);
+    imTeteSerpent.draw(renderer, x_origin - tailleSprite/2 + (int)jeu.getConstS2().getTeteX() * tailleSprite,  y_origin - tailleSprite +(int)jeu.getConstS2().getTeteY() * tailleSprite, 20, 20);
     
 }
 
