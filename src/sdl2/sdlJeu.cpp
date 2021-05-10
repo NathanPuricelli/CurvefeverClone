@@ -364,74 +364,7 @@ void sdlJeu::sdlBoucle()
                 }
             }
         } 
-        else if (jeu.getConstS1().getScore() != 4 && jeu.getConstS2().getScore() != 4) //On entre dans ce if si l'un des serpents est mort, et pour autant qu'il n'y a pas de gagnant
-        {
-            if (!jeu.getConstS1().getVivant()) jeu.getS2().augmenterScore(1);      
-            else jeu.getS1().augmenterScore(1);
-            renderCenterText(0, 10, "Appuyez sur espace pour continuer", font32, blanc);
-            SDL_RenderPresent(renderer);
-            bool reprendrePartie = false;
-            while (!reprendrePartie) 
-            {
-                ticks = SDL_GetTicks();
-                if (ticks - starting_ticks > 1000 / fps)
-                {
-                    starting_ticks = ticks;
-
-                    bouttonRecommencer=isIn(1151, 400, 100, 50, x, y);
-                    bouttonQuitter=isIn(1151,600,100,50,x,y);
-
-                    sdlAff(bouttonRecommencer, bouttonQuitter);
-                    if (!jeu.getConstS1().getVivant()) renderCenterText(0, -20, "Joueur 1 est mort", font32, blanc); 
-                    else renderCenterText(0, -20, "Joueur 2 est mort", font32, blanc);
-                    renderCenterText(0, 10, "Appuyez sur espace pour continuer", font32, blanc);
-
-                    
-                
-                    SDL_RenderPresent(renderer);
-                }
-                while(SDL_PollEvent(&events)) {
-                    if (events.type == SDL_QUIT) {
-                        gameRunning = false;        // Si l'utilisateur a clique sur la croix de fermeture
-                        reprendrePartie = true;
-                    }
-                    else if (events.type == SDL_MOUSEMOTION)
-                    {
-                        SDL_GetMouseState(&x, &y);
-                    }
-                    else if (events.type == SDL_MOUSEBUTTONDOWN)
-                    {
-                        if (bouttonQuitter) {gameRunning=false; exit(0);}
-                        if (bouttonRecommencer)
-                        {
-                            fenetreJeu.clearSurface();
-                            reprendrePartie = true;
-                            recommencerPartie();
-                            J1GaucheAppuye = false;
-                            J1DroiteAppuye = false;
-                            J2GaucheAppuye = false;
-                            J2DroiteAppuye = false;
-                            SDL_SetRenderDrawColor(renderer, 20, 20, 50, 255);
-                            SDL_RenderClear(renderer);
-                            jeu.getS1().augmenterScore(- (jeu.getS1().getScore()));
-                            jeu.getS2().augmenterScore(- (jeu.getS2().getScore()));
-                        } 
-                    }
-                    else if (events.type == SDL_KEYDOWN && events.key.keysym.sym == SDLK_SPACE) {
-                        fenetreJeu.clearSurface();
-                        reprendrePartie = true;
-                        recommencerPartie();
-                        J1GaucheAppuye = false;
-                        J1DroiteAppuye = false;
-                        J2GaucheAppuye = false;
-                        J2DroiteAppuye = false;
-                        SDL_SetRenderDrawColor(renderer, 20, 20, 50, 255);
-                        SDL_RenderClear(renderer);
-                    }
-                }
-            }
-        } 
-        else //Si l'un des joueurs est mort et qu'il y a un gagnant
+        else if ((jeu.getConstS1().getScore() == 4 && jeu.getConstS1().getVivant()) || (jeu.getConstS2().getScore() == 4 && jeu.getConstS2().getVivant())) //On entre dans ce if si l'un des joueurs à gagné
         {
             if (!jeu.getConstS1().getVivant()) jeu.getS2().augmenterScore(1);      
             else jeu.getS1().augmenterScore(1);
@@ -496,6 +429,73 @@ void sdlJeu::sdlBoucle()
                         SDL_RenderClear(renderer);
                         jeu.getS1().augmenterScore(- (jeu.getS1().getScore()));
                         jeu.getS2().augmenterScore(- (jeu.getS2().getScore()));
+                    }
+                }
+            }
+        } 
+        else //Si l'un des joueurs et mort, et que l'autre n'a pas gagné, on arrive dans cette partie
+        {
+            if (!jeu.getConstS1().getVivant()) jeu.getS2().augmenterScore(1);      
+            else jeu.getS1().augmenterScore(1);
+            renderCenterText(0, 10, "Appuyez sur espace pour continuer", font32, blanc);
+            SDL_RenderPresent(renderer);
+            bool reprendrePartie = false;
+            while (!reprendrePartie) 
+            {
+                ticks = SDL_GetTicks();
+                if (ticks - starting_ticks > 1000 / fps)
+                {
+                    starting_ticks = ticks;
+
+                    bouttonRecommencer=isIn(1151, 400, 100, 50, x, y);
+                    bouttonQuitter=isIn(1151,600,100,50,x,y);
+
+                    sdlAff(bouttonRecommencer, bouttonQuitter);
+                    if (!jeu.getConstS1().getVivant()) renderCenterText(0, -20, "Joueur 1 est mort", font32, blanc); 
+                    else renderCenterText(0, -20, "Joueur 2 est mort", font32, blanc);
+                    renderCenterText(0, 10, "Appuyez sur espace pour continuer", font32, blanc);
+
+                    
+                
+                    SDL_RenderPresent(renderer);
+                }
+                while(SDL_PollEvent(&events)) {
+                    if (events.type == SDL_QUIT) {
+                        gameRunning = false;        // Si l'utilisateur a clique sur la croix de fermeture
+                        reprendrePartie = true;
+                    }
+                    else if (events.type == SDL_MOUSEMOTION)
+                    {
+                        SDL_GetMouseState(&x, &y);
+                    }
+                    else if (events.type == SDL_MOUSEBUTTONDOWN)
+                    {
+                        if (bouttonQuitter) {gameRunning=false; exit(0);}
+                        if (bouttonRecommencer)
+                        {
+                            fenetreJeu.clearSurface();
+                            reprendrePartie = true;
+                            recommencerPartie();
+                            J1GaucheAppuye = false;
+                            J1DroiteAppuye = false;
+                            J2GaucheAppuye = false;
+                            J2DroiteAppuye = false;
+                            SDL_SetRenderDrawColor(renderer, 20, 20, 50, 255);
+                            SDL_RenderClear(renderer);
+                            jeu.getS1().augmenterScore(- (jeu.getS1().getScore()));
+                            jeu.getS2().augmenterScore(- (jeu.getS2().getScore()));
+                        } 
+                    }
+                    else if (events.type == SDL_KEYDOWN && events.key.keysym.sym == SDLK_SPACE) {
+                        fenetreJeu.clearSurface();
+                        reprendrePartie = true;
+                        recommencerPartie();
+                        J1GaucheAppuye = false;
+                        J1DroiteAppuye = false;
+                        J2GaucheAppuye = false;
+                        J2DroiteAppuye = false;
+                        SDL_SetRenderDrawColor(renderer, 20, 20, 50, 255);
+                        SDL_RenderClear(renderer);
                     }
                 }
             }

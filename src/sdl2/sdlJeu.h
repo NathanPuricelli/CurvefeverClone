@@ -1,10 +1,16 @@
 /**
 @brief Module gérant la partie SDL
 
-@detail Coeur de la version graphique du jeu, ce module contient les images utilisées, les couleurs, les polices d'écriture ou encore la fenêtre du jeu.
-sdlJeu fonctionne autour d'une boucle qui récupère les actions des joueurs et appelle les fonctions de calculs et d'affichage.
-A chaque itération, la boucle affichera tout le jeu, fera avancer les serpents, tracera un peu plus leur courbe si un trou ne se forme pas, 
-ajustera leur orientation en fonction des touches appuyées et vérifira les colisions pour determiner si un joueur à perdu.
+@detail Coeur de la version graphique du jeu, ce module contient les images utilisées, 
+les couleurs, les polices d'écriture ou encore la fenêtre du jeu.
+
+sdlJeu fonctionne autour d'une boucle qui récupère les actions des joueurs 
+et appelle les fonctions de calculs et d'affichage.
+
+A chaque itération, la boucle affichera tout le jeu, fera avancer les serpents, 
+tracera un peu plus leur courbe si un trou ne se forme pas, 
+ajustera leur orientation en fonction des touches appuyées 
+et vérifira les colisions pour determiner si un joueur à perdu.
 
 @file sdlJeu.h
 @author : Aymeric Leto, Benoît Briguet, Nathan Puricelli
