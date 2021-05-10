@@ -1,9 +1,24 @@
+#ifndef MENU_H
+#define MENU_H
+
 #include "Couleur.h"
 #include "Image.h"
 #include <iostream>
+
+#ifdef _WIN32
 #include <SDL.h>
 #include <SDL_ttf.h>
 #include <SDL_image.h>
+#elif __linux__
+#include <SDL.h>
+#include <SDL_ttf.h>
+#include <SDL_image.h>
+#else
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
+#include <SDL2/SDL_image.h>
+#endif
+
 class Menu
 {
 private:
@@ -25,3 +40,5 @@ public:
     Couleur couleurJ1;
     Couleur couleurJ2;
 };
+
+#endif
