@@ -27,7 +27,7 @@ sdlJeu::sdlJeu(unsigned int tailleX, unsigned int tailleY, Couleur couleur1, Cou
     }
 
     //creation de la fenetre : 
-    window = SDL_CreateWindow("Curvefever !", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, window_width, window_height, SDL_WINDOW_SHOWN);
+    window = SDL_CreateWindow("Curvefever !", 50, 50, window_width, window_height, SDL_WINDOW_SHOWN);
     if (window == NULL)
     {
         cout << "Erreur lors de la creation de la fenetre : " << SDL_GetError() << endl;
@@ -183,10 +183,35 @@ void sdlJeu::sdlAff(bool boutonRecommencer, bool boutonQuitter)
     if (boutonQuitter) imQuitterPresse.draw(renderer, 1151, 600);
     else imQuitter.draw(renderer, 1151, 600);
 
-
-
     //Affichage du score des joueurs
 
+    Image scoreJ1;
+    SDL_Color font_color1;
+    font_color1.r = jeu.getConstS1().getCouleur().getRouge();
+    font_color1.g = jeu.getConstS1().getCouleur().getVert();
+    font_color1.b = jeu.getConstS1().getCouleur().getBleu();
+
+    char score1[4];
+    sprintf(score1, "%d", jeu.getConstS1().getScore());
+    scoreJ1.setSurface(TTF_RenderText_Solid(font32, score1, font_color1));
+    SDL_Rect positionScore1;
+    positionScore1.x = 247; positionScore1.y = 10; positionScore1.w = 30; positionScore1.h = 70;
+    scoreJ1.loadFromCurrentSurface(renderer);
+    SDL_RenderCopy(renderer, scoreJ1.getTexture(), NULL, &positionScore1);
+
+    Image scoreJ2;
+    SDL_Color font_color2;
+    font_color2.r = jeu.getConstS2().getCouleur().getRouge();
+    font_color2.g = jeu.getConstS2().getCouleur().getVert();
+    font_color2.b = jeu.getConstS2().getCouleur().getBleu();
+
+    char score2[4];
+    sprintf(score2, "%d", jeu.getConstS2().getScore());
+    scoreJ2.setSurface(TTF_RenderText_Solid(font32, score2, font_color2));
+    SDL_Rect positionScore2;
+    positionScore2.x = 1230; positionScore2.y = 10; positionScore2.w = 30; positionScore2.h = 70;
+    scoreJ2.loadFromCurrentSurface(renderer);
+    SDL_RenderCopy(renderer, scoreJ2.getTexture(), NULL, &positionScore2);
     
 }
 
@@ -225,7 +250,8 @@ void sdlJeu::sdlBoucle()
 
             }
 
-            while(SDL_PollEvent(&events)) {
+            while(SDL_PollEvent(&events))
+            {
                 switch (events.type) {
                     case SDL_QUIT:
                         gameRunning = false;
@@ -282,25 +308,61 @@ void sdlJeu::sdlBoucle()
                             jeu.getS2().augmenterScore(- (jeu.getS2().getScore()));
                         }
 
+                    }
                 }
-            }
-            
-        } else {
-            if (!jeu.getConstS1().getVivant()) {
-                renderCenterText(0, -20, "Joueur 1 est mort", font32, blanc);
-                jeu.getS2().augmenterScore(1);
-            } else {
-                renderCenterText(0, -20, "Joueur 2 est mort", font32, blanc);
-                jeu.getS1().augmenterScore(1);
-            }
+            } 
+        else 
+        {
+            if (!jeu.getConstS1().getVivant()) jeu.getS2().augmenterScore(1);      
+            else jeu.getS1().augmenterScore(1);
             renderCenterText(0, 10, "Appuyez sur espace pour continuer", font32, blanc);
             SDL_RenderPresent(renderer);
             bool reprendrePartie = false;
-            while (!reprendrePartie) {
+            while (!reprendrePartie) 
+            {
+                ticks = SDL_GetTicks();
+                if (ticks - starting_ticks > 1000 / fps)
+                {
+                    starting_ticks = ticks;
+
+                    bouttonRecommencer=isIn(1151, 400, 100, 50, x, y);
+                    bouttonQuitter=isIn(1151,600,100,50,x,y);
+
+                    sdlAff(bouttonRecommencer, bouttonQuitter);
+                    if (!jeu.getConstS1().getVivant()) renderCenterText(0, -20, "Joueur 1 est mort", font32, blanc); 
+                    else renderCenterText(0, -20, "Joueur 2 est mort", font32, blanc);
+                    renderCenterText(0, 10, "Appuyez sur espace pour continuer", font32, blanc);
+
+                    
+                
+                    SDL_RenderPresent(renderer);
+                }
                 while(SDL_PollEvent(&events)) {
                     if (events.type == SDL_QUIT) {
                         gameRunning = false;        // Si l'utilisateur a clique sur la croix de fermeture
                         reprendrePartie = true;
+                    }
+                    else if (events.type == SDL_MOUSEMOTION)
+                    {
+                        SDL_GetMouseState(&x, &y);
+                    }
+                    else if (events.type == SDL_MOUSEBUTTONDOWN)
+                    {
+                        if (bouttonQuitter) {gameRunning=false; exit(0);}
+                        if (bouttonRecommencer)
+                        {
+                            fenetreJeu.clearSurface();
+                            reprendrePartie = true;
+                            recommencerPartie();
+                            J1GaucheAppuye = false;
+                            J1DroiteAppuye = false;
+                            J2GaucheAppuye = false;
+                            J2DroiteAppuye = false;
+                            SDL_SetRenderDrawColor(renderer, 20, 20, 50, 255);
+                            SDL_RenderClear(renderer);
+                            jeu.getS1().augmenterScore(- (jeu.getS1().getScore()));
+                            jeu.getS2().augmenterScore(- (jeu.getS2().getScore()));
+                        } 
                     }
                     else if (events.type == SDL_KEYDOWN && events.key.keysym.sym == SDLK_SPACE) {
                         fenetreJeu.clearSurface();

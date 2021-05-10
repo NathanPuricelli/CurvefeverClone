@@ -22,7 +22,7 @@ Menu::Menu()
     }
 
     //creation de la fenetre : 
-    window = SDL_CreateWindow("Curvefever !", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1280, 720, SDL_WINDOW_SHOWN);
+    window = SDL_CreateWindow("Curvefever !", 50, 50, 1280, 720, SDL_WINDOW_SHOWN);
     if (window == NULL)
     {
         std::cout << "Erreur lors de la creation de la fenetre : " << SDL_GetError() << std::endl;

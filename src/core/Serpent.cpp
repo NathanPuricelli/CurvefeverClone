@@ -158,9 +158,9 @@ void Serpent::avancerTXT(Terrain &t)
 
 void Serpent::avancerSDL(Terrain &t)
 {
-    y_precedent = TeteY;
-    x_precedent = TeteX;
-    if ((CompteurTrous%30) >= 6) t.tabCasesOccupees[(int)TeteX][(int)TeteY] = ID;       
+    y_precedent = (unsigned int)TeteY;
+    x_precedent = (unsigned int)TeteX;
+    if ((CompteurTrous%30) >= 6) t.tabCasesOccupees[x_precedent][y_precedent] = ID;       
 
     float avanceeX = 1.42 * cos(direction * PI / 180);
     float avanceeY = 1.42 * sin(direction * PI / 180);
@@ -183,12 +183,6 @@ void Serpent::augmenterScore(int s)
 {
     score += s;
 }
-
-// J'ai pas compris a quoi correspond la direction..
-
-// C'est une valeur entre 0 et 360 (360 c'est à voir) qui determine l'orientation de la tete du serpent
-// Dans la version texte ce sera surement 0, 90, 180, 270 seulement
-// C'est la direction dans laquelle avancer quand une seconde passe et que le joueur ne tourne pas
 
 bool Serpent::VerifColision(const Terrain &t) const
 {
