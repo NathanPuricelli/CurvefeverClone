@@ -177,11 +177,14 @@ void sdlJeu::renderText(float p_x, float p_y, const char* p_text, TTF_Font* font
 
 
 void sdlJeu::recommencerPartie() {
+    //On vide le tableau entièrement
     for (unsigned int i = 0; i < jeu.t.getTailleX(); i++) {
         for (unsigned int j = 0; j < jeu.t.getTailleY(); j++) {
             jeu.t.tabCasesOccupees[i][j] = 0;
         }
     }
+    
+    //On réinitialise la position des serpents, leur direction et leur état
     jeu.getS1().setTeteX(10);
     jeu.getS1().setTeteY(10);
     jeu.getS1().setVivant(true);
@@ -198,6 +201,7 @@ void sdlJeu::recommencerPartie() {
 
 void sdlJeu::sdlActionsAutomatiques()
 {
+    //On appelle les actions automatiques de la classe jeu, puis on met à jour le terrain
     jeu.actionsAutomatiquesSDL();
     fenetreJeu.fillSurfaceOnMotion(jeu);
 }
@@ -208,7 +212,8 @@ void sdlJeu::afficherTeteSerpent(SDL_Renderer* renderer, Serpent S) {
 	dst.y = S.getTeteY() * TAILLE_SPRITE - 3.5*TAILLE_SPRITE + 90;
 	dst.w = 40;
 	dst.h = 40;
-    //Si le serpent est rouge
+    //En fonction de la couleur du serpent, on appelle la fonction qui oriente sa tête avec une image différente, pour que
+    //la tête du serpent soit de la même couleur que sa queue
     if(S.getCouleur().getRouge() == 222) SDL_RenderCopyEx(renderer, imTeteSerpent[0].getTexture(), NULL, &dst, S.getDirection() , NULL, SDL_FLIP_NONE);
     if(S.getCouleur().getRouge() == 246) SDL_RenderCopyEx(renderer, imTeteSerpent[1].getTexture(), NULL, &dst, S.getDirection() , NULL, SDL_FLIP_NONE);
     if(S.getCouleur().getVert() == 217) SDL_RenderCopyEx(renderer, imTeteSerpent[2].getTexture(), NULL, &dst, S.getDirection() , NULL, SDL_FLIP_NONE);
