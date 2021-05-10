@@ -188,6 +188,8 @@ bool Serpent::VerifColision(const Terrain &t) const
 {
     //Vérifie les cases à gauche et à droite de la tête du serpent, ce qui dépent donc de sa direction.
     //On vérifie les déplacements dans cet ordre : droite haut gauche bas
+    //std::cout<<  <<std::endl;
+
     if ((direction > 315 || direction <= 45) || (direction > 135 && direction <= 225)) //droite ou gauche
         return ((TeteX==0) || (TeteX>=t.getTailleX()) || (TeteY==0) || (TeteY>=t.getTailleY()) 
             || (t.tabCasesOccupees[(int) TeteX][(int) TeteY])
