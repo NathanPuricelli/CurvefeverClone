@@ -1,3 +1,11 @@
+/**
+@brief Implémentation de la classe Menu
+
+@file menu.cpp
+@author : professeurs LIFAP4, source pacman 
+@date : Avril 2021
+*/
+
 #include "menu.h"
 
 Menu::Menu()

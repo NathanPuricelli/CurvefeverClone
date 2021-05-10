@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CurveFever: src/core/Jeu.h Source File</title>
+<title>CurveFever: src/core/jeu.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -66,59 +66,68 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">Jeu.h</div>  </div>
+<div class="title">jeu.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="Jeu_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef JEU_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define JEU_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Serpent_8h.html">Serpent.h</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Terrain_8h.html">Terrain.h</a>&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="classJeu.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="classJeu.html">Jeu</a></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;private :</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="classSerpent.html">Serpent</a> s1;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="classSerpent.html">Serpent</a> s2;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;public :</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classJeu.html#a906acfd427c1a7493ed56ee385c4c96d">   24</a></span>&#160;    <a class="code" href="classTerrain.html">Terrain</a> <a class="code" href="classJeu.html#a906acfd427c1a7493ed56ee385c4c96d">t</a>;</div>
+<a href="jeu_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifndef JEU_H</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define JEU_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Serpent_8h.html">Serpent.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Terrain_8h.html">Terrain.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classJeu.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="classJeu.html">Jeu</a></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;private :</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="classSerpent.html">Serpent</a> s1;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="classJeu.html#acc5795ee00edf75516d3dfe65be3e6d6">Jeu</a>();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="classSerpent.html">Serpent</a> s2;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="classJeu.html#acc5795ee00edf75516d3dfe65be3e6d6">Jeu</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> tailleX, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> tailleY);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="classJeu.html#a9cd19e73df169d7f09397be61ba8548c">~Jeu</a>();</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="classSerpent.html">Serpent</a>&amp; <a class="code" href="classJeu.html#a5942a7c6c90316d18332553e511c514b">getS1</a>();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="classSerpent.html">Serpent</a>&amp; <a class="code" href="classJeu.html#acfacd00156e71ea80e1780b8ae8da933">getS2</a>();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">const</span> <a class="code" href="classSerpent.html">Serpent</a>&amp; <a class="code" href="classJeu.html#a5afb0f9213775cb9c490eb856508b113">getConstS1</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">const</span> <a class="code" href="classSerpent.html">Serpent</a>&amp; <a class="code" href="classJeu.html#a3ffc2e2a634198e94a97b2d9da6021f0">getConstS2</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classJeu.html#a849e140df1504ddfd1e1eccc4374718f">actionsAutomatiques</a>();</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classJeu.html#ab27fb1db9e2ae2a0c19a90ecc838319f">actionClavier</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> touche);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;};</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;public :</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classJeu.html#a906acfd427c1a7493ed56ee385c4c96d">   36</a></span>&#160;    <a class="code" href="classTerrain.html">Terrain</a> <a class="code" href="classJeu.html#a906acfd427c1a7493ed56ee385c4c96d">t</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="classJeu.html#acc5795ee00edf75516d3dfe65be3e6d6">Jeu</a>();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="classJeu.html#acc5795ee00edf75516d3dfe65be3e6d6">Jeu</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> tailleX, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> tailleY, <a class="code" href="classCouleur.html">Couleur</a> couleur1, <a class="code" href="classCouleur.html">Couleur</a> couleur2);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="classJeu.html#a9cd19e73df169d7f09397be61ba8548c">~Jeu</a>();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="classSerpent.html">Serpent</a>&amp; <a class="code" href="classJeu.html#a5942a7c6c90316d18332553e511c514b">getS1</a>();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="classSerpent.html">Serpent</a>&amp; <a class="code" href="classJeu.html#acfacd00156e71ea80e1780b8ae8da933">getS2</a>();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">const</span> <a class="code" href="classSerpent.html">Serpent</a>&amp; <a class="code" href="classJeu.html#a5afb0f9213775cb9c490eb856508b113">getConstS1</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">const</span> <a class="code" href="classSerpent.html">Serpent</a>&amp; <a class="code" href="classJeu.html#a3ffc2e2a634198e94a97b2d9da6021f0">getConstS2</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classJeu.html#ad1997a9041c1e01eab924ab786b54169">actionsAutomatiquesTXT</a>();</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classJeu.html#aa4e51960e3c02c13ec3f01cce7a8c6b1">actionsAutomatiquesSDL</a>();</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classJeu.html#a1ec5d9c375498b2177d5b779e7ec46e3">actionClavierTXT</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> touche);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classJeu.html#a0c0c7b3e4e27f1a603c75d58ec0270e2">actionClavierSDL</a>(<span class="keywordtype">bool</span> J1GaucheAppuye, <span class="keywordtype">bool</span> J1DroiteAppuye, <span class="keywordtype">bool</span> J2GaucheAppuye, <span class="keywordtype">bool</span> J2DroiteAppuye);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;};</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aSerpent_8h_html"><div class="ttname"><a href="Serpent_8h.html">Serpent.h</a></div><div class="ttdoc">Module gérant les serpents.</div></div>
 <div class="ttc" id="aTerrain_8h_html"><div class="ttname"><a href="Terrain_8h.html">Terrain.h</a></div><div class="ttdoc">Module gérant le terrain de jeu et la trace.</div></div>
-<div class="ttc" id="aclassJeu_html"><div class="ttname"><a href="classJeu.html">Jeu</a></div><div class="ttdef"><b>Definition:</b> Jeu.h:7</div></div>
-<div class="ttc" id="aclassJeu_html_a3ffc2e2a634198e94a97b2d9da6021f0"><div class="ttname"><a href="classJeu.html#a3ffc2e2a634198e94a97b2d9da6021f0">Jeu::getConstS2</a></div><div class="ttdeci">const Serpent &amp; getConstS2() const</div><div class="ttdoc">Accesseur : Récupère l'adresse du premier serpent en const.</div><div class="ttdef"><b>Definition:</b> Jeu.cpp:35</div></div>
-<div class="ttc" id="aclassJeu_html_a5942a7c6c90316d18332553e511c514b"><div class="ttname"><a href="classJeu.html#a5942a7c6c90316d18332553e511c514b">Jeu::getS1</a></div><div class="ttdeci">Serpent &amp; getS1()</div><div class="ttdoc">Accesseur : Récupère l'adresse du premier serpent.</div><div class="ttdef"><b>Definition:</b> Jeu.cpp:29</div></div>
-<div class="ttc" id="aclassJeu_html_a5afb0f9213775cb9c490eb856508b113"><div class="ttname"><a href="classJeu.html#a5afb0f9213775cb9c490eb856508b113">Jeu::getConstS1</a></div><div class="ttdeci">const Serpent &amp; getConstS1() const</div><div class="ttdoc">Accesseur : Récupère l'adresse du premier serpent en const.</div><div class="ttdef"><b>Definition:</b> Jeu.cpp:33</div></div>
-<div class="ttc" id="aclassJeu_html_a849e140df1504ddfd1e1eccc4374718f"><div class="ttname"><a href="classJeu.html#a849e140df1504ddfd1e1eccc4374718f">Jeu::actionsAutomatiques</a></div><div class="ttdeci">void actionsAutomatiques()</div><div class="ttdoc">Actions qui se déroulent à chaque boucle.</div><div class="ttdef"><b>Definition:</b> Jeu.cpp:38</div></div>
-<div class="ttc" id="aclassJeu_html_a906acfd427c1a7493ed56ee385c4c96d"><div class="ttname"><a href="classJeu.html#a906acfd427c1a7493ed56ee385c4c96d">Jeu::t</a></div><div class="ttdeci">Terrain t</div><div class="ttdoc">Terrain de jeu de la partie.</div><div class="ttdef"><b>Definition:</b> Jeu.h:24</div></div>
-<div class="ttc" id="aclassJeu_html_a9cd19e73df169d7f09397be61ba8548c"><div class="ttname"><a href="classJeu.html#a9cd19e73df169d7f09397be61ba8548c">Jeu::~Jeu</a></div><div class="ttdeci">~Jeu()</div><div class="ttdoc">Destructeur de la classe.</div><div class="ttdef"><b>Definition:</b> Jeu.cpp:27</div></div>
-<div class="ttc" id="aclassJeu_html_ab27fb1db9e2ae2a0c19a90ecc838319f"><div class="ttname"><a href="classJeu.html#ab27fb1db9e2ae2a0c19a90ecc838319f">Jeu::actionClavier</a></div><div class="ttdeci">void actionClavier(const char touche)</div><div class="ttdoc">Réactions du jeu au touches pressées.</div><div class="ttdef"><b>Definition:</b> Jeu.cpp:52</div></div>
-<div class="ttc" id="aclassJeu_html_acc5795ee00edf75516d3dfe65be3e6d6"><div class="ttname"><a href="classJeu.html#acc5795ee00edf75516d3dfe65be3e6d6">Jeu::Jeu</a></div><div class="ttdeci">Jeu()</div><div class="ttdoc">Constructeur de la classe, lance une partie avec 2 serpents et 1 terrain de jeu.</div><div class="ttdef"><b>Definition:</b> Jeu.cpp:17</div></div>
-<div class="ttc" id="aclassJeu_html_acfacd00156e71ea80e1780b8ae8da933"><div class="ttname"><a href="classJeu.html#acfacd00156e71ea80e1780b8ae8da933">Jeu::getS2</a></div><div class="ttdeci">Serpent &amp; getS2()</div><div class="ttdoc">Accesseur : Récupère l'adresse du deuxième serpent.</div><div class="ttdef"><b>Definition:</b> Jeu.cpp:31</div></div>
-<div class="ttc" id="aclassSerpent_html"><div class="ttname"><a href="classSerpent.html">Serpent</a></div><div class="ttdef"><b>Definition:</b> Serpent.h:20</div></div>
-<div class="ttc" id="aclassTerrain_html"><div class="ttname"><a href="classTerrain.html">Terrain</a></div><div class="ttdef"><b>Definition:</b> Terrain.h:16</div></div>
+<div class="ttc" id="aclassCouleur_html"><div class="ttname"><a href="classCouleur.html">Couleur</a></div><div class="ttdoc">Classé définissant une couleur rgb.</div><div class="ttdef"><b>Definition:</b> Couleur.h:15</div></div>
+<div class="ttc" id="aclassJeu_html"><div class="ttname"><a href="classJeu.html">Jeu</a></div><div class="ttdoc">Classe avec les fonctions de coeur du jeu.</div><div class="ttdef"><b>Definition:</b> jeu.h:19</div></div>
+<div class="ttc" id="aclassJeu_html_a0c0c7b3e4e27f1a603c75d58ec0270e2"><div class="ttname"><a href="classJeu.html#a0c0c7b3e4e27f1a603c75d58ec0270e2">Jeu::actionClavierSDL</a></div><div class="ttdeci">void actionClavierSDL(bool J1GaucheAppuye, bool J1DroiteAppuye, bool J2GaucheAppuye, bool J2DroiteAppuye)</div><div class="ttdoc">Réactions du jeu au touches pressées.</div><div class="ttdef"><b>Definition:</b> Jeu.cpp:89</div></div>
+<div class="ttc" id="aclassJeu_html_a1ec5d9c375498b2177d5b779e7ec46e3"><div class="ttname"><a href="classJeu.html#a1ec5d9c375498b2177d5b779e7ec46e3">Jeu::actionClavierTXT</a></div><div class="ttdeci">void actionClavierTXT(const char touche)</div><div class="ttdoc">Réactions du jeu au touches pressées.</div><div class="ttdef"><b>Definition:</b> Jeu.cpp:69</div></div>
+<div class="ttc" id="aclassJeu_html_a3ffc2e2a634198e94a97b2d9da6021f0"><div class="ttname"><a href="classJeu.html#a3ffc2e2a634198e94a97b2d9da6021f0">Jeu::getConstS2</a></div><div class="ttdeci">const Serpent &amp; getConstS2() const</div><div class="ttdoc">Accesseur : Récupère l'adresse du premier serpent en const.</div><div class="ttdef"><b>Definition:</b> Jeu.cpp:38</div></div>
+<div class="ttc" id="aclassJeu_html_a5942a7c6c90316d18332553e511c514b"><div class="ttname"><a href="classJeu.html#a5942a7c6c90316d18332553e511c514b">Jeu::getS1</a></div><div class="ttdeci">Serpent &amp; getS1()</div><div class="ttdoc">Accesseur : Récupère l'adresse du premier serpent.</div><div class="ttdef"><b>Definition:</b> Jeu.cpp:32</div></div>
+<div class="ttc" id="aclassJeu_html_a5afb0f9213775cb9c490eb856508b113"><div class="ttname"><a href="classJeu.html#a5afb0f9213775cb9c490eb856508b113">Jeu::getConstS1</a></div><div class="ttdeci">const Serpent &amp; getConstS1() const</div><div class="ttdoc">Accesseur : Récupère l'adresse du premier serpent en const.</div><div class="ttdef"><b>Definition:</b> Jeu.cpp:36</div></div>
+<div class="ttc" id="aclassJeu_html_a906acfd427c1a7493ed56ee385c4c96d"><div class="ttname"><a href="classJeu.html#a906acfd427c1a7493ed56ee385c4c96d">Jeu::t</a></div><div class="ttdeci">Terrain t</div><div class="ttdoc">Terrain de jeu de la partie.</div><div class="ttdef"><b>Definition:</b> jeu.h:36</div></div>
+<div class="ttc" id="aclassJeu_html_a9cd19e73df169d7f09397be61ba8548c"><div class="ttname"><a href="classJeu.html#a9cd19e73df169d7f09397be61ba8548c">Jeu::~Jeu</a></div><div class="ttdeci">~Jeu()</div><div class="ttdoc">Destructeur de la classe.</div><div class="ttdef"><b>Definition:</b> Jeu.cpp:30</div></div>
+<div class="ttc" id="aclassJeu_html_aa4e51960e3c02c13ec3f01cce7a8c6b1"><div class="ttname"><a href="classJeu.html#aa4e51960e3c02c13ec3f01cce7a8c6b1">Jeu::actionsAutomatiquesSDL</a></div><div class="ttdeci">void actionsAutomatiquesSDL()</div><div class="ttdoc">Actions qui se déroulent à chaque boucle SDL.</div><div class="ttdef"><b>Definition:</b> Jeu.cpp:55</div></div>
+<div class="ttc" id="aclassJeu_html_acc5795ee00edf75516d3dfe65be3e6d6"><div class="ttname"><a href="classJeu.html#acc5795ee00edf75516d3dfe65be3e6d6">Jeu::Jeu</a></div><div class="ttdeci">Jeu()</div><div class="ttdoc">Constructeur de la classe, lance une partie avec 2 serpents et 1 terrain de jeu.</div><div class="ttdef"><b>Definition:</b> Jeu.cpp:18</div></div>
+<div class="ttc" id="aclassJeu_html_acfacd00156e71ea80e1780b8ae8da933"><div class="ttname"><a href="classJeu.html#acfacd00156e71ea80e1780b8ae8da933">Jeu::getS2</a></div><div class="ttdeci">Serpent &amp; getS2()</div><div class="ttdoc">Accesseur : Récupère l'adresse du deuxième serpent.</div><div class="ttdef"><b>Definition:</b> Jeu.cpp:34</div></div>
+<div class="ttc" id="aclassJeu_html_ad1997a9041c1e01eab924ab786b54169"><div class="ttname"><a href="classJeu.html#ad1997a9041c1e01eab924ab786b54169">Jeu::actionsAutomatiquesTXT</a></div><div class="ttdeci">void actionsAutomatiquesTXT()</div><div class="ttdoc">Actions qui se déroulent à chaque boucle TXT.</div><div class="ttdef"><b>Definition:</b> Jeu.cpp:41</div></div>
+<div class="ttc" id="aclassSerpent_html"><div class="ttname"><a href="classSerpent.html">Serpent</a></div><div class="ttdoc">Classe définissant un serpent et ses données.</div><div class="ttdef"><b>Definition:</b> Serpent.h:22</div></div>
+<div class="ttc" id="aclassTerrain_html"><div class="ttname"><a href="classTerrain.html">Terrain</a></div><div class="ttdoc">Classe définissant le terrain de jeu.</div><div class="ttdef"><b>Definition:</b> Terrain.h:15</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

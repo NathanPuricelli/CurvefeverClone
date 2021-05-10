@@ -51,18 +51,3 @@ unsigned int Terrain::getTailleY()const
 {
     return tailleY;
 }
-
-void Terrain::setTailleX(unsigned int x)
-{
-    tailleX = x;
-}
-
-void Terrain::setTailleY(unsigned int y)
-{
-    tailleY = y;
-}
-
-bool Terrain::estPositionValide(const unsigned int x, const unsigned int y)const
-{
-    return ((x>0) && (x<tailleX) && (y>0) && (y<tailleY) && (!tabCasesOccupees[x][y]));
-}

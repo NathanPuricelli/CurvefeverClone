@@ -17,6 +17,7 @@ Le module Serpent permet de gérer un serpent et ses informations.
 
 using namespace std;
 
+//! @brief Classe définissant un serpent et ses données
 class Serpent
 {
 private :
@@ -52,20 +53,34 @@ private :
 
 public :
 
-    unsigned char ID; //1 ou 2
+    /**
+    @brief ID du serpent (1 ou 2)
+    */
+    unsigned char ID;
 
+    /**
+    @brief Valeur sur X de la position de la tete à l'incrémentation précédente.
+    Utile pour l'affichage
+    */
     unsigned int x_precedent;
+    
+    /**
+    @brief Valeur sur Y de la position de la tete à l'incrémentation précédente.
+    Utile pour l'affichage
+    */
     unsigned int y_precedent;
+    
     /**
     @brief Constructeur par défaut de la classe: initialise le serpent.
     */
-    Serpent(); // pas hyper utile je pense
+    Serpent();
     
     /**
     @brief Constructeur de la classe: initialise le serpent à la position donnée par (x,y) dans un terrain de 50 par 50, avec une couleur aléatoire.
     @warning x, y doivent être compris dans l'aire du terrain de jeu.
     @param[in] x Coordonnée de la tête dans la hauteur du terrain.
     @param[in] y Coordonnée de la tête dans la largeur du terrain.
+    @param[in] c Couleur du serpent.
     */
     Serpent(float x, float y, Couleur c); // voir pour couleur, direction.
     
@@ -76,41 +91,49 @@ public :
     
     /**
     @brief Accesseur : récupère la valeur de la coordonnée TeteX (dans la hauteur) de la tête du serpent.
+    @return float
     */
     float getTeteX()const ;
     
     /**
     @brief Accesseur : récupère la valeur de la coordonnée TeteY (dans la largeur) de la tête du serpent.
+    @return float
     */
     float getTeteY()const ;
     
     /**
     @brief Accesseur : récupère le booléen indiquant si le serpent est encore vivant.
+    @return bool
     */
     bool getVivant()const ;
     
     /**
     @brief Accesseur : récupère le score du joueur du serpent.
+    @return unsigned int
     */
     unsigned int getScore()const ;
     
     /**
     @brief Accesseur : récupère la direction du serpent
+    @return float
     */
     float getDirection()const ;
 
     /**
     @brief Accesseur : récupère la couleur du serpent
+    @return Couleur
     */
     Couleur getCouleur()const ;
     
     /**
     @brief Mutateur : change la direction du serpent
+    @param[in] dir Nouvelle direction
     */
     void setDirection(float dir);
 
     /**
     @brief Mutateur : change la vie du serpent
+    @param[in] vie Nouvelle valeur de vivant
     */
     void setVivant(bool vie);
 
@@ -141,6 +164,7 @@ public :
     /**
     @brief Vérifie si un serpent est rentré en collision avec une trace ou avec un mur.
     @param[in] T Terrain de jeu.
+    @return bool
     */
     bool VerifColision(const Terrain &t) const;
 

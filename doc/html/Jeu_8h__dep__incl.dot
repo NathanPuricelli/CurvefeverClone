@@ -1,19 +1,17 @@
-digraph "src/core/Jeu.h"
+digraph "src/core/jeu.h"
 {
  // LATEX_PDF_SIZE
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
-  Node1 [label="src/core/Jeu.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 [label="src/core/jeu.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node2 [label="src/core/Jeu.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Jeu_8cpp.html",tooltip=" "];
-  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node3 [label="src/sdl2/sdlJeu.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sdlJeu_8h.html",tooltip=" "];
-  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node4 [label="src/sdl2/sdlJeu.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sdlJeu_8cpp.html",tooltip=" "];
-  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node5 [label="src/txt/txtJeu.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$txtJeu_8cpp.html",tooltip=" "];
-  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node6 [label="src/txt/txtJeu.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$txtJeu_8h.html",tooltip=" "];
-  Node6 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node7 [label="src/txt/mainTxt.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$mainTxt_8cpp.html",tooltip=" "];
+  Node2 [label="src/sdl2/fenetreJeu.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$fenetreJeu_8h.html",tooltip="Module gérant l'image sdl du plateau de jeu pendant la partie."];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="src/sdl2/fenetreJeu.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$fenetreJeu_8cpp.html",tooltip="Implémentation de la classe FenetreJeu."];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="src/sdl2/sdlJeu.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sdlJeu_8h.html",tooltip="Module gérant la partie SDL."];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="src/sdl2/main_sdl.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main__sdl_8cpp.html",tooltip=" "];
+  Node4 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="src/sdl2/sdlJeu.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sdlJeu_8cpp.html",tooltip=" "];
 }

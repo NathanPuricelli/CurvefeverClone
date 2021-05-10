@@ -1,9 +1,5 @@
 var searchData=
 [
-  ['termclear_126',['termClear',['../winTxt_8cpp.html#abfddca010a6ceb2c5292c98247a434ce',1,'termClear():&#160;winTxt.cpp'],['../winTxt_8h.html#abfddca010a6ceb2c5292c98247a434ce',1,'termClear():&#160;winTxt.cpp']]],
-  ['terminit_127',['termInit',['../winTxt_8cpp.html#a67191e6d920e10b82b0868cb240228ae',1,'winTxt.cpp']]],
-  ['termmove_128',['termMove',['../winTxt_8cpp.html#a0038303af38e1a50f24e3d4e33a4635b',1,'winTxt.cpp']]],
-  ['terrain_129',['Terrain',['../classTerrain.html#a7160a06ab07a86ed97d23374405e8ef6',1,'Terrain::Terrain()'],['../classTerrain.html#a5374291f671da441aa29616acd4edb09',1,'Terrain::Terrain(unsigned int tX, unsigned int tY)']]],
-  ['txtaff_130',['txtAff',['../txtJeu_8cpp.html#afde74a955ef9ff6e1307ae8e4912487b',1,'txtAff(WinTXT &amp;win, const Jeu &amp;jeu):&#160;txtJeu.cpp'],['../txtJeu_8h.html#afde74a955ef9ff6e1307ae8e4912487b',1,'txtAff(WinTXT &amp;win, const Jeu &amp;jeu):&#160;txtJeu.cpp']]],
-  ['txtboucle_131',['txtBoucle',['../txtJeu_8cpp.html#ab3f2d41e9167ea56b6bc113635e67782',1,'txtBoucle(Jeu &amp;jeu):&#160;txtJeu.cpp'],['../txtJeu_8h.html#a17ca735d86b65726b32814e5d80ee335',1,'txtBoucle(Jeu &amp;j):&#160;txtJeu.cpp']]]
+  ['main_167',['main',['../main__sdl_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;main_sdl.cpp'],['../mainTxt_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;mainTxt.cpp']]],
+  ['menu_168',['Menu',['../classMenu.html#ad466dd83355124a6ed958430450bfe94',1,'Menu']]]
 ];

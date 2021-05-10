@@ -10,7 +10,7 @@ Le module Couleur permet de gérer les couleurs des serpents et de leur trace.
 #ifndef COULEUR_H
 #define COULEUR_H
 
-
+//! @brief Classe définissant une couleur rgb
 class Couleur
 {
 private :
@@ -51,16 +51,19 @@ public :
 
     /**
     @brief Accesseur : récupère la composante rouge de la couleur.
+    @return unsigned char
     */
     unsigned char getRouge() const;
 
     /**
     @brief Accesseur : récupère la composante verte de la couleur.
+    @return unsigned char
     */
     unsigned char getVert() const;
 
     /**
     @brief Accesseur : récupère la composante bleue de la couleur.
+    @return unsigned char
     */
     unsigned char getBleu() const;
     

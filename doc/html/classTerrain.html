@@ -70,6 +70,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Classe définissant le terrain de jeu.  
+ <a href="classTerrain.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="Terrain_8h_source.html">Terrain.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -89,23 +92,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae1b9989272af1801cf01c909a1070f7c"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTerrain.html#ae1b9989272af1801cf01c909a1070f7c">getTailleY</a> () const</td></tr>
 <tr class="memdesc:ae1b9989272af1801cf01c909a1070f7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesseur : récupère la largeur du terrain.  <a href="classTerrain.html#ae1b9989272af1801cf01c909a1070f7c">More...</a><br /></td></tr>
 <tr class="separator:ae1b9989272af1801cf01c909a1070f7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f25b6fc19e856c8543b44983e538ed0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTerrain.html#a8f25b6fc19e856c8543b44983e538ed0">setTailleX</a> (unsigned int x)</td></tr>
-<tr class="memdesc:a8f25b6fc19e856c8543b44983e538ed0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutateur : définit la hauteur du terrain.  <a href="classTerrain.html#a8f25b6fc19e856c8543b44983e538ed0">More...</a><br /></td></tr>
-<tr class="separator:a8f25b6fc19e856c8543b44983e538ed0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebd853ed18efc6e814d133c366a891d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTerrain.html#aebd853ed18efc6e814d133c366a891d9">setTailleY</a> (unsigned int y)</td></tr>
-<tr class="memdesc:aebd853ed18efc6e814d133c366a891d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutateur : définit la largeur du terrain.  <a href="classTerrain.html#aebd853ed18efc6e814d133c366a891d9">More...</a><br /></td></tr>
-<tr class="separator:aebd853ed18efc6e814d133c366a891d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abdc129a7b6cc532deca64694fcc0128a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTerrain.html#abdc129a7b6cc532deca64694fcc0128a">estPositionValide</a> (const unsigned int x, const unsigned int y) const</td></tr>
-<tr class="memdesc:abdc129a7b6cc532deca64694fcc0128a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie vrai si oun serpent peut aller aux coordonnées (x,y), faux sinon.  <a href="classTerrain.html#abdc129a7b6cc532deca64694fcc0128a">More...</a><br /></td></tr>
-<tr class="separator:abdc129a7b6cc532deca64694fcc0128a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a1d1eccabaeddd1647377a0b4a1fa75f3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTerrain.html#a1d1eccabaeddd1647377a0b4a1fa75f3">tabCasesOccupees</a> [<a class="el" href="Terrain_8h.html#adc975672c361e88bcb3d8699fa6cc746">TAILLETERRAIN</a>][<a class="el" href="Terrain_8h.html#adc975672c361e88bcb3d8699fa6cc746">TAILLETERRAIN</a>]</td></tr>
-<tr class="memdesc:a1d1eccabaeddd1647377a0b4a1fa75f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tableau 2D de booléens indiquant si la case est occupée par la trace d'un joueur.  <a href="classTerrain.html#a1d1eccabaeddd1647377a0b4a1fa75f3">More...</a><br /></td></tr>
-<tr class="separator:a1d1eccabaeddd1647377a0b4a1fa75f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9027c09f053eccd39397f9a1ee7596b9"><td class="memItemLeft" align="right" valign="top">unsigned char **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTerrain.html#a9027c09f053eccd39397f9a1ee7596b9">tabCasesOccupees</a></td></tr>
+<tr class="memdesc:a9027c09f053eccd39397f9a1ee7596b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tableau 2D de unsigned char indiquant si la case est occupée par la trace d'un joueur (0 = vide, 1 = J1, 2 = J2).  <a href="classTerrain.html#a9027c09f053eccd39397f9a1ee7596b9">More...</a><br /></td></tr>
+<tr class="separator:a9027c09f053eccd39397f9a1ee7596b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe définissant le terrain de jeu. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7160a06ab07a86ed97d23374405e8ef6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7160a06ab07a86ed97d23374405e8ef6">&#9670;&nbsp;</a></span>Terrain() <span class="overload">[1/2]</span></h2>
 
@@ -183,43 +179,6 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="abdc129a7b6cc532deca64694fcc0128a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abdc129a7b6cc532deca64694fcc0128a">&#9670;&nbsp;</a></span>estPositionValide()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Terrain::estPositionValide </td>
-          <td>(</td>
-          <td class="paramtype">const unsigned int&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const unsigned int&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Renvoie vrai si oun serpent peut aller aux coordonnées (x,y), faux sinon. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">x</td><td>: abs de la case à tester </td></tr>
-    <tr><td class="paramname">y</td><td>: ordonnée de la case à tester </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="af6f76f6c2e1ee1e2999bf7637fd3c80f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af6f76f6c2e1ee1e2999bf7637fd3c80f">&#9670;&nbsp;</a></span>getTailleX()</h2>
 
@@ -258,60 +217,20 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a8f25b6fc19e856c8543b44983e538ed0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f25b6fc19e856c8543b44983e538ed0">&#9670;&nbsp;</a></span>setTailleX()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Terrain::setTailleX </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Mutateur : définit la hauteur du terrain. </p>
-
-</div>
-</div>
-<a id="aebd853ed18efc6e814d133c366a891d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aebd853ed18efc6e814d133c366a891d9">&#9670;&nbsp;</a></span>setTailleY()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Terrain::setTailleY </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>y</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Mutateur : définit la largeur du terrain. </p>
-
-</div>
-</div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a1d1eccabaeddd1647377a0b4a1fa75f3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d1eccabaeddd1647377a0b4a1fa75f3">&#9670;&nbsp;</a></span>tabCasesOccupees</h2>
+<a id="a9027c09f053eccd39397f9a1ee7596b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9027c09f053eccd39397f9a1ee7596b9">&#9670;&nbsp;</a></span>tabCasesOccupees</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool Terrain::tabCasesOccupees[<a class="el" href="Terrain_8h.html#adc975672c361e88bcb3d8699fa6cc746">TAILLETERRAIN</a>][<a class="el" href="Terrain_8h.html#adc975672c361e88bcb3d8699fa6cc746">TAILLETERRAIN</a>]</td>
+          <td class="memname">unsigned char** Terrain::tabCasesOccupees</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Tableau 2D de booléens indiquant si la case est occupée par la trace d'un joueur. </p>
+<p>Tableau 2D de unsigned char indiquant si la case est occupée par la trace d'un joueur (0 = vide, 1 = J1, 2 = J2). </p>
 
 </div>
 </div>

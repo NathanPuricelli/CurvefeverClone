@@ -1,3 +1,12 @@
+/**
+@brief Implémentation de la classe FenetreJeu
+
+
+@file fenetreJeu.cpp
+@author : Aymeric Leto, Benoît Briguet, Nathan Puricelli
+@date : Avril 2021
+*/
+
 #include "fenetreJeu.h"
 #define TAILLE_SPRITE 6
 FenetreJeu::FenetreJeu(int x, int y, int w, int h)
@@ -9,11 +18,9 @@ FenetreJeu::FenetreJeu(int x, int y, int w, int h)
     SDL_FillRect(surface, NULL, color);
     rect = surface->clip_rect;
 
-    origin_x = 0;
-    origin_y = 0;
 
-    rect.x = x - origin_x;
-    rect.y = y - origin_y;
+    rect.x = x;
+    rect.y = y;
     couleurFond = SDL_MapRGB(surface->format,45,49,66);
 }
 

@@ -69,17 +69,78 @@ $(function() {
 <div class="title">sdlJeu.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="sdlJeu_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SDLJEU_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define SDLJEU_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;SDL.h&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;SDL_ttf.h&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;SDL_image.h&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;SDL_mixer.h&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Jeu_8h.html">Jeu.h</a>&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aJeu_8h_html"><div class="ttname"><a href="Jeu_8h.html">Jeu.h</a></div></div>
+<a href="sdlJeu_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef SDLJEU_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define SDLJEU_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;Jeu.h&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Image_8h.html">Image.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="fenetreJeu_8h.html">fenetreJeu.h</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#ifdef _WIN32</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;SDL.h&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;SDL_ttf.h&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;SDL_image.h&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#elif __linux__</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;SDL.h&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;SDL_ttf.h&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;SDL_image.h&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL.h&gt;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL_ttf.h&gt;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL_image.h&gt;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classsdlJeu.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="classsdlJeu.html">sdlJeu</a></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="classsdlJeu.html#a875ba178fd4d7dfa98d302181c7db89f">sdlJeu</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> tailleX, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> tailleY, <a class="code" href="classCouleur.html">Couleur</a> couleur1, <a class="code" href="classCouleur.html">Couleur</a> couleur2);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="classsdlJeu.html#a5bcd8f5ed17a2cea2ad2fc633415cbcc">~sdlJeu</a>();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classsdlJeu.html#a5628835d7efcab056985c3aa3de56836">sdlBoucle</a>();    </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">bool</span> gameRunning;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="classJeu.html">Jeu</a> jeu;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="classFenetreJeu.html">FenetreJeu</a> fenetreJeu;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="classImage.html">Image</a> imageTitreJeu;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="classImage.html">Image</a> imageDroiteJeu;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="classImage.html">Image</a> imQuitterPresse;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="classImage.html">Image</a> imQuitter;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="classImage.html">Image</a> imRecommencerPresse;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="classImage.html">Image</a> imRecommencer;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="classImage.html">Image</a> imTeteSerpent[6];</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    TTF_Font * font24;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    TTF_Font * font32;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    TTF_Font * font48;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    TTF_Font * font64;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    SDL_Color blanc;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    SDL_Color grisEcriture;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    SDL_Window * window;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    SDL_Renderer * renderer;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> sdlAff(<span class="keywordtype">bool</span> boutonRecommencer, <span class="keywordtype">bool</span> boutonQuitter);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">bool</span> isIn(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h, <span class="keywordtype">int</span> souris_x, <span class="keywordtype">int</span> souris_y);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> afficherTeteSerpent(SDL_Renderer* renderer, <a class="code" href="classSerpent.html">Serpent</a> S);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> renderCenterText(<span class="keywordtype">float</span> p_x, <span class="keywordtype">float</span> p_y, <span class="keyword">const</span> <span class="keywordtype">char</span>* p_text, TTF_Font* font, SDL_Color textColor);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> renderText(<span class="keywordtype">float</span> p_x, <span class="keywordtype">float</span> p_y, <span class="keyword">const</span> <span class="keywordtype">char</span>* p_text, TTF_Font* font, SDL_Color textColor);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> surfaceToTexture();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> sdlActionsAutomatiques();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> recommencerPartie();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;};</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aImage_8h_html"><div class="ttname"><a href="Image_8h.html">Image.h</a></div><div class="ttdoc">Module gérant des images.</div></div>
+<div class="ttc" id="aclassCouleur_html"><div class="ttname"><a href="classCouleur.html">Couleur</a></div><div class="ttdoc">Classé définissant une couleur rgb.</div><div class="ttdef"><b>Definition:</b> Couleur.h:15</div></div>
+<div class="ttc" id="aclassFenetreJeu_html"><div class="ttname"><a href="classFenetreJeu.html">FenetreJeu</a></div><div class="ttdoc">Classe gérant l'affichage de la fenetre de jeu.</div><div class="ttdef"><b>Definition:</b> fenetreJeu.h:33</div></div>
+<div class="ttc" id="aclassImage_html"><div class="ttname"><a href="classImage.html">Image</a></div><div class="ttdoc">Classe gérant l'affichage et la gestion des images.</div><div class="ttdef"><b>Definition:</b> Image.h:37</div></div>
+<div class="ttc" id="aclassJeu_html"><div class="ttname"><a href="classJeu.html">Jeu</a></div><div class="ttdoc">Classe avec les fonctions de coeur du jeu.</div><div class="ttdef"><b>Definition:</b> jeu.h:19</div></div>
+<div class="ttc" id="aclassSerpent_html"><div class="ttname"><a href="classSerpent.html">Serpent</a></div><div class="ttdoc">Classe définissant un serpent et ses données.</div><div class="ttdef"><b>Definition:</b> Serpent.h:22</div></div>
+<div class="ttc" id="aclasssdlJeu_html"><div class="ttname"><a href="classsdlJeu.html">sdlJeu</a></div><div class="ttdef"><b>Definition:</b> sdlJeu.h:35</div></div>
+<div class="ttc" id="aclasssdlJeu_html_a5628835d7efcab056985c3aa3de56836"><div class="ttname"><a href="classsdlJeu.html#a5628835d7efcab056985c3aa3de56836">sdlJeu::sdlBoucle</a></div><div class="ttdeci">void sdlBoucle()</div><div class="ttdef"><b>Definition:</b> sdlJeu.cpp:260</div></div>
+<div class="ttc" id="aclasssdlJeu_html_a5bcd8f5ed17a2cea2ad2fc633415cbcc"><div class="ttname"><a href="classsdlJeu.html#a5bcd8f5ed17a2cea2ad2fc633415cbcc">sdlJeu::~sdlJeu</a></div><div class="ttdeci">~sdlJeu()</div><div class="ttdef"><b>Definition:</b> sdlJeu.cpp:124</div></div>
+<div class="ttc" id="aclasssdlJeu_html_a875ba178fd4d7dfa98d302181c7db89f"><div class="ttname"><a href="classsdlJeu.html#a875ba178fd4d7dfa98d302181c7db89f">sdlJeu::sdlJeu</a></div><div class="ttdeci">sdlJeu(unsigned int tailleX, unsigned int tailleY, Couleur couleur1, Couleur couleur2)</div><div class="ttdef"><b>Definition:</b> sdlJeu.cpp:15</div></div>
+<div class="ttc" id="afenetreJeu_8h_html"><div class="ttname"><a href="fenetreJeu_8h.html">fenetreJeu.h</a></div><div class="ttdoc">Module gérant l'image sdl du plateau de jeu pendant la partie.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

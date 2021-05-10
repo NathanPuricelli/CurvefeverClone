@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['pause_116',['pause',['../classWinTXT.html#a3e8793fd263bb51a62ec8a5e89904c49',1,'WinTXT']]],
-  ['print_117',['print',['../classWinTXT.html#a407cce45e7f81546540f4f8a9b85ce45',1,'WinTXT::print(int x, int y, char c)'],['../classWinTXT.html#ad021d5fb9862b9ea7985f8cef50451e2',1,'WinTXT::print(int x, int y, char *c)']]]
+  ['jeu_164',['Jeu',['../classJeu.html#acc5795ee00edf75516d3dfe65be3e6d6',1,'Jeu::Jeu()'],['../classJeu.html#a8c1a31fe945b8f66da54f3f52c2c1b5f',1,'Jeu::Jeu(unsigned int tailleX, unsigned int tailleY, Couleur couleur1, Couleur couleur2)']]]
 ];

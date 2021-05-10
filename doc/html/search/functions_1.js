@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['clear_92',['clear',['../classWinTXT.html#a1b4cb203533f78bed29498591631f436',1,'WinTXT']]],
-  ['couleur_93',['Couleur',['../classCouleur.html#a687a457edb08b51dbcd0299bb0b6a882',1,'Couleur::Couleur()'],['../classCouleur.html#aa3b0c89194f1d7a8cf38048ad1a3e8c2',1,'Couleur::Couleur(unsigned char nr, unsigned char ng, unsigned char nb)']]]
+  ['boucleremplissage_137',['boucleRemplissage',['../classMenu.html#aa9265c6fcab7ebc4973b72aec19ec371',1,'Menu']]]
 ];

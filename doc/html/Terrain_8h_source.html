@@ -72,51 +72,38 @@ $(function() {
 <a href="Terrain_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#ifndef TERRAIN_H</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define TERRAIN_H</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="Terrain_8h.html#adc975672c361e88bcb3d8699fa6cc746">   12</a></span>&#160;<span class="preprocessor">#define TAILLETERRAIN 300</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classTerrain.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classTerrain.html">Terrain</a></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;private :</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> tailleX, tailleY;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classTerrain.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classTerrain.html">Terrain</a></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;private :</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> tailleX, tailleY;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;public :</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classTerrain.html#a1d1eccabaeddd1647377a0b4a1fa75f3">   28</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classTerrain.html#a1d1eccabaeddd1647377a0b4a1fa75f3">tabCasesOccupees</a>[<a class="code" href="Terrain_8h.html#adc975672c361e88bcb3d8699fa6cc746">TAILLETERRAIN</a>][<a class="code" href="Terrain_8h.html#adc975672c361e88bcb3d8699fa6cc746">TAILLETERRAIN</a>];</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="classTerrain.html#a7160a06ab07a86ed97d23374405e8ef6">Terrain</a>();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="classTerrain.html#a7160a06ab07a86ed97d23374405e8ef6">Terrain</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> tX, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> tY);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="classTerrain.html#a2f7f0a2aee54886324ccf48a6f321de0">~Terrain</a>();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classTerrain.html#af6f76f6c2e1ee1e2999bf7637fd3c80f">getTailleX</a>()<span class="keyword">const</span> ;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classTerrain.html#ae1b9989272af1801cf01c909a1070f7c">getTailleY</a>()<span class="keyword">const</span> ;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classTerrain.html#a8f25b6fc19e856c8543b44983e538ed0">setTailleX</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classTerrain.html#aebd853ed18efc6e814d133c366a891d9">setTailleY</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classTerrain.html#abdc129a7b6cc532deca64694fcc0128a">estPositionValide</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;};</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aTerrain_8h_html_adc975672c361e88bcb3d8699fa6cc746"><div class="ttname"><a href="Terrain_8h.html#adc975672c361e88bcb3d8699fa6cc746">TAILLETERRAIN</a></div><div class="ttdeci">#define TAILLETERRAIN</div><div class="ttdef"><b>Definition:</b> Terrain.h:12</div></div>
-<div class="ttc" id="aclassTerrain_html"><div class="ttname"><a href="classTerrain.html">Terrain</a></div><div class="ttdef"><b>Definition:</b> Terrain.h:16</div></div>
-<div class="ttc" id="aclassTerrain_html_a1d1eccabaeddd1647377a0b4a1fa75f3"><div class="ttname"><a href="classTerrain.html#a1d1eccabaeddd1647377a0b4a1fa75f3">Terrain::tabCasesOccupees</a></div><div class="ttdeci">bool tabCasesOccupees[TAILLETERRAIN][TAILLETERRAIN]</div><div class="ttdoc">Tableau 2D de booléens indiquant si la case est occupée par la trace d'un joueur.</div><div class="ttdef"><b>Definition:</b> Terrain.h:28</div></div>
-<div class="ttc" id="aclassTerrain_html_a2f7f0a2aee54886324ccf48a6f321de0"><div class="ttname"><a href="classTerrain.html#a2f7f0a2aee54886324ccf48a6f321de0">Terrain::~Terrain</a></div><div class="ttdeci">~Terrain()</div><div class="ttdoc">Destructeur de la classe : déallocation de la mémoire du tableau de et mise à jour des champs tailleX...</div><div class="ttdef"><b>Definition:</b> Terrain.cpp:45</div></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;public :</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classTerrain.html#a9027c09f053eccd39397f9a1ee7596b9">   27</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>** <a class="code" href="classTerrain.html#a9027c09f053eccd39397f9a1ee7596b9">tabCasesOccupees</a>;    </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="classTerrain.html#a7160a06ab07a86ed97d23374405e8ef6">Terrain</a>();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="classTerrain.html#a7160a06ab07a86ed97d23374405e8ef6">Terrain</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> tX, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> tY);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="classTerrain.html#a2f7f0a2aee54886324ccf48a6f321de0">~Terrain</a>();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classTerrain.html#af6f76f6c2e1ee1e2999bf7637fd3c80f">getTailleX</a>()<span class="keyword">const</span> ;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classTerrain.html#ae1b9989272af1801cf01c909a1070f7c">getTailleY</a>()<span class="keyword">const</span> ;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;};</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassTerrain_html"><div class="ttname"><a href="classTerrain.html">Terrain</a></div><div class="ttdoc">Classe définissant le terrain de jeu.</div><div class="ttdef"><b>Definition:</b> Terrain.h:15</div></div>
+<div class="ttc" id="aclassTerrain_html_a2f7f0a2aee54886324ccf48a6f321de0"><div class="ttname"><a href="classTerrain.html#a2f7f0a2aee54886324ccf48a6f321de0">Terrain::~Terrain</a></div><div class="ttdeci">~Terrain()</div><div class="ttdoc">Destructeur de la classe : déallocation de la mémoire du tableau de et mise à jour des champs tailleX...</div><div class="ttdef"><b>Definition:</b> Terrain.cpp:43</div></div>
 <div class="ttc" id="aclassTerrain_html_a7160a06ab07a86ed97d23374405e8ef6"><div class="ttname"><a href="classTerrain.html#a7160a06ab07a86ed97d23374405e8ef6">Terrain::Terrain</a></div><div class="ttdeci">Terrain()</div><div class="ttdoc">Constructeur par défaut du terrain. Initialise tailleX et tailleY à 0.</div><div class="ttdef"><b>Definition:</b> Terrain.cpp:17</div></div>
-<div class="ttc" id="aclassTerrain_html_a8f25b6fc19e856c8543b44983e538ed0"><div class="ttname"><a href="classTerrain.html#a8f25b6fc19e856c8543b44983e538ed0">Terrain::setTailleX</a></div><div class="ttdeci">void setTailleX(unsigned int x)</div><div class="ttdoc">Mutateur : définit la hauteur du terrain.</div><div class="ttdef"><b>Definition:</b> Terrain.cpp:57</div></div>
-<div class="ttc" id="aclassTerrain_html_abdc129a7b6cc532deca64694fcc0128a"><div class="ttname"><a href="classTerrain.html#abdc129a7b6cc532deca64694fcc0128a">Terrain::estPositionValide</a></div><div class="ttdeci">bool estPositionValide(const unsigned int x, const unsigned int y) const</div><div class="ttdoc">Renvoie vrai si oun serpent peut aller aux coordonnées (x,y), faux sinon.</div><div class="ttdef"><b>Definition:</b> Terrain.cpp:67</div></div>
-<div class="ttc" id="aclassTerrain_html_ae1b9989272af1801cf01c909a1070f7c"><div class="ttname"><a href="classTerrain.html#ae1b9989272af1801cf01c909a1070f7c">Terrain::getTailleY</a></div><div class="ttdeci">unsigned int getTailleY() const</div><div class="ttdoc">Accesseur : récupère la largeur du terrain.</div><div class="ttdef"><b>Definition:</b> Terrain.cpp:52</div></div>
-<div class="ttc" id="aclassTerrain_html_aebd853ed18efc6e814d133c366a891d9"><div class="ttname"><a href="classTerrain.html#aebd853ed18efc6e814d133c366a891d9">Terrain::setTailleY</a></div><div class="ttdeci">void setTailleY(unsigned int y)</div><div class="ttdoc">Mutateur : définit la largeur du terrain.</div><div class="ttdef"><b>Definition:</b> Terrain.cpp:62</div></div>
-<div class="ttc" id="aclassTerrain_html_af6f76f6c2e1ee1e2999bf7637fd3c80f"><div class="ttname"><a href="classTerrain.html#af6f76f6c2e1ee1e2999bf7637fd3c80f">Terrain::getTailleX</a></div><div class="ttdeci">unsigned int getTailleX() const</div><div class="ttdoc">Accesseur : récupère la hauteur du terrain.</div><div class="ttdef"><b>Definition:</b> Terrain.cpp:47</div></div>
+<div class="ttc" id="aclassTerrain_html_a9027c09f053eccd39397f9a1ee7596b9"><div class="ttname"><a href="classTerrain.html#a9027c09f053eccd39397f9a1ee7596b9">Terrain::tabCasesOccupees</a></div><div class="ttdeci">unsigned char ** tabCasesOccupees</div><div class="ttdoc">Tableau 2D de unsigned char indiquant si la case est occupée par la trace d'un joueur (0 = vide,...</div><div class="ttdef"><b>Definition:</b> Terrain.h:27</div></div>
+<div class="ttc" id="aclassTerrain_html_ae1b9989272af1801cf01c909a1070f7c"><div class="ttname"><a href="classTerrain.html#ae1b9989272af1801cf01c909a1070f7c">Terrain::getTailleY</a></div><div class="ttdeci">unsigned int getTailleY() const</div><div class="ttdoc">Accesseur : récupère la largeur du terrain.</div><div class="ttdef"><b>Definition:</b> Terrain.cpp:50</div></div>
+<div class="ttc" id="aclassTerrain_html_af6f76f6c2e1ee1e2999bf7637fd3c80f"><div class="ttname"><a href="classTerrain.html#af6f76f6c2e1ee1e2999bf7637fd3c80f">Terrain::getTailleX</a></div><div class="ttdeci">unsigned int getTailleX() const</div><div class="ttdoc">Accesseur : récupère la hauteur du terrain.</div><div class="ttdef"><b>Definition:</b> Terrain.cpp:45</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

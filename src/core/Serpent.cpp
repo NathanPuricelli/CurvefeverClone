@@ -113,9 +113,7 @@ void Serpent::setTeteY(float y)
     TeteY = y;
 }
 
-//supprimre les if pour la version sdl
-//cos de l'angle : valeur sur x
-//sin : valeur sur y
+
 void Serpent::avancerTXT(Terrain &t)
 {
     if ((CompteurTrous%30) >= 6) t.tabCasesOccupees[(int)TeteX][(int)TeteY] = ID;    
@@ -144,8 +142,7 @@ void Serpent::avancerSDL(Terrain &t)
 
     float avanceeX = 1.42 * cos(direction * PI / 180);
     float avanceeY = 1.42 * sin(direction * PI / 180);
-    /*avanceeX = (int) avanceeX;
-    avanceeY = (int) avanceeY;*/
+
     if (avanceeX > 1) avanceeX = 1;
     if (avanceeX < -1) avanceeX = -1;
 

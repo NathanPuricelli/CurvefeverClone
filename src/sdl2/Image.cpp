@@ -1,3 +1,12 @@
+/**
+@brief Implémentation de la classe Image
+
+@file Image.cpp
+@author : professeurs LIFAP4, source pacman 
+@date : Avril 2021
+*/
+
+
 #include "Image.h"
 
 Image::Image () {

@@ -13,6 +13,8 @@ Le module Jeu permet de gérer les données du jeu comme le terrain et les deux 
 
 #include "Serpent.h"
 #include "Terrain.h"
+
+//! @brief Classe avec les fonctions de coeur du jeu
 class Jeu
 {
 private :
@@ -50,21 +52,25 @@ public :
 
     /**
     @brief Accesseur : Récupère l'adresse du premier serpent.
+    @return Serpent&
     */
     Serpent& getS1();
 
     /**
     @brief Accesseur : Récupère l'adresse du deuxième serpent.
+    @return Serpent&
     */
     Serpent& getS2();
 
     /**
     @brief Accesseur : Récupère l'adresse du premier serpent en const.
+    @return const Serpent&
     */
     const Serpent& getConstS1() const;
 
     /**
     @brief Accesseur : Récupère l'adresse du premier serpent en const.
+    @return const Serpent&
     */
     const Serpent& getConstS2() const;
 

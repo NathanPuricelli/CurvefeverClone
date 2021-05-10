@@ -10,7 +10,7 @@ Le module Terrain permet de gérer un tableau de booléens et ainsi la trace des
 #ifndef TERRAIN_H
 #define TERRAIN_H
 
-
+//! @brief Classe définissant le terrain de jeu
 class Terrain
 {
 private :
@@ -52,23 +52,6 @@ public :
     @brief Accesseur : récupère la largeur du terrain
     */
     unsigned int getTailleY()const ;
-
-    /**
-    @brief Mutateur : définit la hauteur du terrain
-    */
-    void setTailleX(unsigned int x);
-
-    /**
-    @brief Mutateur : définit la largeur du terrain
-    */
-    void setTailleY(unsigned int y);
-
-    /**
-    @brief Renvoie vrai si oun serpent peut aller aux coordonnées (x,y), faux sinon
-    @param x : abs de la case à tester
-    @param y : ordonnée de la case à tester
-    */
-    bool estPositionValide (const unsigned int x, const unsigned int y) const;
 
     
 };
