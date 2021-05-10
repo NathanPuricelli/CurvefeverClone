@@ -139,7 +139,6 @@ void Menu::boucleRemplissage()
             if(event.type == SDL_MOUSEBUTTONDOWN)
             {
                 SDL_GetMouseState(&x, &y);
-                std::cout << x <<"  :  " << y << std::endl;
                 if (isIn(484,495,322,112,x,y)) menuRunning = false;
 
                 //Joueur 1 couleur

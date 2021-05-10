@@ -30,11 +30,11 @@ private:
 	TTF_Font* font;
 	SDL_Color font_color1; //couleur de police du joueur 1
     SDL_Color font_color2; //couleur de police du joueur 2
+    void menuAff(bool sourisSurJoueur);
 
 public:
     Menu();
     ~Menu();
-    void menuAff(bool sourisSurJoueur);
     void boucleRemplissage();
     bool isIn(int x, int y, int w, int h, int souris_x, int souris_y);
     Couleur couleurJ1;

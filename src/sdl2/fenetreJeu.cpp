@@ -35,13 +35,6 @@ FenetreJeu::~FenetreJeu()
     texture = NULL;
 }
 
-void FenetreJeu::setPix(Uint32 color, int x, int y)
-{    
-    SDL_Rect pixel;
-    pixel.w = 2 * TAILLE_SPRITE, pixel.h = 2 * TAILLE_SPRITE;
-    pixel.x = x * (TAILLE_SPRITE - 1), pixel.y = y* (TAILLE_SPRITE - 1); 
-    SDL_FillRect(surface, &pixel, color);
-}
 
 void FenetreJeu::setPixUnique(Uint32 color, int x, int y)
 {
@@ -117,14 +110,6 @@ void FenetreJeu::fillSurfaceOnMotion(const Jeu &j)
     {
         dessinerCercleRempli(couleurJ2, j.getConstS2().x_precedent * TAILLE_SPRITE, j.getConstS2().y_precedent * TAILLE_SPRITE, TAILLE_SPRITE);
     }
-
-    /*
-    dessinerCercleRempli(couleurJ1, j.getConstS1().getTeteX() * TAILLE_SPRITE, j.getConstS1().getTeteY() * TAILLE_SPRITE, TAILLE_SPRITE);
-    dessinerCercleRempli(couleurJ2, j.getConstS2().getTeteX() * TAILLE_SPRITE, j.getConstS2().getTeteY() * TAILLE_SPRITE, TAILLE_SPRITE);
-    if (j.t.tabCasesOccupees[j.getConstS1().x_precedent][j.getConstS1().y_precedent] == 0) 
-        setPix(couleurFond, (j.getConstS1().x_precedent), (j.getConstS1().y_precedent));
-    if (j.t.tabCasesOccupees[j.getConstS2().x_precedent][j.getConstS2().y_precedent] == 0)
-        setPix(couleurFond, (j.getConstS2().x_precedent), (j.getConstS2().y_precedent));*/
 }
 
 void FenetreJeu::draw(SDL_Renderer* renderer)
